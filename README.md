@@ -1,2 +1,0 @@
-# finit-project
-Home page

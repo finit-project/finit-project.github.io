@@ -1,0 +1,3406 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Fast Init for Linux Systems">
+      
+      
+      
+        <link rel="canonical" href="http://finit-project.github.io/finit/ChangeLog/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Change Log - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#change-log" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://finit-project.github.io/" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Change Log
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/finit-project/finit" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Finit Project
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://finit-project.github.io/" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/finit-project/finit" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Finit Project
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initctl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands & Status
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebooting & Halting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runlevels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runlevels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runparts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runparts & /etc/rc.local
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Files & Layout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conditions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/cgroups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cgroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/capabilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/task-and-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-shot Tasks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/service-opts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/service-env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/service-sync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synchronization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/service-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrapper Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/runparts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Run-parts Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/runlevels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runlevels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/tty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TTY & Console
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/templating/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templating
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/sysv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SysV Compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/rescue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rescue Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmdline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Signals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keventd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    keventd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../watchdog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Watchdog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../state-machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service State Machine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h1>
+<p>All relevant changes are documented in this file.</p>
+<h2 id="415"><a href="https://github.com/finit-project/finit/compare/4.14...HEAD">4.15</a><a class="headerlink" href="#415" title="Permanent link">&para;</a></h2>
+<h3 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Change default reboot to SOC reset from WDT reset, issue #460</li>
+<li>Bump required versions of libite (v2.6.2) and libuev (v2.4.1)</li>
+<li>Allow longer service identifiers (<code>:id</code>), up to 64 characters</li>
+<li>Allow skipping bootstrap wait (180 sec) with Ctrl-C</li>
+<li>Unlock <code>initctl</code> commands start/stop/restart/reload service during bootstrap,
+  shutdown, and reboot.  Also, allow <code>initctl reload</code> in bootstrap. This makes
+  it possible to start manual:yes type services at botostrap, for example, which
+  has been a common feature request</li>
+<li>Add support for <code>clone3()</code> syscall with atomic cgroup assignment, from Linux
+  kernel 5.3+.  Eliminates race conditions where forked processes (e.g., logger
+  processes) ended up in wrong cgroups. Falls back to <code>fork()</code> on older kernels</li>
+<li>Add support for cgroup delegation, useful for, e.g., container runtimes
+  creating sub-groups for the container instance's processes</li>
+<li>Add cgroup leaf name override: <code>cgroup.system,name:udevd</code> allows using
+  descriptive names like <code>/system/udevd/</code> instead of filename derived names
+  like <code>/system/10-hotplug/</code>.  Syntax supports combining with other options:
+  <code>cgroup.system,name:foo,delegate,cpu.max:10000</code></li>
+</ul>
+<h3 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #453: RTC plugin fixes by Ming Liu, Atlas Copco</li>
+<li>Fix #455: ANSI escape sequences logged by tools using glib logging,
+  caused by use of PTY instead of pipe for stdout/stderr redirection</li>
+<li>getty: fix terminal scrollback issues after login on console TTY.  Mouse
+  scroll wheel and Shift+PgUp/PgDn sometimes would not work properly</li>
+<li>Fix flickering and artifacts in <code>initctl top</code></li>
+<li>Fix file descriptor leak in <code>initctl top</code></li>
+<li>Fix incorrect "max" limit reporting in <code>initctl [top|cgroup|--json]</code> output
+  for child cgroups.  Resolves effective limits by walking the cgroup hierarchy</li>
+<li>Ensure mount/unmount skips <code>noauto</code> entries</li>
+</ul>
+<h2 id="414-2025-08-29"><a href="https://github.com/finit-project/finit/compare/4.13...4.14">4.14</a> - 2025-08-29<a class="headerlink" href="#414-2025-08-29" title="Permanent link">&para;</a></h2>
+<p>Minor bug fix release.</p>
+<h3 id="changes_1">Changes<a class="headerlink" href="#changes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add exit status/signal info when a process dies, by Mattias Berthel</li>
+<li>Extend <code>service kill:SEC</code> to support up to 300 sec.</li>
+<li>Extend <code>norespawn</code> debug to cover <code>service_retry()</code></li>
+<li>Build <em>without</em> libsystemd replacement by default</li>
+</ul>
+<h3 id="fixes_1">Fixes<a class="headerlink" href="#fixes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #449: ALSA plugin fail-to-build-from-source</li>
+<li>Fix <code>sysv</code> stop command process environment, should be same as start</li>
+<li>Fix state machine ordering issue: enter new config generation <em>after</em>
+   services disabled in previous generation have been stopped</li>
+</ul>
+<h2 id="413-2025-07-10"><a href="https://github.com/troglobit/finit/compare/4.12...4.13">4.13</a> - 2025-07-10<a class="headerlink" href="#413-2025-07-10" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This release introduce a bare bones <code>libsystemd</code> replacement with an
+<code>&lt;systemd/sd-daemon&gt;.h</code> include file.  Other systemd features are the
+<code>reload:script</code> and <code>stop:script</code>, mimicking ExecReload and ExecStop.</p>
+</div>
+<h3 id="changes_2">Changes<a class="headerlink" href="#changes_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>initctl signal</code> command has been renamed to <code>initctl kill</code></li>
+<li>Drop xz tarballs from distribution, gzip is good enough</li>
+<li>New <code>tmpfiles</code> stand-alone program, refactored from the existing
+   tmpfiles.d support in Finit, by Aaron Andersen, PR #439<ul>
+<li><code>--remove</code> command runs only the <code>r</code> and <code>R</code> rules</li>
+<li><code>--create</code> is used for all other cases (bootstrap)</li>
+</ul>
+</li>
+<li>All <code>notify:systemd</code> services now log with <code>logit</code> by default.  This
+   because it supports systemd style log severity, leading <code>"&lt;NUM&gt;"</code></li>
+<li>Support for quoted arguments to run/task/service options, issue #441</li>
+<li>Clear command line arguments after bootstrap, issue #442</li>
+<li>Support for <code>stop:'script [args]'</code> to stop a sysv/service instead of
+   the common <code>foo-stop-start.sh stop</code>, or <code>SIGTERM</code>, issue #412</li>
+<li>Support for <code>reload:'script [args]'</code> to trigger a configuration
+   reload in a service, issue #446</li>
+</ul>
+<h3 id="fixes_2">Fixes<a class="headerlink" href="#fixes_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #437: buffer overflow in <code>initctl status</code></li>
+<li>Fix #438: support very long command lines in <code>initctl ps/top</code></li>
+<li>Fix #440: broken systemd and s6 readiness notification</li>
+<li>Fix #443: build warnings, by Ming Liu, Atlas Copco</li>
+<li>Fix #444: handle loooooong arguments, by Aaron Andersen</li>
+<li>Fix service's redirected stdout/stderr log priority in fallback mode,
+   when neither <code>logger</code> or <code>logit</code> is available.  This fix also checks
+   for systemd style log severity, leading <code>"&lt;NUM&gt;"</code> in log messages</li>
+<li>Ensure API socket used by <code>initctl</code> is non-blocking (event loop)</li>
+</ul>
+<h2 id="412-2025-04-28"><a href="https://github.com/troglobit/finit/compare/4.11...4.12">4.12</a> - 2025-04-28<a class="headerlink" href="#412-2025-04-28" title="Permanent link">&para;</a></h2>
+<h3 id="changes_3">Changes<a class="headerlink" href="#changes_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Improve notify:s6 readiness compatibility, by Aaron Andersen</li>
+<li>Update <code>runparts</code> usage text</li>
+</ul>
+<h3 id="fixes_3">Fixes<a class="headerlink" href="#fixes_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix variable overloading in urandom plugin</li>
+<li>Fix buffer overwrite in urandom plugin, reported by Aaron Andersen</li>
+</ul>
+<h2 id="411-2025-03-27"><a href="https://github.com/troglobit/finit/compare/4.10...4.11">4.11</a> - 2025-03-27<a class="headerlink" href="#411-2025-03-27" title="Permanent link">&para;</a></h2>
+<h3 id="changes_4">Changes<a class="headerlink" href="#changes_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update documentation regarding transition from runlevel S to 2, how
+   run/tasks must "complete" before Finit can move to the next runlevel</li>
+<li>Improve argument handling in bundled getty when launching login</li>
+</ul>
+<h3 id="fixes_4">Fixes<a class="headerlink" href="#fixes_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #432: allow services in <code>setup</code> state to be stopped.  This fixes
+   a serious blocker introduced in 4.10 that prevented systems from
+   being rebooted when any service was in this state</li>
+<li>Fix fallback <code>SIGKILL</code> when stopping a service with <code>SIGTERM</code> does
+   not work.  This fixes a serious issue with services not responding to
+   the default <code>SIGTERM</code></li>
+<li>Fix pre/post/ready/cleanup script execution if service has an
+   optional <code>env:file</code> (leading <code>-</code>)</li>
+<li>Fix blocked signals for pre/post/ready/cleanup scripts preventing
+   normal shutdown when a service/sysv is stopped in its setup state</li>
+<li>Fix issue where a pre:script creates a PID file in <code>/run</code> cause the
+   service to move from setup state to running.  Any <code>svc_t</code> in setup,
+   teardown, or cleanup state should be ignored in the pidfile plugin</li>
+</ul>
+<h2 id="410-2025-03-03"><a href="https://github.com/troglobit/finit/compare/4.9...4.10">4.10</a> - 2025-03-03<a class="headerlink" href="#410-2025-03-03" title="Permanent link">&para;</a></h2>
+<h3 id="changes_5">Changes<a class="headerlink" href="#changes_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for <code>cleanup:[0-3600,]script</code>, runs before service is
+   removed, unlike <code>post:script</code> that runs when service is stopped</li>
+<li>Improved entropy gathering in tertiary fallback of urandom plugin</li>
+<li>Reclassify <code>sysv</code> from run/task class to <code>service</code></li>
+</ul>
+<h3 id="fixes_5">Fixes<a class="headerlink" href="#fixes_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #427: using an external getty with custom login program cause
+   Finit to use login program as the getty command</li>
+<li>Fix #428: allow <code>sysctl</code> path to be set at build time</li>
+<li>Fix #429: regression in v4.9 causing Finit to segfault at shutdown</li>
+<li>Fix possible memory leak when sourcing a service <code>env:file</code></li>
+<li>Finit now waits until all <code>post:scripts</code> have run before returning
+   OK to <code>initctl &lt;reload|runlevel&gt;</code>.  This also applies to the new
+   <code>cleanup:scripts</code> introduced in this release</li>
+<li>RFC3154 conformance formatting fix for <code>/dev/kmsg</code> fallback logging</li>
+</ul>
+<h2 id="49-2025-02-15"><a href="https://github.com/troglobit/finit/compare/4.8...4.9">4.9</a> - 2025-02-15<a class="headerlink" href="#49-2025-02-15" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>This release changes how Finit reacts to the exit status of <code>pre:</code>
+scripts.  Finit will now no longer start the main process if its
+<code>pre:</code> script fails for any reason.  So, if you have pre scripts that,
+e.g., create directories, make sure they are idempotent.</p>
+</div>
+<h3 id="changes_6">Changes<a class="headerlink" href="#changes_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add individual timeout (optional) support for pre/post/ready scripts</li>
+<li>Add support for systems with broken RTC, i.e., those that at power-on
+   may reset the RTC to a random date instead of zero, issue #418</li>
+<li>Add support for detecting "in-container" when in <code>systemd-nspawn</code></li>
+<li>Check exit status of <code>pre:</code> scripts, on failure drive service/sysv to
+   <code>crashed</code> state.  (The exit code of <code>post:</code> scripts remain ignored)</li>
+<li>All pre/post/ready scripts are now also searched for in <code>$PATH</code></li>
+<li>Reset color attributes and clear screen when starting up.  This is
+   for boot loaders like GRUB, which leave background color artifacts</li>
+</ul>
+<h3 id="fixes_6">Fixes<a class="headerlink" href="#fixes_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #415: only mark reverse-dependencies "dirty" if the main service
+   does not support SIGHUP.  This helps avoid unnecessary restarts of
+   services that depend on a service that supports SIGHUP</li>
+<li>Fix #417: leaking inotify watchers in the cgroup subsystem</li>
+<li>Fix #421: add support for <code>nofail</code> mount option in <code>/etc/fstab</code></li>
+<li>Fix #425: ordering bug in detecting .conf file changes to services
+   and <code>initctl reload</code>, or runlevel changes</li>
+<li>Fix <code>initctl touch</code> of template services, previously marking a
+   service created from a template as "dirty" did not take</li>
+<li>Fix unintended restart of template "siblings".  I.e., <code>initctl touch</code>
+   of instantiated template service A affected B from same template</li>
+<li>Fix buggy <code>--with-rtc-date=DATE</code> configure option</li>
+<li>Fix kill on timeout of pre/post/ready scripts</li>
+</ul>
+<h2 id="48-2024-10-13"><a href="https://github.com/troglobit/finit/compare/4.7...4.8">4.8</a> - 2024-10-13<a class="headerlink" href="#48-2024-10-13" title="Permanent link">&para;</a></h2>
+<h3 id="changes_7">Changes<a class="headerlink" href="#changes_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Avoid remounting already mounted <code>/run</code> and <code>/tmp</code> directories.  This
+   extends the existing support for detecting mounted directories to
+   include complex mount hierarchies are in use, overlayfs and tmpfs
+   mounts.  Feature by Mathias Thore, Atlas Copco</li>
+<li>getty: trigger /etc/issue compat mode for Alpine Linux</li>
+<li>tmpfiles.d: skip <code>x11.conf</code> unless X11 common plugin is enabled</li>
+<li>tmpfiles.d: ignore x/X command, nos support for cleanup at runtime</li>
+<li>Drop debug mode <code>-D</code> from <code>udevd</code> in <code>hotplug.conf.in</code>, allow the
+   user to set this in <code>/etc/default/udevd</code> instead</li>
+<li>Certain initctl APIs at bootstrap are not supported, update warning
+   log to include command (number) for troubleshooting, issue #398</li>
+<li>Add support for hwrng to urandom plugin and check for empty seed</li>
+<li>Add <code>runparts -b</code> (batch mode) support, disables escape sequences</li>
+<li>New configure <code>--without-rc-local</code>, disables <code>/etc/rc.local</code> support</li>
+<li>New configure <code>--disable-cgroup</code> option, disables cgroup v2 detection</li>
+<li><code>initctl show template@foo.conf</code> now shows how an enabled template
+   service has been evaluated by Finit, issue #411</li>
+<li>Extend <code>initctl</code> timeout connecting and waiting for Finit reply.  The
+   previous 2 + 2 second poll timeout has proved to be too short on more
+   complex systems.  Now a 15 + 15 second timeout is applied which should
+   be more resistant to temporary overload scenarios, issue #407</li>
+</ul>
+<h3 id="fixes_7">Fixes<a class="headerlink" href="#fixes_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #397: system shutdown/reboot can block on console input if action
+   is started remotely (ssh).  Caused by legacy TTY screen size probing,
+   removed from both bootstrap and shutdown/reboot</li>
+<li>Fix #400: both <code>HOOK_MOUNT_ERROR</code> and <code>sulogin()</code> fail to trigger on
+   either mount or <code>fsck</code> errors.  Problem caused by unresolved status
+   from pipe, calling <code>pclose()</code> without extracting exit status</li>
+<li>Fix #402: <code>initctl touch</code> does not respect <code>-n</code> (no error) flag</li>
+<li>Fix #403: <code>initctl touch</code> does not support template services</li>
+<li>Fix #404: possible undefined behavior when <code>--with-fstab=no</code> is set</li>
+<li>Fix #405: <code>@console</code> getty does not work with <code>tty0 ttyS0</code></li>
+<li>Fix #409: prevent tmpfiles from following symlinks for <code>L+</code> and <code>R</code>,
+   otherwise symlink targets would also be removed.  Found and fixed by
+   Mathias Thore and Ming Liu, Atlas Copco</li>
+<li>Fix #414: Frr Zebra immediately restarts on <code>initctl stop zebra</code>.
+   The fix likely works for all Frr/Quagga services due to the way they
+   create and delete their pid file</li>
+<li>Cosmetic issue with <code>[ OK ]</code> messages being printed out of order at
+   shutdown/reboot.  Caused by nested calls to <code>service_stop()</code></li>
+<li>Cosmetic issue with duplicate "Restoring RTC" message at bootstrap</li>
+</ul>
+<h2 id="47-2024-01-07"><a href="https://github.com/troglobit/finit/compare/4.6...4.7">4.7</a> - 2024-01-07<a class="headerlink" href="#47-2024-01-07" title="Permanent link">&para;</a></h2>
+<h3 id="changes_8">Changes<a class="headerlink" href="#changes_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Silence "not available" messages for run/task/service with <code>nowarn</code></li>
+<li>Update docs, <code>cgroup.root</code> workaround for <code>SCHED_RR</code> tasks</li>
+<li>Drop runlevels 0 and 6 from <code>keventd</code>, not needed at reboot/poweroff</li>
+<li>Mount <code>/dev/shm</code> with mode 1777 (sticky bit)</li>
+<li>Mount <code>/dev/mqueue</code> if available, inspiration from Alpine Linux</li>
+<li>Update Alpine Linux installer and configuration files, tested on
+  Alpine v3.19, some assembly still required</li>
+</ul>
+<h3 id="fixes_8">Fixes<a class="headerlink" href="#fixes_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix confusing warning message when tmpfiles.d fails to install symlink</li>
+<li>Fix tmpfiles.d legacy <code>/run/lock/subsys</code>, ordering</li>
+<li>Add missing <code>/var/tmp</code> and <code>/var/lock -&gt; /run/lock</code> (tmpfiles.d)</li>
+<li>Fix #388: log redirection broken unless Finit runs in debug mode.
+  Found and fixed by Ryan Rorison</li>
+<li>Fix #389: must libc requires <code>libgen.h</code> for <code>basename()</code> function.
+  Reported and worked around with new <code>basenm()</code> function by Stargirl</li>
+<li>Fix #392: <code>service/foo/ready</code> condition reasserted on pidfile removal</li>
+</ul>
+<h2 id="46-2023-11-13"><a href="https://github.com/troglobit/finit/compare/4.5...4.6">4.6</a> - 2023-11-13<a class="headerlink" href="#46-2023-11-13" title="Permanent link">&para;</a></h2>
+<h3 id="changes_9">Changes<a class="headerlink" href="#changes_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for service <code>notify:pid</code> and <code>readiness none</code> global
+  option to change how Finit expects readiness notification, issue #386</li>
+</ul>
+<h3 id="fixes_9">Fixes<a class="headerlink" href="#fixes_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #383: dbus and runparts regression in Finit v4.5.  The configure
+  script must expand <code>FINIT_RUNPATH_</code> before defining it in <code>config.h</code></li>
+<li>Fix #384: service environment variables drop everything but the first
+  argument, e.g., <code>VAR="foo bar qux"</code> drops everything but <code>foo</code></li>
+<li>Fix #385: internal conditions, e.g., <code>&lt;int/bootstrap&gt;</code> turn into flux
+  when leaving bootstrap, causing depending services to stop</li>
+<li>Fix #387: global environment variables declared with <code>set VAR=NAME</code> do
+  not drop leading <code>set</code>, causing <code>'set VAR'='NAME'</code> in env.</li>
+<li>Sanity check environment variables, for services and globally.  Ensure
+  the variable name (key) does not contain spaces, or a leading <code>set</code></li>
+</ul>
+<h2 id="45-2023-10-30"><a href="https://github.com/troglobit/finit/compare/4.4...4.5">4.5</a> - 2023-10-30<a class="headerlink" href="#45-2023-10-30" title="Permanent link">&para;</a></h2>
+<h3 id="changes_10">Changes<a class="headerlink" href="#changes_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Refactor <code>runparts</code> and <code>/etc/rc.local</code> to no longer block the main
+  loop, allowing <code>initctl</code> calls to interact with Finit.  Issue #356</li>
+<li>Refactor the <code>run</code> stanza to no longer block the main loop, issue #362</li>
+<li>Allow <code>sulogin</code> with a user different from <code>root</code>, issue #357</li>
+<li>Allow disabling invocation of rescue mode from kernel command line</li>
+<li>Add <code>initctl -f</code> to force-skip asking Finit for existing services
+  when creating new services during bootstrap, e.g. <code>/etc/rc.local</code></li>
+<li><code>initctl runlevel</code> now returns <code>N S</code> instead of <code>N 10</code> in bootstrap</li>
+<li><code>initctl runlevel N</code> during bootstrap is now allowed.  It changes
+  the next runlevel to go to when bootstrap has completed.  Effectively
+  overriding the <code>runlevel N</code> statement in <code>/etc/finit.conf</code></li>
+<li>Improved logging on failure to <code>execvp()</code> a run/task/service, now
+  with <code>errno</code>, e.g., "No such file or directory" when the command
+  is missing from <code>$PATH</code></li>
+<li>Add Bash completion support for <code>initctl</code>, configurable, issue #360</li>
+<li>Handle absolute path to <code>initctl [enable|disable]</code>, not supported</li>
+<li>Update <code>finit.conf(5)</code> man page with the recommended directory
+  hierarchy in <code>/etc/finit.d/</code></li>
+<li>The <code>runparts</code> code has been split into <code>/libexec/finit/runparts</code></li>
+<li>The <code>runparts</code> command now takes two options: <code>sysv</code> and <code>progress</code>.
+  The former ensures only <code>SNNfoo</code> and <code>KNNfoo</code> scripts are run.</li>
+<li>Add SysV Init Compatibility section to documentation</li>
+<li>Increased MAX path for commands, and arguments: 64 -&gt; 256</li>
+<li>The bundled watchdog daemon no longer tries to log at startup, because
+  syslog is not available yet, any startup message leak to console</li>
+<li>Extend <code>if:</code> option with runtime evaluation of conditions.  E.g., start
+  a task only <code>if:&lt;run/foo/failure&gt;</code> (here the run task 'foo' failed)</li>
+<li>Document new <code>if:</code>, <code>conflict:</code>, <code>nowarn</code> options for run/task/service
+  first introduced in v4.4</li>
+<li>Failure to open fstab should log to console, not just log to <code>/dev/kmsg</code></li>
+<li>Rename <code>/lib/finit/system/*.conf</code>, added numbered prefix to ensure
+  proper execution order, e.g., <code>udevd</code> should always run first</li>
+<li>Plugins and bundled services: dbus, keventd, watchdogd, and runparts,
+  are now loaded <em>after</em> all services in <code>/lib/finit/system/</code>.  A new
+  runtime-only path (for inspection) in <code>/run/finit/system/</code> is used</li>
+<li>Redirect <code>log*</code> output to console when <code>finit.debug</code> is enabled</li>
+<li>Assert <code>&lt;int/container&gt;</code> condition if we detect running in container</li>
+<li>Add support for mdev's netlink daemon mode, issue #367</li>
+<li>Add support for mdevd in <code>10-hotplug.conf</code>, preferred over plain mdev</li>
+<li>Disable modprobe plugin by default, udevd and mdev/mdevd loads modules</li>
+<li>Update documentation for run/task shell limitations, issue #376</li>
+<li>Update documentation regarding automount of <code>/run</code> and <code>/tmp</code></li>
+<li>Update plugin documentation, add section about limited tmpfiles.d(5) support</li>
+<li>Skip registering service when <code>if:!name</code> matches a known service.
+  This allows conditional loading of alternative services, e.g. if udevd
+  is already loaded we do not need mdevd</li>
+<li>Drop <code>doc/bootstrap.md</code>, inaccurate and confusing to users</li>
+</ul>
+<h3 id="fixes_10">Fixes<a class="headerlink" href="#fixes_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #227: believed to have been fixed in v4.3, the root cause was
+  actually that Finit was waiting for a process that was no longer in
+  the system.  The fix is to ask the kernel on process-stop-timeout and
+  replay the lost PID so that Finit can continue with reboot/shutdown</li>
+<li>Fix #358: fix inotify events for <code>/etc/finit.conf</code>, improved log
+  messages and error handling</li>
+<li>Fix #361: cgroup move fail if run/task/services start as non-root.
+  Regression in the v4.4 release cycle while adding support for the
+  pre:/post:/ready: scripts.  Now the latter scripts also properly run
+  in their correct cgroup</li>
+<li>Fix #366: document <code>fsck.*</code> kernel command line options and simplify
+  the configure flags <code>--enable-fsckfix</code> and <code>--enable-fastboot</code> to
+  only adjust the default values for the <code>fsck.*</code> options.</li>
+<li>Fix #371: swap load order of <code>/lib/finit/system/*</code> vs <code>/etc/finit.d/*</code>
+  We must run <code>10-hotplug.conf</code> first to ensure devices and modules are
+  up and loaded before the user's run/task/services are called.  The order
+  at bootstrap is now saved in <code>/run/finit/conf.order</code> for inspection,
+  <code>/run/finit/exec.order</code> shows the start order of each process</li>
+<li>Fix #372: lost <code>udevadm</code> calls due to overloading</li>
+<li>Adjust final <code>udevadm settle</code> timeout: 5 -&gt; 30 sec</li>
+<li>Fixed dbus plugin, the function that located <code>&lt;pidfile&gt; ...</code> in the
+  <code>dbus/system.conf</code> caused spurious line breaks which led to the
+  service not being loaded properly</li>
+<li>The <code>runparts</code> executor now skips backup files (<code>foo~</code>)</li>
+<li>The <code>runparts</code> stanza now properly appends <code>start</code> to scripts that
+  start with <code>S[0-9]+</code>.  This has been broken for a very long time.</li>
+<li>Fix #377: expand service <code>env:file</code> variables, allow constructs like:<div class="highlight"><pre><span></span><code>RUNDIR=/var/run/somesvc
+DAEMON_ARGS=--workdir $RUNDIR --other-args...
+</code></pre></div>
+<ul>
+<li>Fix #378: warn on console if run/task times out during bootstrap</li>
+<li>Fix #378: add run/task support for <code>&lt;!&gt;</code> to allow transition from
+  bootstrap to multi-user runlevel even though task has not run yet.</li>
+<li>Fix #382: do not clear <code>&lt;service/foo/STATE&gt;</code> conditions on reload.<br />
+  Introduced back in v4.3-rc2, 82cc10be8, the support for automatic
+  service conditions have had a weird and unintended behavior.  Any
+  change in state (see <code>doc/svc-machine.png</code>) caused Finit to clear
+  out <em>all</em> previously acquired service conditions.</li>
+</ul>
+</li>
+</ul>
+<p>However, when moving between RUNNING and PAUSED states, a service
+  should not have its conditions cleared.  The PAUSED state, seen
+  also by all conditions moving to FLUX, is only temporary while an
+  <code>initctl reload</code> is processed.  If a service has no changes to be
+  applied it will move back to RUNNING.</p>
+<p>Also, we cannot clear the service conditions because other run/task
+  or services may depend on it and clearing them would cause Finit to
+  <code>SIGTERM</code> these processes (since they are no longer eligible to run).</p>
+<h2 id="44-2023-05-15"><a href="https://github.com/troglobit/finit/compare/4.3...4.4">4.4</a> - 2023-05-15<a class="headerlink" href="#44-2023-05-15" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Note 1:</strong> this release contains changes to the <code>.conf</code> parser.  If you
+have .conf file statements with comment character (<code>#</code>) in the command
+options or description, you must now escape them (<code>\#</code>).  Issue #186</p>
+<p><strong>Note 2:</strong> prior to this release, runlevel <code>S</code> and <code>0</code> were after
+boot treated as the same runlevel.  This caused <code>task [06] ...</code>  to
+also run at bootstrap instead of just at shutdown and reboot.  The
+changes made to Finit to separate <code>S</code> from <code>0</code> require you to update
+the allowed runlevels for services that are allowed to continue
+running at shutdown.  I.e., change <code>[S123456789]</code> to <code>[S0123456789]</code>
+for, e.g., <code>sysklogd</code>.  Issue #352</p>
+</blockquote>
+<h3 id="changes_11">Changes<a class="headerlink" href="#changes_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add limited tmpfiles.d(5) support</li>
+</ul>
+<p>This change adds very basic <code>tmpfiles.d/</code> support to Finit.  Most of
+  the basic types are supported, but not all, so for now, please check
+  the code and examples for details on what is working.</p>
+<ul>
+<li>If a run/task/service command does not exist, skip registering it</li>
+</ul>
+<p>This changes the semantics of Finit a bit by checking for the command
+  to run when registering it, skipping commands that cannot be found in
+  the absolute path provided in the command, or in <code>$PATH</code></p>
+<p>This change includes a new <code>nowarn</code> flag that can be used to prevent
+  Finit from warning for missing commands.  See below for an example.</p>
+<ul>
+<li>Add run/task/service support for <code>conflict:foo</code> handling</li>
+<li>Add run/task/service support for <code>if:[!]ident</code> and <code>if:&lt;[!]cond&gt;</code></li>
+</ul>
+<p>Conditional loading of stanza depending on ident is already loaded (or
+  not), or condition satisfied (or not).  E.g., do not run <code>mdev</code> if we
+  found and registered <code>udevd</code>, or load service only if <code>&lt;boot/testing&gt;</code>
+  condition is set.</p>
+<p>The optional leading <code>!</code> negates the comparison, if NOT foo then ...</p>
+<ul>
+<li>Add support for static services in <code>/lib/finit/system/*.conf</code></li>
+</ul>
+<p>Slowly migrating away from hard-coded services in plugins.  This way
+  it's possible for the user to both inspect and override as needed.</p>
+<ul>
+<li>Migrate hotplug plugin to a conditional <code>/lib/finit/system/hotplug.conf</code></li>
+</ul>
+<p>This is the first example of the just minted advanced stanza syntax with
+  <code>if:</code>-statements, <code>conflict:</code> handling, and <code>nowarn</code> flags.</p>
+<ul>
+<li>Initial support for template services, <code>foo@.conf</code>, similar to systemd<div class="highlight"><pre><span></span><code>$ initctl show avahi-autoipd@
+service :%i avahi-autoipd --syslog %i -- ZeroConf for %i
+</code></pre></div>
+</li>
+</ul>
+<p>To enable ZeroConf for, e.g., <code>eth0</code>, use</p>
+<div class="highlight"><pre><span></span><code>    $ initctl enable avahi-autoipd@eth0.conf
+</code></pre></div>
+<p>The enabled symlink will be set up to <code>avahi-autoipd@.conf</code> and every
+  instance of <code>%i</code> will in the instantiated directive be replaced with
+  <code>eth0</code>.  Inspect the result with:</p>
+<div class="highlight"><pre><span></span><code>    $ initctl status avahi-autoipd:eth0
+</code></pre></div>
+<ul>
+<li>Add <code>devmon</code>, a <code>&lt;dev/foo&gt;</code> condition provider, issue #185</li>
+<li>
+<p>Support for line continuation character <code>\</code> in .conf files, issue #186</p>
+<div class="highlight"><pre><span></span><code>service name:sysklogd [S123456789]   \
+    env:-/etc/default/sysklogd       \
+    syslogd -F $SYSLOGD_ARGS         \
+    -- System log daemon
+</code></pre></div>
+</li>
+<li>
+<p><code>HOOK_BASEFS_UP</code> has been moved!  External plugins that need to call
+  <code>service_register()</code>, please use <code>HOOK_SVC_PLUGIN</code> from now on.<br />
+  Apologies for any inconveniences this might cause!</p>
+</li>
+<li>getty: add support for <code>/etc/os-release</code> to replace <code>uname</code> output<br />
+  This change, which has a fallback to <code>/usr/lib/os-release</code>, overrides
+  traditional modifiers with the os-release variant.  These values were
+  taken from <code>uname</code>, which on Linux systems are pretty useless since
+  they always return the kernel name and version instead of the
+  distro/OS values.</li>
+</ul>
+<p>E.g., \s becomes <code>PRETTY_NAME</code> instead of 'Linux' and \v becomes the
+  pretty <code>VERSION</code>, while \r becomes <code>VERSION_ID</code>.
+* Support for overriding <code>/etc/finit.conf</code> and <code>/etc/finit.d</code> issue #235<br />
+  New (kernel) command line option <code>finit.config=PATH</code> which can be used
+  to redirect Finit to start up with, e.g., <code>/etc/factory.conf</code> instead of
+  <code>/etc/finit.conf</code>.</p>
+<p>For the complete experience a new top-level configuration file directive
+  <code>rcsd PATH</code> has also been added.  It in turn can be used by <code>factory.conf</code>
+  as follows to override <code>/etc/finit.d</code>:</p>
+<div class="highlight"><pre><span></span><code>    rcsd /etc/factory.d
+</code></pre></div>
+<ul>
+<li>Support for overriding <code>/etc/finit.d</code> from the alternate <code>finit.conf</code>
+  with a new <code>rcsd /path/to/dot.d/</code> .conf file directive</li>
+<li>Support for <code>fsck_mode=[auto,skip,force]</code> + <code>fsck_repair=[preen,no,yes]</code></li>
+<li>Add <code>set</code> keyword for environment variables set in <code>/etc/finit.conf</code></li>
+<li>Support <code>finit.cond=foo</code> cmdline <code>&lt;boot/foo&gt;</code> conditions, issue #250</li>
+<li><code>initctl</code> JSON output support for status and conditions, issue #273<br />
+  Example:<div class="highlight"><pre><span></span><code>root@infix:~$ initctl status -j resolvconf
+{
+  &quot;identity&quot;: &quot;resolvconf&quot;,
+  &quot;description&quot;: &quot;Update DNS configuration&quot;,
+  &quot;type&quot;: &quot;task&quot;,
+  &quot;forking&quot;: false,
+  &quot;status&quot;: &quot;done&quot;,
+  &quot;exit&quot;: { &quot;code&quot;: 0 },
+  &quot;origin&quot;: &quot;/etc/finit.d/enabled/sysrepo.conf&quot;,
+  &quot;command&quot;: &quot;resolvconf -u&quot;,
+  &quot;restarts&quot;: 0,
+  &quot;pidfile&quot;: &quot;none&quot;,
+  &quot;pid&quot;: 0,
+  &quot;user&quot;: &quot;root&quot;,
+  &quot;group&quot;: &quot;root&quot;,
+  &quot;uptime&quot;: 0,
+  &quot;runlevels&quot;: [ 1, 2, 3, 4, 5, 7, 8, 9 ]
+}
+</code></pre></div>
+</li>
+</ul>
+<p>The excellent tool <code>jq</code> can be used to extract parts of the output for
+  further scripting.  E.g. <code>initctl status -j foo | jq .exit.status</code></p>
+<ul>
+<li>Add JSON support to <code>initctl ls</code> command  </li>
+</ul>
+<p>This allows for easy access to the <em>disabled</em> services:</p>
+<div class="highlight"><pre><span></span><code>    root@anarchy:~# initctl ls --json |jq &#39;.available - .enabled&#39;
+    [
+      &quot;chronyd.conf&quot;,
+      &quot;dnsmasq.conf&quot;,
+      &quot;gdbserver.conf&quot;,
+      &quot;inadyn.conf&quot;,
+      &quot;inetd.conf&quot;,
+      &quot;isisd.conf&quot;,
+      &quot;lldpd.conf&quot;,
+      &quot;mstpd.conf&quot;,
+      &quot;ntpd.conf&quot;,
+      &quot;ospf6d.conf&quot;,
+      &quot;ospfd.conf&quot;,
+      &quot;querierd.conf&quot;,
+      &quot;ripd.conf&quot;,
+      &quot;ripng.conf&quot;,
+      &quot;sshd.conf&quot;,
+      &quot;syslogd.conf&quot;,
+      &quot;telnetd.conf&quot;,
+      &quot;uftpd.conf&quot;,
+      &quot;wpa_supplicant.conf&quot;,
+      &quot;zebra.conf&quot;
+    ]
+</code></pre></div>
+<ul>
+<li>Allow <code>manual:yes</code> on sysv/service/run/task stanzas, issue #274</li>
+<li>Add support for <code>oncrash:script</code> to call the <code>post:script</code> action, if
+  defined, for a crashing service.  The <code>EXIT_CODE</code> variable sent to the
+  script is set to <code>crashed</code>. Issue #282</li>
+<li>Search for plugins in <code>/usr</code> and <code>/usr/local</code> as well, issue #284</li>
+<li>tty: add support for <code>passenv</code> flag to <code>/bin/login</code>, issue #286</li>
+<li>Add reboot/shutdown/poweroff timeout <code>-t SEC</code> to initctl, issue #295</li>
+<li>Add support for s6 and systemd readiness notification, issue #299.<br />
+  Service readiness notification to support daemons employing systemd
+  and s6 notification.  Complementing the native Finit readiness support
+  using PID files that exist already.</li>
+</ul>
+<p>The two have slightly different ways of implementing readiness:</p>
+<ul>
+<li>https://www.freedesktop.org/software/systemd/man/sd_notify.html</li>
+<li>https://skarnet.org/software/s6/notifywhenup.html</li>
+</ul>
+<p>Finit now provides both a <code>NOTIFY_SOCKET</code> environment variable, for
+  systemd, and a way to start s6 daemons with a descriptor argument.</p>
+<p>For details on the syntax, see the <code>service</code> documentation.</p>
+<p>This change also renames internal states for run/task/services to
+  avoid any confusion with the introduction of <code>ready:scripts</code>:</p>
+<ul>
+<li><code>WAITING -&gt; PAUSED</code></li>
+<li><code>READY   -&gt; WAITING</code></li>
+</ul>
+<p>A service condition that used, e.g., <code>&lt;service/foo/ready&gt;</code> should now
+  instead use <code>&lt;service/foo/waiting&gt;</code></p>
+<ul>
+<li>Add <code>ready:script</code> for services, called when daemon is ready, issue #300</li>
+<li>
+<p>Add support for running scripts at shutdown at two new hook points
+  during the shutdown process, issue #302. See doc/plugins.md for details:</p>
+</li>
+<li>
+<p><code>HOOK_SVC_DN</code>: after all services and non-reserved processes have been
+    killed (and collected)</p>
+</li>
+<li>
+<p><code>HOOK_SYS_DN</code>: after all file systems have been unmounted, <em>just prior</em>
+    to Finit calling <code>reboot()</code> to shut down or reboot the system</p>
+</li>
+<li>
+<p>The <code>modules-load</code> plugin now default to runlevel <code>[S]</code>, in previous
+  releases it was <code>[2345]</code>.  This breaking change is to align it more
+  with what users mostly want (modules loaded before services start) and
+  can be changed back to the old behavior with a per-file setting:</p>
+<div class="highlight"><pre><span></span><code>set runlevel 2345
+</code></pre></div>
+</li>
+<li>
+<p>The <code>modules-load</code> plugin now adds silent tasks for modprobe.  This to
+  prevent confusing <code>[ OK ]</code> boot messages when in fact modprobe failed.</p>
+</li>
+<li>The <code>modules-load</code> plugin now support <code>set modprobe /path/to/modprobe</code></li>
+<li>The header files <code>finit/conf.h</code> and <code>finit/service.h</code> are now exported
+  for external plugins</li>
+<li>Add support for multiple args to <code>initctl cond set/clr</code>, issue #329</li>
+<li>Silence confusing <code>[ OK ]</code> progress from modules-load plugin, issue #332  </li>
+</ul>
+<p>This change drops the confusing status progress output, which was always
+  OK since the actual modprobe operation runs in the background.  No need
+  to show status of the "added a task to finit, found modprobe" command.</p>
+<ul>
+<li>dbus plugin: adapt to other operating systems</li>
+</ul>
+<p>Not all Linux systems are based on Debian, and even if they are inspired
+  by Debian (Buildroot), they do not necessarily use the same defaults.
+  Probes the system at runtime for:</p>
+<ul>
+<li>dbus user and group</li>
+<li>dbus PID file</li>
+</ul>
+<p>If the user/group cannot be found we fall back to <code>root</code>, if the PID
+  file cannot be determined we ignore PID file readiness.</p>
+<ul>
+<li>Improve documentation for runparts and hook scripts.  Issue #315, #320</li>
+<li>Add <code>HOOK_NETWORK_DN</code>, called after change to runlevel 6 or 0, issue #319</li>
+<li>Use sysklogd <code>logger</code> tool instead of legacy <code>logit</code> tool, issue #344</li>
+</ul>
+<p>For log redirection Finit has the legacy <code>logit</code> tool.  This change
+  allows Finit to use the <code>sysklogd</code> project's extended <code>logger</code> tool
+  instead, when available.  Allowing logging with the process' PID.</p>
+<ul>
+<li>Add <code>initctl</code> aliases: <code>cat -&gt; show</code>, <code>kill -&gt; signal</code></li>
+<li>Add <code>initctl -n,--noerr</code> to return OK(0) if services do not exist, for
+  integration with openresolv and scripts with similar requirements</li>
+<li>Add <code>initctl plugins</code>, list installed plugins</li>
+<li>Add timestamp to log messages in fallback and logging to <code>stderr</code>.<br />
+  When there is no log daemon, and we are running in a container, or we
+  cannot log to the kernel ring buffer, then we log to <code>stderr</code>.  This
+  change improves log output by prefixing each message with a timestamp.</li>
+</ul>
+<h3 id="fixes_11">Fixes<a class="headerlink" href="#fixes_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #254: document limitations in <code>rc.local</code> and <code>runparts</code> scripts</li>
+<li>Fix #269: add compulsory kernel symlinks in <code>/dev</code></li>
+<li>Fix #275: <code>initctl status foo</code> should list all instances, regression
+  introduced in v4.3</li>
+<li>Fix #278: enforce conditions also for running <code>pre:</code> scripts</li>
+<li>Fix #279: allow <code>restart:always</code>, of crashing services.  Similar to
+  <code>respawn</code> but honors <code>restart_sec</code></li>
+<li>Fix #280: allow calling <code>initctl restart foo</code> from within foo</li>
+<li>Fix #283: too quick timeout at bootstrap of lingering tasks</li>
+<li>Fix #285: <code>initctl restart</code> should start crashed service</li>
+<li>Fix #288: enable built-in <code>sulogin</code> in Alpine and Void Linux builds</li>
+<li>Fix #293: modprobe plugin: support for coldplugging more devices.  It
+  turns out, not all buses in Linux add <code>modalias</code> attributes to their
+  devices in sysfs.  One notable exception are MDIO buses.  The plugin's
+  scan routine would thus not pick them up.</li>
+<li>Fix #294: <code>shutdown --help</code> mistakenly shuts down system</li>
+<li>Fix #310: Always use configured restart delay for crashing services.
+  If no delay is configured, default to an initial 2000 msec for forking
+  daemons and start-stop scripts, and 1 msec for non-forking daemons</li>
+<li>Fix #311: document how to combine device tree with conditions</li>
+<li>Fix #312: restart services with respawn set, e.g. ttys, immediately</li>
+<li>Fix #313: Cancel pending restart timer on stop/start/restart/reload</li>
+<li>Fix #314: skip run/task/service restart if conditions are lost</li>
+<li>Fix #315: add environment variables to hook scripts</li>
+</ul>
+<p>All hook scripts are called with at least one environment variable
+  set, <code>FINIT_HOOK_NAME</code>, useful when reusing the same hook script for
+  multiple hook points.  It is set to the string name, also used by the
+  path, e.g., <code>hook/net/up</code></p>
+<p>For all hook points from hook/sys/shutdown and later, <code>FINIT_SHUTDOWN</code>
+  is also set, to one of: <code>halt</code>, <code>poweroff</code>, <code>reboot</code></p>
+<ul>
+<li>Fix #317: make sure hook scripts don't run twice, also fixes #316</li>
+<li>Fix #318: only show <code>[ OK ] Calling foo</code> progress for <code>runparts ...</code></li>
+<li>Fix #320: the API/IPC socket is closed immediately at shutdown/reboot
+  to protect hook scripts or services calling initctl.  There is no way
+  to service these requests safely at that time</li>
+<li>Fix #333: consider a service dirty if command line args have changed</li>
+</ul>
+<p>This fixes <code>initctl reload</code> correctly restarting all daemons that have
+  new command line arguments.</p>
+<p>Previously command line arguments changes were only acted upon if the
+  service was explicitly reloaded <code>initctl reload myservice</code>.</p>
+<p>Found and fixed by Jack Newman</p>
+<ul>
+<li>Fix #338: ensure shutdown hooks are called properly; <code>hook/sys/down</code>
+  and <code>hook/svc/down</code> hook scripts, found and fixed by Jack Newman</li>
+<li>Fix #339: use absolute path in <code>/etc/finit.d/enabled/</code> symlinks, for
+  use-cases when <code>/etc</code> is read-only and <code>/etc/finit.d/enabled -&gt;
+  /mnt/finit.d/enabled</code>, reported by Jack Newman</li>
+<li>Fix #340: Finit ignores deleted/moved <code>.conf</code> file sin <code>/etc/finit.d</code></li>
+<li>Fix #342: in runlevel S (bootstrap), not all <code>initctl</code> commands can be
+  supported, block the following: runlevel, reload, start/stop, restart,
+  reload, halt, poweroff, suspend.  Also, prevent <code>SIGHUP</code> and <code>SIGUSR1</code>
+  signals when in shutdown or reboot</li>
+<li>Fix #352: separate runlevel S from runlevel 0</li>
+<li>Fix #355: regression in v3.2 stopping a process and its group</li>
+</ul>
+<p>In Finit v3.2 a regression was introduced that affects the way Finit
+  stops a supervised process and its process group.</p>
+<p>Instead of sending SIGTERM to the process, and thus delegating the
+  responsibility to that process to inform any children it may have, as
+  of commit 91a9c83 Finit sends SIGTERM to the entire process group.
+  For SIGKILL this is fine, SIGKILL only runs as cleanup and as a last
+  ditch effort if the process doesn't respond to SIGTERM.</p>
+<p>This regression, introduced in v3.2, directly affects services like
+  <code>avahi-autoipd</code> that have forked off children that it needs to tell to
+  exit cleanly before it returns.  With the patch in question these
+  children are never allowed to complete, which in turn causes lingering
+  169.254 link-local addresses on interfaces.</p>
+<ul>
+<li>
+<p>Fix bootmisc plugin: octal permission on <code>/run/lock</code> and <code>/var/lock</code></p>
+</li>
+<li>
+<p>Ensure <code>initctl cond get</code> support the flux state (exit code 255)</p>
+</li>
+<li>Fix potential socket leak at bootstrap and shutdown</li>
+<li>Fix potential NULL pointer deref in kernel command line parser</li>
+<li>Fix lingering condition in service after reload of service with new
+  config that has no condition</li>
+<li>Fix wrong path to command in service after reload, may have changed</li>
+<li><code>logit</code>: fall back to package name if <code>$LOGNAME</code> and <code>$USER</code> are
+  unset.  <strong>Note:</strong> you should probably not use <code>logit</code> in your own
+  scripts, it is only meant for internal use by Finit.  We recommend
+  using <code>logger</code> from the <code>bsdutils</code> or <code>sysklogd</code> packages instead</li>
+<li>Fix issue where <code>env:</code>/<code>pre:</code>/<code>post:</code>/etc. is removed from a service</li>
+</ul>
+<p>The trick is when reloading a service like this:</p>
+<div class="highlight"><pre><span></span><code>    service env:/etc/env    serv -np -e foo:bar
+</code></pre></div>
+<p>into this:</p>
+<div class="highlight"><pre><span></span><code>    service pre:/bin/pre.sh serv -np
+</code></pre></div>
+<p>In the second the <code>env:</code> has been removed and <code>pre:</code> added.  Prior to
+  this patch, <code>env:</code> was kept leading to unintended behavior.
+* Fix parse/diff of command line args, e.g., <code>nginx -g 'daemon off;'</code></p>
+<p>Starting a service like this works fine:</p>
+<div class="highlight"><pre><span></span><code>    service [2345789] env:-/etc/default/nginx nginx -g &#39;daemon off;&#39;
+</code></pre></div>
+<p>However, on <code>initctl reload</code> (and no change to .conf files) the arg
+  list was lost while parsing the .conf files.  Leading to a false
+  positive 'diff' in args causing nginx to be unnecessarily restarted.
+* Fix issue with disabled "linewrap" on the console TTY after login.
+  The root cause is <code>qemu-system-x86_64 -nographics</code> disabling it when
+  starting up.  The correct <code>\e[?7h</code> escape code is now used.</p>
+<h2 id="43-2022-05-15"><a href="https://github.com/troglobit/finit/compare/4.2...4.3">4.3</a> - 2022-05-15<a class="headerlink" href="#43-2022-05-15" title="Permanent link">&para;</a></h2>
+<p>Critical bug fix release.  If you run a 32-bit target with GLIBC 2.34
+you <em>need</em> to upgrade!</p>
+<blockquote>
+<p><strong>Note:</strong> system verbosity on console at start and shutdown has been
+          increased.  Now the output of all commands is logged to the
+          system logger, for early services <code>/dev/kmsg</code> is used.</p>
+<p><strong>Also:</strong> please notice the updated support for enabling and disabling
+          kernel and Finit debug messages on the system console.  Very
+          useful when debugging either of them, e.g., a kernel module.
+          For details, see <a href="doc/cmdline.md">cmdline.md</a>.</p>
+</blockquote>
+<h3 id="changes_12">Changes<a class="headerlink" href="#changes_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for overriding default runlevel from kernel command line.  Any
+  runlevel <code>[1-9]</code> may be selected, except 6 (reboot).  Issue #261</li>
+<li>New command line option: <code>finit.fstab=/etc/fstab.custom</code>, with full
+  support for mounting, mount helpers, fsck, and swapon/off, issue #224</li>
+<li>Support for special device <code>/dev/root</code>, which may not exist in <code>/dev</code>.
+  Finit now looks up the matching block device for <code>/</code> in <code>/sys/block/</code></li>
+<li>Loading <code>module</code>s no longer shows arguments in progress output</li>
+<li>Warning messages in progress output now in yellow, not red, issue #214</li>
+<li><code>initctl</code>, new command line option <code>-V,--version</code> for ease of use</li>
+<li>New condition <code>done</code> for run task, issue #207 by Ming Liu, Atlas Copco</li>
+<li>Refactor parts of shutdown and reboot sequence for PREEMPT-RT kernels,
+  by Robert Andersson, Mathias Thore, and Ming Liu, Atlas Copco</li>
+<li>Conditions for run/task/sysv status, e.g. <code>run/foo/success</code> and
+  <code>task/bar/failure</code>.  Issue #232, by Ming Liu, Atlas Copco</li>
+<li>Conditions for services, can be used to synchronize other stanzas:</li>
+<li><code>service/foo/running</code></li>
+<li><code>service/foo/halted</code></li>
+<li><code>service/foo/missing</code></li>
+<li><code>service/foo/crashed</code></li>
+<li><code>service/foo/stopped</code></li>
+<li><code>service/foo/busy</code></li>
+<li><code>service/foo/restart</code></li>
+<li><code>initctl signal</code> support, by Jörgen Sigvardsson, issue #225</li>
+<li><code>initctl cond get</code> support to match <code>cond [set | clear]</code>, issue #255</li>
+<li><code>[WARN]</code> messages on console now printed in yellow, issue #214</li>
+<li>Network services now also stopped when going to runlevel 6 (reboot),
+  not just runlevel 0 (shutdown) or 1 (single-user)</li>
+<li>When <code>ifup</code> is missing on the system, bring at least <code>lo</code> up at boot</li>
+<li>Log output from <code>ifup -a</code> (and <code>ifdown -a</code>), to syslog</li>
+<li>Avoid blocking PID 1 when starting SysV init scripts</li>
+<li>Allow custom <code>pid:</code> for SysV init scripts</li>
+<li>Document supported types of forking/non-forking services</li>
+<li>Auto-detect running in some common forms of containers</li>
+<li>Simplify shutdown/reboot when running in a container</li>
+<li>Log to <code>stderr</code> when running in a container w/o syslog daemon</li>
+<li>Add support for <code>type:forking</code> to services, already supported but
+  with a very difficult <code>pid:</code> syntax, issue #223.  Docs updated</li>
+<li>Support for setting global environment variables in <code>finit.conf</code>,
+  please note: this also affects Finit itself, be careful!</li>
+<li>Extended environment variables for pre/post scripts, issue #189</li>
+<li>Document secret service option <code>respawn</code>, which bypasses the crash
+  semantics, allowing endless restarts</li>
+<li>Document secret <code>HOOK_BANNER</code>, the first hook point before the banner</li>
+<li>Document slightly confusing <code>initctl reload foo</code> command.  It does
+  <em>not</em> reload the service's <code>.conf</code> file!  Issue #263</li>
+<li>Log changes; all instances where previously the <code>basename cmd</code> of a
+  service was used to identify the service, now the proper <code>name:id</code> is
+  used instead.  Meaning, a service without a custom <code>:ID</code> or <code>name:</code>
+  will display the same as before, but with any of those customizations
+  the name and name:id will now be shown.  <strong>Note:</strong> this may affect any
+  log scrapers out there!</li>
+<li>New plugin: <code>hook-scripts</code>, allows <a href="https://manpages.debian.org/cgi-bin/man.cgi?query=run-parts">run-parts(8)</a> style scripts to
+  run on any hook point.  Contributed by Tobias Waldekranz</li>
+<li><code>initctl</code> (<code>reboot</code>) falls back to <code>-f</code> when it detects it is in
+  <code>sulogin</code> recovery mode, issue #247</li>
+<li>The bundled <code>sulogin</code> is no longer enabled by default, in favor of
+  distribution versions.  Enable with <code>./configure --with-sulogin</code></li>
+<li>Support args to sysv-like scripts, e.g. <code>bridge-stp br0 start</code></li>
+<li>The <code>modules-load</code> plugin now skips all lines starting with <code>#</code> and
+  <code>;</code>.  Furthermore, files in <code>/etc/modules-load.d/*.conf</code> are now read
+  in lexicographic order and UNIX backup files (<code>foo.conf~</code>) are skipped</li>
+<li>The <code>name:id</code> tuple is now more consistently used in all log and debug
+  messages instead of the basename of the command</li>
+<li>Simplify error output of <code>initctl start/stop/restart/signal</code>, no more
+  extra usage help, just a plain error message</li>
+<li>Exit codes of <code>initctl</code> have changed to use LSB script standard and BSD
+  sysexits.h exit codes.  As before, a non-zero exit is error or missing</li>
+<li>Add support for <code>initctl -q</code> to more commands: stop, start, restart,
+  reload, signal, etc.</li>
+</ul>
+<h3 id="fixes_12">Fixes<a class="headerlink" href="#fixes_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix nasty 32/64-bit alignment issue between finit and its plugins,
+  applicable to 32-bit targets with GLIBC 2.34 and later.  External
+  plugins must make sure to use, at least: <code>-D_TIME_BITS=64</code></li>
+<li>Fix #215: disable cgroup support at runtime if kernel lacks support
+  or does not have the required controllers (cpu)</li>
+<li>Fix #217: iwatcher initialization issue, by Ming Liu, Atlas Copco</li>
+<li>Fix #218: initctl matches too many services, by Ming Liu, Atlas Copco</li>
+<li>Fix #219: not all filesystems unmounted at shutdown, by Ming Liu, 
+  Mathias Thore, and Robert Andersson, Atlas Copco</li>
+<li>Fix #226: initctl shows wrong PID for crashing services</li>
+<li>Fix #227: reboot stalls if process stopped with <code>[WARN]</code></li>
+<li>Fix #233: initctl shows wrong status for run/task, by Sergio Morlans
+  and Ming Liu, Atlas Copco</li>
+<li>Fix #248: source <code>env:file</code> also in <code>pre:</code> and <code>post</code> scripts</li>
+<li>Fix #260: drop limit on device name in <code>Checking filesystem...</code> output</li>
+<li>Fix start/stop and monitoring (restart) of SysV init scripts and
+  forking services, see the updated documentation for details</li>
+<li>Fix call to <code>swapoff</code> at shutdown, does not support <code>-e</code> flag</li>
+<li>Fix suspend to RAM issue.  Previously <code>reboot(RB_SW_SUSPEND)</code> was
+  used, now the modern <code>/sys/power/state</code> API is used instead.</li>
+<li>Fix nasty run/task/service matcher bug, triggered by stanzas using the
+  same basename of a command but different <code>:ID</code>.  Caused Finit to match
+  with already registered but different run/task/service</li>
+</ul>
+<h2 id="42-2022-01-16"><a href="https://github.com/troglobit/finit/compare/4.1...4.2">4.2</a> - 2022-01-16<a class="headerlink" href="#42-2022-01-16" title="Permanent link">&para;</a></h2>
+<h3 id="changes_13">Changes<a class="headerlink" href="#changes_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for non-root users to use <code>initctl</code>, e.g. group wheel</li>
+<li>Support for new libite (-lite) header namespace</li>
+<li>RTC plugin now reset an invalid RTC time to the kernel default
+  time, 2000-01-01 00:00, prevents errors and is less crazy than
+  some systems coming with with &lt;= Jan 1, 1970</li>
+<li>urandom plugin now use RNDADDENTROPY ioctl to seed kernel rng,
+  incrementing entropy count.  Also, 32 kiB instead of 512 bytes are
+  now saved (and restored) on reboot.  This should greatly improve
+  reliability of systems with none or poor HWRNG</li>
+<li>Kernel logging to console (loglevel &gt;= 7, debug, when quiet mode is
+  not used) is now honored by Finit, regardless of the finit.debug
+  command line option</li>
+<li>Reduced default log level from <code>LOG_NOTICE</code> to <code>LOG_INFO</code></li>
+<li>Wrapped all calls to mount(2) to add logging in case of failure</li>
+<li>New configure options to control fastboot (no fsck) and fsck fix
+  options, by Ming Liu, Atlas Copco</li>
+<li>Support for overriding default <code>/etc/nologin</code> file with an external
+  <code>#define</code>, by Ming Liu, Atlas Copco</li>
+<li>Support for overriding default <code>/var/run/dbus/pid</code> file with an
+  external <code>#define</code>, by Ming Liu, Atlas Copco</li>
+<li>Support for more service options to control respawn behavior of
+  crashing services, by Robert Andersson and Ming Liu, Atlas Copco</li>
+<li>Support for <code>initctl ident [NAME]</code> which lists all instances of
+  <code>NAME</code>, or all enabled system run/tasks and services</li>
+<li>Show number of total restarts and current respawn count for a
+  service in <code>initctl status foo</code></li>
+<li>Crashing services no longer have the crash/restart counter reset as
+  soon as they have stabilized.  Instead, a background timer will
+  slowly (every 300 sec) age (decrement) the counter.  This will still
+  catch services that "rage quit", but also those that crash after a
+  longer period of activity</li>
+</ul>
+<h3 id="fixes_13">Fixes<a class="headerlink" href="#fixes_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #180: user managed (<code>manual:yes</code>) services accidentally started
+  by <code>initctl reload</code>, regression introduced in Finit v4.0</li>
+<li>Fix #181: lots of typos all over the tree, by David Yang, Debian</li>
+<li>Fix #187: fix typos, incl. small cleanup, in doc/bootstrap.md</li>
+<li>Fix #188: support running on kernels that do not have cgroups v2.
+  When this is detect, all functions related to cgroups support in
+  Finit are disabled, <em>except</em> the .conf file parser.  Hence, you
+  may get parse error if you have invalid cgroup configuration in
+  your Finit .conf files</li>
+<li>Fix #197: <code>initctl status foo</code> now shows a focused overview of all
+  matching instances; foo:1, foo:2 -- if only one instance matches the
+  command line argument, or if onle one instance exists, the detailed
+  view is shown, as before</li>
+<li>Fix #198: a few typos found by Tim Gates</li>
+<li>Fix #199: avoid using C++ reserved keywords</li>
+<li>Fix #201: memory leak in usr condition plugin, by Ming Liu, Atlas Copco</li>
+<li>Fix #203: ensure all filesystems listed in /proc/mounts are properly
+  unumounted on shutdown/reboot, by Robert Andersson, Atlas Copco</li>
+<li>Fix #210: resizing terminal (smaller) after boot causes empty lines
+  to be inserted between boot progress</li>
+<li>Fix #211: drop hard-coded 32 character limit in getty, now reads
+  <code>_SC_LOGIN_NAME_MAX</code> from <code>sysconf(3)</code></li>
+<li>Fix #212: service PID file lost after inictl reload, visible from
+  the output from <code>initctl status foo</code></li>
+</ul>
+<h2 id="41-2021-06-06"><a href="https://github.com/troglobit/finit/compare/4.0...4.1">4.1</a> - 2021-06-06<a class="headerlink" href="#41-2021-06-06" title="Permanent link">&para;</a></h2>
+<p>Bug fix release.  Also disables handlers for <code>SIGINT</code> and <code>SIGPWR</code>, a
+new set of <code>sys</code> conditions are instead generated which can be used to
+trigger external programs.</p>
+<h3 id="changes_14">Changes<a class="headerlink" href="#changes_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Change behavior on SIGUSR1 to be compatible with sysvinit and systemd.
+  Previously SIGUSR1 caused Finit to halt, like BusyBox init.  This had
+  "interesting" side effects on Debian systems when coexisting with
+  sysvinit (upgrading/reinstalling causes scripts to <code>kill -USR1 1</code>)</li>
+<li>Change how <code>contrib/debian/install.sh</code> sets up a Grub boot entry for
+  finit.  We now modify the $SUPPORTED_INITS variable in <code>10_linux</code></li>
+<li>Disable default kernel ctrl-alt-delete handler and let Finit instead
+  catch <code>SIGINT</code> from kernel to be able to perform a proper reboot.
+  There is no default command for this, you need to set up a task that
+  triggers on <code>&lt;sys/key/ctrlaltdel&gt;</code> to issue <code>initctl reboot</code></li>
+<li>Added keventd to provide <code>&lt;sys/pwr/ac&gt;</code> condition to Finit.  keventd
+  is currently only responsible for monitoring <code>/sys/class/power_supply</code>
+  for changes to active AC mains power online status.  Enable keventd
+  with <code>configure --with-keventd</code></li>
+<li>For handling power fail events (from UPS and similar) a process may
+  send <code>SIGPWR</code> to PID 1. Finit no longer redirects this to <code>SIGUSR1</code>
+  (poweroff).  There is no default command for this, you need to set up
+  a task that triggers on <code>&lt;sys/pwr/fail&gt;</code> to issue <code>initctl poweroff</code></li>
+<li>Built-in Finit getty is now a standalone program</li>
+<li>Default termios for TTYs now enable <code>IUTF8</code> on input</li>
+<li>If <code>/bin/login</code> is not found, Finit now tries <code>sulogin</code> before it
+  falls back to an unauthenticated <code>/bin/sh</code></li>
+<li>Dropped (broken) support for multiple consoles.  Finit now follows
+  the default console selected by the kernel, <code>/dev/console</code></li>
+<li>Dropped signal handlers for SIGSTOP/TSTP and SIGCONT</li>
+<li>Added support for <code>\n</code>, in addition to <code>\r</code>, in "Please press Enter"
+  prompt before starting getty</li>
+<li>Finit no longer parses <code>/proc/cmdline</code> for its options.  Instead all
+  options are by default now read from <code>argv[]</code>, like a normal program,
+  this is also what the kernel does by default.  Please note, this may
+  not work if your systems boots with an initramfs (ymmv), for such
+  cases, see <code>configure --enable-kernel-cmdline</code></li>
+<li>The following plugins are now possible to disable (for containers):
+  <code>rtc.so</code>, <code>urandom.so</code>, you may also want to disable <code>hotplug.so</code>.
+  They are all enabled by default, as in Finit 4.0, but may be moved
+  to external tools or entries in <code>finit.conf</code> in Finit 5.0</li>
+<li>Added support for reading <code>PRETTY_NAME</code> from <code>/etc/os-release</code> to use
+  as heading in progress output, unless <code>--with-heading=GREET</code> is used.</li>
+<li>Added manual pages for finit(8), initctl(8), and finit.conf(5)</li>
+</ul>
+<h3 id="fixes_14">Fixes<a class="headerlink" href="#fixes_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Stricter interface name validation in netlink plugin, modeled after
+  the kernel.  Suggested by Coverity Scan</li>
+<li>Fix problem of re-registering a service as a task.  Previously, if a
+  fundamental change, like type, was made to an active service/run/task
+  it did not take.  Only possible workaround was to remove from config</li>
+<li>initctl: drop warning when removing a non-existing usr condition</li>
+<li>initctl: drop confusing <code>errno 0</code> when timing out waiting for reply</li>
+<li>Ensure services in plugins and from Finit main belong to a cgroup</li>
+<li>Ensure init top-level cgroup remains a leaf group</li>
+<li>Fix tty parse error for detecting use of external getty</li>
+<li>Fix default <code>name:</code> and <code>:ID</code> for tty's, e.g. <code>ttyS0</code> now gives
+  <code>tty:S0</code> as expected.  This was default for built-in getty already</li>
+<li>Fix max username (32 chars) in bundled Finit getty</li>
+<li>The <code>contrib/*/install.sh</code> scripts failed to run from tarball</li>
+<li>Finit no longer forcibly mounts; <code>/dev</code>, <code>/proc</code>, or <code>/sys</code>, instead
+  it checks first if they are already mounted (devtmpfs or container)</li>
+<li>Fix <code>/etc/fstab</code> parser to properly check for 'ro' to not remount the
+  root filesystem at boot.  The wrong field was read, so a root mounted
+  by an initramfs, or by lxc for a container, had their root remounted</li>
+<li>Fix SIGCHLD handler, <code>waitpd()</code> may be interrupted by a signal</li>
+<li>Reset <code>starting</code> flag of services being stopped.  When a service
+  is started and then stopped before it has created its pid file,
+  it could be left forever in the stopping state, unless we reset
+  the starting flag.</li>
+<li>Fix #170: detect loss of default route when interfaces go down.  This
+  emulates the missing kernel netlink message to remove the condition
+  net/default/route to allow stopping dependent services</li>
+<li>Fix #171: restore automatic mount of <code>/dev/shm</code>, <code>/dev/pts</code>, <code>/run</code>
+  and <code>/tmp</code>, unless mounted already by <code>/etc/fstab</code>.  This is what most
+  desktop systems expect PID 1 to do.  Here we also make sure to mount
+  <code>/run/lock</code> as a tmpfs as well, with write perms for regular users,
+  this prevents regular users from filling up <code>/run</code> and causing DoS.</li>
+<li>Fix #173: netlink plugin runs out of socket buffer space;<div class="highlight"><pre><span></span><code>finit[1]: nl_callback():recv(): No buffer space available
+</code></pre></div>
+</li>
+</ul>
+<p>Fixed by adding support for resync with kernel on <code>ENOBUFS</code>.  See
+  netlink(7) for details.  As a spin-off the plugin now supports any
+  number of interfaces and routes on a system.  On resync, the following
+  message is now logged, as a warning:</p>
+<div class="highlight"><pre><span></span><code>    finit[1]: nl_callback():busy system, resynchronizing with kernel.
+</code></pre></div>
+<ul>
+<li>Fix #174: loss of log messages using combo of prio and facility, e.g.,
+  <code>logit(LOG_CONSOLE | LOG_NOTICE, ...)</code>, by Jacques de Laval, Westermo</li>
+<li>Fix #175: ensure Finit does not acquire a controlling TTY when checking
+  if a device is a TTY before starting a getty.  This fixes an old bug
+  where Ctrl-C after logout from a shell could cause PID 1 to get SIGINT,
+  which in turn could lead to a system reboot</li>
+</ul>
+<h2 id="40-2021-04-26"><a href="https://github.com/troglobit/finit/compare/3.1...4.0">4.0</a> - 2021-04-26<a class="headerlink" href="#40-2021-04-26" title="Permanent link">&para;</a></h2>
+<p>This release became v4.0, and not v3.2, because of incompatible changes
+to service conditions.  There are other significant changes as well, so
+make sure to read the whole change log when upgrading.</p>
+<h3 id="changes_15">Changes<a class="headerlink" href="#changes_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The stand-alone <code>reboot</code> tool has been replaced with a symlink to
+  <code>initctl</code>, like its siblings: halt, shutdown, poweroff, and suspend.
+  Calling <code>reboot</code> &amp; C:o now defaults to the corresponding <code>initctl cmd</code>
+  with a fallback to sending signals as per traditional SysV init.  The
+  <code>-f</code> (force) flag remains, where <code>reboot(2)</code> is called directly</li>
+<li>Introducing Finit progress 𝓜𝓸𝓭𝓮𝓻𝓷</li>
+<li>The <code>inictl cond set|clear COND</code> have changed completely.  Constrained
+  to a flat <code>&lt;usr/...&gt;</code> namespace and automatically activated by a new
+  <code>usr.so</code> plugin that checks services for usr condition changes</li>
+<li>Removed built-in inetd super server.  If you need this functionality,
+  use an external inetd, like xinetd, instead.  A pull request for a
+  stand-alone inetd, like watchdogd and getty, is most welcome!</li>
+<li>Incompatible <code>configure</code> script changes, i.e., no guessing <code>--prefix</code>
+  and other paths.  Also, many options have been changed, renamed, or
+  flipped defaults, or even dropped altogether.  There are examples in
+  the documentation and the <code>contrib/</code> section</li>
+<li>Service conditions change from the non-obvious <code>&lt;svc/path/to/foo&gt;</code> to
+  <code>&lt;pid/foo:id&gt;</code>.  Not only does this give simpler internal semantics,
+  it hopefully also makes it clear that one service's <code>pid:!foo</code> pidfile
+  is another service's <code>&lt;pid/foo&gt;</code> condition, issue #143</li>
+<li>Initial support for cgroups v2:</li>
+<li>services runs in a cgroup named after their respective *.conf file</li>
+<li>top-level groups are; init, user, and system</li>
+<li>all top-level groups can be configured from finit *.conf files</li>
+<li>each service can tweak the cgroup settings</li>
+<li>Use <code>initctl [top|ps|cgroup]</code> commands to inspect runtime state</li>
+<li>https://twitter.com/b0rk/status/1214341831049252870?s=20</li>
+<li>Major refactor of Finit's <code>main()</code> function to be able to start the
+  event loop earlier.  This also facilitated factoring out functionality
+  previously hard-coded in Finit, e.g., starting the bundled watchdogd,
+  various distro packed udevd and other hotplugging tools</li>
+<li>A proper rescue mode has been added.  It is started extremely early
+  and is protected with a bundled <code>sulogin</code>.  Exiting rescue mode now
+  brings up the system as a normal boot, as one expects</li>
+<li>Support for <code>sysv</code> start/stop scripts as well as monitoring forking
+  services, stared using <code>sysv</code> or <code>service</code> stanza</li>
+<li>Support for custom <code>kill:DELAY</code>, default 3 sec.</li>
+<li>Support for custom <code>halt:SIGNAL</code>, default SIGTERM</li>
+<li>Support for <code>pre:script</code> and <code>post:script</code>, allows for setup and
+  teardown/cleanup before and after a service runs, issue #129</li>
+<li>Support for <code>env:file</code> in <code>/etc/default/foo</code> or <code>/etc/conf.d/foo</code>, see
+  the contrib section for examples that utilize this feature.  Variables
+  expanded from env files, and the env files themselves, are tracked for
+  changes to see if a service .conf file is "dirty" and needs restart on
+  <code>initctl reload</code></li>
+<li>Support for tracking custom PID files, using <code>pid:!/path/to/foo.pid</code>,
+  useful with new <code>sysv</code> or <code>service</code> which fork to background</li>
+<li>Support starting run/task/services without absolute path, trust <code>$PATH</code></li>
+<li>Add support for <code>--disable-doc</code> and <code>--disable-contrib</code> to speed up
+  builds and work around issue with massively parallel builds</li>
+<li>Support for <code>@console</code> also for external getty</li>
+<li>Support for <code>notty</code> option to built-in getty, for board bring-up</li>
+<li>Support for <code>rescue</code> option to built-in getty, for rescue shells</li>
+<li>Add <code>-b</code>, batch mode, for non-interactive use to <code>initctl</code></li>
+<li>Prefer udev to handle <code>/dev/</code> if mdev is also available</li>
+<li>Redirect dbus daemon output to syslog</li>
+<li>Set <code>$SHELL</code>, like <code>$PATH</code>, to a sane default value, needed by BusyBox</li>
+<li>Finit no longer automatically reloads its <code>*.conf</code> files after running
+  <code>/etc/rc.local</code> or run-parts.  Use <code>initctl reload</code> instead.</li>
+<li><code>initctl</code> without an argument or option now defaults to list services</li>
+<li>Convert built-in watchdog daemon to standalone mini watchdogd, issue #102</li>
+<li>Improved watchdog hand-over, now based on <code>svc_t</code> and not PID</li>
+<li>Extended bootstrap, runlevel S, timeout: 10 --&gt; 120 sec. before services
+  not allowed in the runtime runlevel are unconditionally stopped</li>
+<li>Removed <code>HOOK_SVC_START</code> and <code>HOOK_SVC_LOST</code>, caused more problems
+  than they were worth.  Users are encouraged to use accounting instead</li>
+<li>Skip displaying "Restarting ..." progress for bootstrap processes</li>
+<li>Added a simple work queue mechanism to queue up work at boot + runtime</li>
+<li>Postpone deletion of <code>svc_t</code> until any <code>SIGKILL</code> timer has elapsed</li>
+<li>As long as a stepped service changes state we queue another step all
+    event, because services may depend on each other</li>
+<li>Require new libuEv API: <code>uev_init1()</code> to reduce event cache so that
+  the kernel can invalidate deleted events before enqueuing to userspace</li>
+<li>Rename <code>hwclock.so</code> plugin to <code>rtc.so</code> since it now is stand-alone
+  from the <code>hwclock</code> tool.  Note: the kernel can also be set to load
+  and store RTC to/from system clock at boot/halt as well, issue #110</li>
+<li>New plugin to support cold plugging devices, auto-loading of modules
+  at boot.  Detects required modules by reading <code>/sys/devices/*</code></li>
+<li>New plugin for <code>/etc/modules-load.d/</code> by Robert Andersson, Atlas Copco</li>
+<li>New <code>name:foo</code> support for services, by Robert Andersson, Atlas Copco</li>
+<li>New <code>manual:yes</code> support for services, by Robert Andersson, Atlas Copco</li>
+<li>New <code>log:console</code> support for services, by Robert Andersson, Atlas Copco</li>
+<li>Support for <code>:ID</code> as a string, by Jonas Johansson, Westermo</li>
+<li>Support for auto-reload, instead of having to do <code>initctl reload</code>,
+  when a service configuration has changed.  Disabled by default, but
+  can be enabled with <code>./configure --enable-auto-reload</code></li>
+<li>Support for logging security related events, e.g., runlevel change,
+  star/stop or failure to start services, by Jonas Holmberg, Westermo</li>
+<li>Mount devtpts with recommended <code>ptxmode=0666</code></li>
+<li>Mount /run tmpfs with nosuid,nodev,noexec for added security</li>
+<li>Support for <code>console</code> as alias for <code>@console</code> in tty stanzas</li>
+<li>Drop <code>--enable-rw-roots</code> configure option, use <code>rw</code> for your <code>/</code>
+  partition in <code>/etc/fstab</code> instead to trigger remount at boot</li>
+<li>Drop default tty speed (38400) and use 0 (kernel default) instead</li>
+<li>Make <code>:ID</code> optional, use NULL/zero internally this allows ...</li>
+<li>Handle use-cases where multiple services share the same PID filem
+  and thus the same condition path, e.g. different instances for
+  different runlevels.  Allow custom condition path with <code>name:foo</code>
+  syntax, creates conditions w/o a path, and ...</li>
+<li>Always append <code>:ID</code> qualifier to conditions if set for a service</li>
+<li>The IPC socket has moved from <code>/run/finit.sock</code> to <code>/run/finit/socket</code>
+  officially only supported for use by the <code>initctl</code> tool</li>
+<li>The IPC socket now uses <code>SOCK_SEQPACKET</code> instead of <code>SOCK_STREAM</code>.
+  Recommend using watchdogd v3.4, or later, which support this</li>
+<li>Improved support for modern <code>/etc/network/interfaces</code>, which has
+  include statements.  No more native <code>ifup</code> of individual interfaces,
+  Finit now calls <code>ifup -a</code>, or <code>ifdown -a</code>, delegating all details to
+  the operating system.  Also, this is now done in the background, by
+  popular request</li>
+</ul>
+<h3 id="fixes_15">Fixes<a class="headerlink" href="#fixes_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix #96: Start udevd as a proper service</li>
+<li>Ensure we track run commands as well as task/service, once per runlevel</li>
+<li>Ensure run/tasks also go to stopping state on exit, like services,
+  otherwise it is unnecessarily hard to restart them</li>
+<li>Fix missing OS/Finit title bug, adds leading newline before banner</li>
+<li>Remove "Failed connecting to watchdog ..." error message on systems
+  that do not have a watchdog</li>
+<li>Fix #100: Early condition handling may not work if <code>/var/run</code> does
+  not yet exist (symlink to <code>/run</code>).  Added compat layer for access</li>
+<li>Fix #101: Built-in inetd removed</li>
+<li>Fix #102: Start built-in watchdogd as a regular service</li>
+<li>Fix #103: Register multiple getty if <code>@console</code> resolves to &gt;1 TTY,</li>
+<li>Fix #105: Only remove /etc/nologin when moving from runlevel 0, 1, 6
+  Fixed by Jonas Johansson, Westermo</li>
+<li>Fix #109: Support for PID files in sub-directories to <code>/var/run</code></li>
+<li>Handle rename of PID files, by Robert Andersson, Atlas Copco</li>
+<li>Fix #110: automatic modprobe of RTC devices, built-in hwclock</li>
+<li>Fix #120: Redirect <code>stdin</code> to <code>/dev/null</code> for services by default</li>
+<li>Fix #122: Switch to <code>nanosleep()</code> to achieve "signal safe" sleep,
+  fixed by Jacques de Laval, Westermo</li>
+<li>Fix #124: Lingering processes in process group when session leader
+  exits.  E.g., lingering <code>logit</code> processes when parent dies</li>
+<li>Fix #127: Show all runparts scripts as they start, like rc.local, fixed
+  by Jacques de Laval, Westermo</li>
+<li>Fix service name matching, e.g. for condition handling, may match with
+  wrong service, by Jonas Holmberg, Westermo</li>
+<li>Run all run-parts scripts using <code>/bin/sh -c foo</code> just like the standard
+  run-parts tool.  Found by Magnus Malm, Westermo</li>
+<li>Fix <code>initctl [start | restart]</code>, should behave the same for services
+  that have crashed.  Found by Mattias Walström, Westermo</li>
+<li>Wait for bootstrap phase to complete before cleaning out any bootstrap
+  processes that have stopped, they may be restarted again</li>
+<li>Reassert condition when an unmodified run/task/service goes from
+  WAITING back to RUNNING again after a reconfiguration event.<br />
+  Found and fixed by Jonas Johansson, Westermo</li>
+<li>Restore Ctrl-D and Ctrl-U support in built-in getty</li>
+<li>Remove service condition when service is deleted</li>
+<li>Fix C++ compilation issues, by Robert Andersson, Atlas Copco</li>
+<li>Build fixes for uClibc</li>
+<li>Provide service description for built-in watchdog daemon</li>
+<li>Fix #138: Handle <code>SIGPWR</code> like <code>SIGSUR2</code>, i.e., power off the system</li>
+<li>Drop the '%m' GNUism, for compat with older musl libc</li>
+<li>Fix #139: call <code>tzset()</code> on <code>initctl reload</code> to activate system
+  timezone changes (for logging)</li>
+</ul>
+<h2 id="31-2018-01-23"><a href="https://github.com/troglobit/finit/compare/3.0...3.1">3.1</a> - 2018-01-23<a class="headerlink" href="#31-2018-01-23" title="Permanent link">&para;</a></h2>
+<p>Improvements to <code>netlink.so</code> plugin, per-service <code>rlimit</code> support,
+improved integration with <code>watchdogd</code>, auto-detect TTY console.  Much
+improved debug, rescue and logging support.  Also, many fixes to both
+big and small issues, most notably in the condition handling, which no
+longer is sensitive to time skips.</p>
+<p>This version requires at least libuEv v2.1.0 and libite v2.0.1</p>
+<h3 id="changes_16">Changes<a class="headerlink" href="#changes_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for more kernel command line settings:</li>
+<li>splash, enable boot progress</li>
+<li>debug, like <code>--debug</code> but also enable kernel debug</li>
+<li>single, single user mode (no network)</li>
+<li>rescue, new rescue mode</li>
+<li>Support for <code>IFF_RUNNING</code> to netlink plugin =&gt; <code>net/IFNAME/running</code></li>
+<li>Support for restarting <code>initctl</code> API socket on <code>SIGHUP</code></li>
+<li>Greatly updated <code>initctl status &lt;JOB|NAME&gt;</code> command</li>
+<li>Support for <code>rlimit</code> per service/run/task/inetd/tty, issue #45</li>
+<li>Support for setting <code>hard</code> and <code>soft</code> rlimit for a resource at once</li>
+<li>Support for auto-detecting serial console using Linux SysFS, the new
+  <code>tty @console</code> eliminates the need to keep track of different console
+  devices across embedded platforms: <code>/dev/ttyS0</code>, <code>/dev/ttyAMA0</code>, etc.</li>
+<li>Add TTY <code>nologin</code> option.  Bypasses login and skips immediately to a
+  root shell.  Useful during board bringup, in developer builds, etc.</li>
+<li>Support for calling run/tasks on Finit internal HOOK points, issue #18</li>
+<li>Removed support for long-since deprecated <code>console DEV</code> setting</li>
+<li>Cosmetic change to login, pressing enter at the <code>Press enter to ...</code>
+  prompt will now replace that line with the login issue text</li>
+<li>Calling <code>initctl</code> without any arguments or options now defaults to
+  show status of all enabled services, and run/task/inetd jobs</li>
+<li>Cosmetic change to boot messages, removed <code>Loading plugins ...</code>, start
+  of inetd services, and <code>Loading configuration ...</code>.  No end user knows
+  what those plugins and configurations are, i.e. internal state+config</li>
+<li>Change kernel WDT timeout (3 --&gt; 30 sec) for built-in watchdog daemon</li>
+<li>Advise watchdog dawmon on shutdown and reboot using <code>SIGPWR</code> and then
+  <code>SIGTERM</code>.  It is recommended the daemon start a timer on the first
+  signal, in case the shutdown process somehow hangs.</li>
+<li>Handle <code>/etc/</code> OverlayFS, reload /etc/finit.d/*.conf after <code>mount -a</code></li>
+<li>initctl: Add support for printing previous runlevel</li>
+<li>initctl: Support short forms of all commands</li>
+<li>initctl: Support for <code>initctl touch &lt;CONF&gt;</code> to be used with <code>reload</code></li>
+<li>initctl: Improved output of <code>initctl show &lt;SVC&gt;</code></li>
+<li>Support reloading <code>/etc/finit.conf</code>.  The main finit.conf file
+  previously did not support reloading at runtime, as of v3.1 all
+  configuration directives supported in <code>/etc/finit.d/*.conf</code> are now
+  supported in <code>/etc/finit.conf</code></li>
+<li>Change <code>.conf</code> dependency + reload handling.  Finit no longer relies
+  on mtime of <code>.conf</code> files, instead an inotify handler tracks file
+  changes for time <em>insensitive</em> dependency tracking</li>
+<li>Change condition handling to not rely on mtime but a generation id.</li>
+<li>New configure script option <code>--enable-redirect</code> to automatically
+  redirect <code>stdout</code> and <code>stderr</code> of all applications to <code>/dev/null</code></li>
+<li>New <code>pid</code> sub-option to services when a service does not create a PID
+  file, or when the PID file has another name.  Issue #95</li>
+<li>Greatly improved <code>log</code> sub-option to service/run/tasks, selectively
+  redirect <code>stdout</code> and <code>stderr</code> using the new tool <code>logit</code> to either
+  syslog or a logfile.  Issue #44</li>
+<li>Support for automatic log rotation of logfiles created by <code>log</code>
+  option.  Use <code>configure --disable-logrotate</code> on systems with a
+  dedicated log rotation service.  Issue #44</li>
+<li>Support for disabling service/run/task progress with empty <code>--</code>
+  description.  Note: no description separator gives a default desc.</li>
+<li>Create <code>/etc/mtab</code> symlink if missing on system (bootmisc plugin)</li>
+<li>New hook: <code>hook/mount/post</code> runs after <code>mount -a</code> but before the
+  <code>hook/mount/all</code>, where <code>bootmisc.so</code> runs.  This provides the
+  possibility of running a second stage mount command before files in
+  <code>/run</code> and similar are created</li>
+<li>Skip <code>gdbserver</code> when unleashing the grim reaper at shutdown</li>
+<li>Distribute and install <code>doc/</code> and <code>contrib/</code> directories</li>
+</ul>
+<h3 id="fixes_16">Fixes<a class="headerlink" href="#fixes_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Reset TTY before restarting it.  A program may manipulate the TTY in
+  various ways before the user logs out, Finit needs to reset the TTY to
+  a sane state before restarting it.  Issue #84</li>
+<li>On .conf parse errors, do <em>not</em> default to set TTY speed 38400, reuse
+  current TTY speed instead</li>
+<li>Fix run/tasks, must be guaranteed to run once per declared runlevel.
+  All run/tasks on <code>[S]</code> with a condition <code>&lt;...&gt;</code> failed to run.  Finit
+  now tracks run/tasks more carefully, waiting for them to finish before
+  switching to the configured runlevel at boot.  Issue #86</li>
+<li>Allow inetd services to be registered with a unique ID, e.g. <code>:161</code>,
+  issue #87.  Found by Westermo</li>
+<li>inetd: drop UDP packets from blocked interfaces, issue #88</li>
+<li>Handle obscure inter-plugin dependency issue by calling the netlink
+  plugin before the pidfile plugin on <code>HOOK_SVC_RECONF</code> events</li>
+<li>Handle event loop failure modes, issue found by Westermo</li>
+<li>Handle API socket errors more gracefully, restart socket</li>
+<li>Do not attempt to load kernel modules more than once at bootstrap</li>
+<li>Remove reboot symlinks properly on uninstall</li>
+<li>Fix regression in condition handling, reconf condition must be kept
+  as a reference point to previous reconfiguration, or bootstrap.</li>
+<li>Fix nasty race condition with internal service stop, abort kill if the
+  service has already terminated, otherwise we may do <code>kill(0, SIGKILL)</code></li>
+<li>Fix reconfiguration issue with (very quick) systems that don't have
+  highres timers</li>
+<li>Fix formatting of runlevel string in <code>initctl show</code></li>
+<li>Allow running <code>initctl</code> with <code>STDOUT</code> redirected</li>
+<li>Fix regression in <code>initctl start/stop &lt;ID&gt;</code>, using name worked not id</li>
+<li>Fix error handling in <code>initctl start/stop</code> without any argument</li>
+<li>Fix issue #81 properly, remove use of SYSV shm IPC completely.  Finit
+  now use the API socket for all communication between PID 1 and initctl</li>
+<li>Fix segfault on x86_64 when started with kernel cmdline <code>--debug</code></li>
+<li>Normalize condition paths on systems with <code>/run</code> instead of <code>/var/run</code></li>
+</ul>
+<h2 id="30-2017-10-19"><a href="https://github.com/troglobit/finit/compare/2.4...3.0">3.0</a> - 2017-10-19<a class="headerlink" href="#30-2017-10-19" title="Permanent link">&para;</a></h2>
+<p>Major release, support for conditions/dependencies between services,
+optional built-in watchdog daemon, optional built-in getty, optional
+built-in standard inetd services like echo server, rdate, etc.</p>
+<p>Also, native support for Debian/BusyBox <code>/etc/network/interfaces</code>,
+overhauled new configure based build system, logging to <code>/dev/kmsg</code>
+before syslogd has started, massively improved support for Linux
+distributions.</p>
+<h3 id="changes_17">Changes<a class="headerlink" href="#changes_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added basic code of conduct covenant to project</li>
+<li>Added contribution guidelines document</li>
+<li>Removed <code>finit.conf</code> option <code>check DEV</code>, replaced entirely by automated
+  call to <code>fsck</code> for each device listed in <code>/etc/fstab</code></li>
+<li>Removed deprecated and confusing <code>startx</code> and <code>user</code> settings.  It is
+  strongly recommended to instead use xdm/gdb/lightdm etc.</li>
+<li>Add support for <code>initctl log &lt;SVC&gt;</code>, shows last 10 lines from syslog</li>
+<li>Add <code>initctl cond dump</code> for debugging conditions</li>
+<li>Ensure plugins always have a default name, file name</li>
+<li>Reorganization, move all source files to a <code>src/</code> sub-directory</li>
+<li>Add support for <code>initctl &lt;list|enable|disable&gt; &lt;SVC&gt;</code>, much needed by
+  distributions.  See <a href="doc/distro.md">doc/distro.md</a> for details</li>
+<li>Remove <code>UNUSED()</code> macro, mentioned here because it may have been used
+  by external plugin developers.  Set <code>-Wno-unused-parameter</code> instead</li>
+<li>New table headings in <code>initctl</code>, using <code>top</code> style inverted text</li>
+<li>Allow <code>initctl show</code> to use full screen width for service descriptions</li>
+<li>New <code>HOOK_BANNER</code> for plugins to override the default <code>banner()</code></li>
+<li>Allow loading TTYs from <code>/etc/finit.d</code></li>
+<li>Improvements to built-in getty, ignore signals like <code>SIGINT</code>,
+  <code>SIGHUP</code>, support Ctrl-U to erase to beginning of line</li>
+<li>Add TTY <code>nowait</code> and <code>noclear</code> options</li>
+<li>
+<p>Allow using both built-in getty and external getty:  </p>
+<div class="highlight"><pre><span></span><code>tty [12345] /dev/ttyAMA0    115200              noclear vt220
+tty [12345] /sbin/getty  -L 115200 /dev/ttyAMA0 vt100
+tty [12345] /sbin/agetty -L ttyAMA0 115200      vt100 nowait
+</code></pre></div>
+</li>
+<li>
+<p>Silent boot is now the default, use <code>--enable-progress</code> to get the old
+  Finit style process progress.  I.e., <code>--enable-silent</code> is no more</p>
+</li>
+<li>Support for <code>configure --enable-emergency-shell</code>, debug-only mode</li>
+<li>Support for a fallback shell on console if none of the configured TTYs
+  can be started, <code>configure --enable-fallback-shell</code></li>
+<li>All debug messages to console when Finit <code>--debug</code> is enabled</li>
+<li>Prevent login, by touching <code>/etc/nologin</code>, during runlevel changes</li>
+<li>A more orderly shutdown.  On reboot/halt/poweroff Finit now properly
+  goes to runlevel 0/6 to first stop all processes.</li>
+<li>Perform sync before remounting as read-only, at shutdown</li>
+<li>Clean up <code>/tmp</code>, <code>/var/run</code>, and <code>/var/lock</code> at boot on systems which
+  have these directories on persistent storage</li>
+<li>Call udev triggers at boot, on systems with udev</li>
+<li>Add missing <code>/var/lock/subsys</code> directory for dbus</li>
+<li>Add support for <code>poweroff</code></li>
+<li>Add support for a built-in miniature watchdog daemon</li>
+<li>Remove GLIBC:isms like <code>__progname</code></li>
+<li>Manage service states based on user defined conditions</li>
+<li>Manage dependencies between services, w/ conditions (pidfile plugin)</li>
+<li>Manage service dependencies on network events (netlink plugin)</li>
+<li>Support for dynamically reloading Finit configuration at runtime</li>
+<li>Refactor to use GNU configure and build system</li>
+<li>New hooks for for detecting lost and started services (lost plugin)</li>
+<li>External libraries, libuEv and libite, now build requirements</li>
+<li>Early logging support to <code>/dev/kmsg</code> instead of console</li>
+<li>Support for redirecting stdout/stderr of services to syslog</li>
+<li>Support for managing resource limits for Finit and its processes</li>
+<li>Add optional built-in inetd services: echo server, chargen, etc.</li>
+<li>Add simple built-in getty</li>
+<li>Greatly improved accounting support, both UTMP and WTMP fixes+features</li>
+<li>Improved udev support, on non-embedded systems</li>
+<li>Improved shutdown and file-system unmount support (Debian)</li>
+<li>Support SysV init <code>/etc/rc.local</code></li>
+<li>Inetd protection against UDP looping attacks</li>
+<li>Support systems with <code>/run</code> instead of <code>/var/run</code> (bootmisc plugin)</li>
+<li>Adopted BusyBox init signals for halt/reboot/poweroff</li>
+<li>SysV init compat support for reboot (setenv)</li>
+<li>Compat support for musl libc</li>
+<li>Add OpenRC-like support for sysctl.d/*.conf</li>
+<li>Add support for Debian/BusyBox <code>/etc/network/interfaces</code></li>
+<li>Add support for running fsck on file systems in <code>/etc/fstab</code></li>
+<li>Added example configs + HowTos for Debian and Alpine Linux
+  to support latest releases of both distributions</li>
+<li>Lots of documentation updates</li>
+</ul>
+<h3 id="fixes_17">Fixes<a class="headerlink" href="#fixes_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix race-condition at configuration reload due to too low resolution.<br />
+  Thanks to Mattias Walström, Westermo</li>
+<li>Fix to handle long process (PID) dependency chains, re-run reconf
+  callback until no more applications are in flux.<br />
+  Thanks to Mattias Walström, Westermo</li>
+<li>Clear <code>reconf</code> condition when <code>initctl reload</code> has finished</li>
+<li>Skip automatic reload of <code>/etc/finit.d/*.conf</code> files when changing
+  runlevel to halt or reboot</li>
+<li>Fix issue #54: Allow halt and poweroff commands even if watchdog is enabled</li>
+<li>Fix issue #56: Check existence of device before trying to start getty</li>
+<li>Fix issue #60: <code>initctl</code> should display error and return error code
+  for non-existing services should the operator try to start/stop them.</li>
+<li>Fix issue #61: Reassert <code>net/*</code> conditions after <code>initctl reload</code></li>
+<li>Fix issue #64: Skip <code>fsck</code> on already mounted devices</li>
+<li>Fix issue #66: Log rotate and gzip <code>/var/log/wtmp</code>, created by Finit</li>
+<li>Fix issue #72: Check <code>ifup</code> exists before trying to bring up networking,
+  also set <code>$PATH</code> earlier to simplify <code>run()</code> et al -- no longer any need
+  to use absolute paths for system tools called from Finit.  Thanks to crazy</li>
+<li>Fix issue #73: Remove double <code>ntohl()</code> in inetd handling, prevents matches.<br />
+  Thanks to Petrus Hellgren, Westermo</li>
+<li>Fix issue #76: Reap zombie processes in emergency shell mode</li>
+<li>Fix issue #80: FTBFS on Arch Linux, missing <code>stdarg.h</code> in <code>helpers.h</code>,
+  thanks to Jörg Krause</li>
+<li>Fix issue #81: Workaround for systems w/o SYSV shm IPC support in kernel</li>
+<li>Always collect bootstrap-only tasks when done, we will never re-run them.
+  Also, make sure to never reload bootstrap-only tasks at runtime</li>
+<li>Remove two second block (!) of Finit when stopping TTYs</li>
+</ul>
+<h2 id="24-2015-12-04"><a href="https://github.com/troglobit/finit/compare/2.3...2.4">2.4</a> - 2015-12-04<a class="headerlink" href="#24-2015-12-04" title="Permanent link">&para;</a></h2>
+<p>Bug fix release.</p>
+<h3 id="changes_18">Changes<a class="headerlink" href="#changes_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for status/show service by <code>name:id</code></li>
+<li>Enforce terse mode after boot, if verbose mode is disabled</li>
+<li>Re-enable verbose mode at reboot, if disabled at boot</li>
+<li>Update section mentioning BusyBox getty</li>
+<li>Update debugging documentation</li>
+<li>Allow debug to override terse mode</li>
+<li>Revert confusing change in service state introduced in <a href="https://github.com/troglobit/finit/compare/2.2...2.3">v2.3</a>.
+  As of <a href="https://github.com/troglobit/finit/compare/2.3...2.4">v2.4</a> services are listed as "halted" and "stopped", when
+  they have been halted due to a runlevel changed or stopped by the
+  user, respectively.</li>
+</ul>
+<h3 id="fixes_18">Fixes<a class="headerlink" href="#fixes_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix system freeze at reconfiguration.  Changed services that
+  all support <code>SIGHUP</code> caused a freeze due to Finit waiting for
+  them to stop.</li>
+<li>Make sure to start and/or <code>SIGHUP</code> services after reconfiguration
+  when there was no services to stop.</li>
+</ul>
+<h2 id="23-2015-11-28"><a href="https://github.com/troglobit/finit/compare/2.2...2.3">2.3</a> - 2015-11-28<a class="headerlink" href="#23-2015-11-28" title="Permanent link">&para;</a></h2>
+<p>Bug fix release.</p>
+<h3 id="changes_19">Changes<a class="headerlink" href="#changes_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for stop/start/restart/reload service by <code>name:id</code></li>
+<li>Refactor service status listed in <code>initctl show</code>, show actual status</li>
+</ul>
+<h3 id="fixes_19">Fixes<a class="headerlink" href="#fixes_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Remove bootstrap-only tasks/services when leaving runlevel 'S'</li>
+<li>Fix reference counting issue with already stopped and removed services
+  when the user performs <code>initctl reload</code> to change system configuration</li>
+<li>Revert semantic change in behavior of <code>initctl restart</code>: users expect
+  service to be stopped/started, not reloaded with <code>SIGHUP</code> even if the
+  service supports it</li>
+<li>Fix <code>NULL</code> pointer dereference causing kernel panic when user calls
+  <code>initctl reload</code> after change of system configuration</li>
+<li>Fix column alignment in output of <code>initctl show</code> for services not in
+  current runlevel</li>
+</ul>
+<h2 id="22-2015-11-23"><a href="https://github.com/troglobit/finit/compare/2.1...2.2">2.2</a> - 2015-11-23<a class="headerlink" href="#22-2015-11-23" title="Permanent link">&para;</a></h2>
+<p>Lots of fixes to handle static builds, but also fixes for dynamic event
+handling and reconfiguration at runtime.</p>
+<h3 id="changes_20">Changes<a class="headerlink" href="#changes_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Upgrade to libuEv v1.2.4, to handle static builds</li>
+<li>Upgrade to libite (LITE) v1.2.0, to handle static builds</li>
+<li>Clarify how to select different plugins with the configure script</li>
+<li>Improve urandom plugin for embedded systems w/o random seed</li>
+<li>Add <code>--debug</code> flag to <code>initctl</code></li>
+<li>The runlevels listed for services in <code>initctl show</code> now highlight the
+  active runlevel.</li>
+<li>Clarify in the README and in <code>initctl help</code> that the GW event to
+  listen for in service declarations is <code>GW:UP</code></li>
+</ul>
+<h3 id="fixes_20">Fixes<a class="headerlink" href="#fixes_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Build fixes for <code>configure --disable-inetd</code></li>
+<li>Fixed issue #14: Improved support for static Finit builds</li>
+<li>Misc. fixes to silence warnings when building a static Finit</li>
+<li>Default to register services as <code>SIGHUP</code>'able, regression in v2.0</li>
+<li>Call <code>HOOK_SVC_RECONF</code> only when all processes have been stopped</li>
+<li>On reload/reconf we must wait for all services to stop first</li>
+<li>Only trigger on events that matches the service's specification,
+  fix by Tobias Waldekranz</li>
+</ul>
+<h2 id="21-2015-10-16"><a href="https://github.com/troglobit/finit/compare/2.0...2.1">2.1</a> - 2015-10-16<a class="headerlink" href="#21-2015-10-16" title="Permanent link">&para;</a></h2>
+<h3 id="changes_21">Changes<a class="headerlink" href="#changes_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add hook point for fstab mount failure</li>
+<li>Set hostname on dynamic reload</li>
+<li>Upgrade to libite v1.1.1</li>
+</ul>
+<h3 id="fixes_21">Fixes<a class="headerlink" href="#fixes_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix service callback coredump checks and simplify callback exit</li>
+<li>Do not use <code>-Os</code> use <code>-O2</code> as default optimization level.  Many cross
+  compiler toolchains are known to have problems with <code>-Os</code></li>
+<li>Do not allow build VERSION to be overloaded by an environment variable</li>
+<li>Fix too small MAX arguments and too few arguments in <code>svc_t</code> for
+  reading currently running services with <code>initctl show</code></li>
+<li>Unblock blocked signals after forking off a child</li>
+</ul>
+<h2 id="20-2015-09-20"><a href="https://github.com/troglobit/finit/compare/1.12...2.0">2.0</a> - 2015-09-20<a class="headerlink" href="#20-2015-09-20" title="Permanent link">&para;</a></h2>
+<p>Support for multiple instances and event based services, as well as the
+introduction of an <code>initctl</code> tool.</p>
+<p><strong>Note:</strong> Incompatible change to syntax for custom <code>inetd</code> services,
+  c.f. Finit v<a href="https://github.com/troglobit/finit/compare/1.11...1.12">1.12</a>.</p>
+<h3 id="changes_22">Changes<a class="headerlink" href="#changes_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>The most notable change is the support for multiple instances.  A must
+  have when running multiple DHCP clients, OpenVPN tunnels, or anything
+  that means using the same command only with different arguments.  Now
+  simply add a <code>:ID</code> after the <code>service</code> keyword, where <code>ID</code> is a unique
+  instance number for that service.</p>
+<div class="highlight"><pre><span></span><code>service :1 [2345] /sbin/httpd -f -h /http -p 80   -- Web server
+service :2 [2345] /sbin/httpd -f -h /http -p 8080 -- Old web server
+</code></pre></div>
+</li>
+<li>
+<p>Another noteworthy new feature is support for starting/stopping
+  services on Netlink events:</p>
+<div class="highlight"><pre><span></span><code>service :1 [2345] &lt;!IFUP:eth0,GW&gt; /sbin/dropbear -R -F -p 22 -- SSH daemon
+</code></pre></div>
+</li>
+</ul>
+<p>Here the first instance <code>:1</code> of the SSH daemon is declared to run in
+  runlevels 2-5, but only if eth0 <code>IFUP:eth0</code> is up and a gateway <code>GW</code>
+  is set.  When the configuration changes, a new gateway is set, or if
+  somehow a new <code>IFUP</code> event for eth0 is received, then dropbear is not
+  SIGHUP'ed, but instead stop-started <code>&lt;!&gt;</code>.  The latter trick applies
+  to all services, even those that do not define any events.
+* Support for reloading <code>*.conf</code> files in <code>/etc/finit.d/</code> on SIGHUP.
+  All <code>task</code>, <code>service</code> and <code>run</code> statements can be used in these .conf
+  files.  Use the <code>telinit q</code> command, <code>initctl reload</code> or simply send
+  <code>SIGHUP</code> to PID 1 to reload them.  Finit automatically does reload of
+  these <code>*.conf</code> files when changing runlevel.
+* Support for a modern <code>initctl</code> tool which can stop/start/reload and
+  list status of all system services.  Also, the old client tool used
+  to change runlevel is now also available as a symlink: <code>telinit</code>.</p>
+<div class="highlight"><pre><span></span><code>    initctl [-v] &lt;status|stop|start|reload|restart&gt; [JOB]
+</code></pre></div>
+<ul>
+<li>
+<p>Add concept of "jobs".  This is a unique identifier, composed of a
+  service and instance number, <code>SVC:ID</code></p>
+<div class="highlight"><pre><span></span><code>initctl &lt;stop|start|reload|restart&gt; JOB
+</code></pre></div>
+</li>
+<li>
+<p>Support for <em>deny filters</em> in <code>inetd</code> services.</p>
+<div class="highlight"><pre><span></span><code>inetd service/proto[@iface,!iface,...] &lt;/path/to/cmd | internal[.service]&gt;
+</code></pre></div>
+</li>
+</ul>
+<p>Internal services on a custom port must use the <code>internal.service</code>
+  syntax so Finit can properly bind the inetd service to the correct
+  plugin.  Here follows a few examples:</p>
+<div class="highlight"><pre><span></span><code>    inetd time/udp                    wait [2345] internal                -- UNIX rdate service
+    inetd time/tcp                  nowait [2345] internal                -- UNIX rdate service
+    inetd 3737/tcp                  nowait [2345] internal.time           -- UNIX rdate service
+    inetd telnet/tcp@*,!eth1,!eth0, nowait [2345] /sbin/telnetd -i -F     -- Telnet service
+    inetd 2323/tcp@eth1,eth2,eth0   nowait [2345] /sbin/telnetd -i -F     -- Telnet service
+    inetd 222/tcp@eth0              nowait [2345] /sbin/dropbear -i -R -F -- SSH service
+    inetd ssh/tcp@*,!eth0           nowait [2345] /sbin/dropbear -i -R -F -- SSH service
+</code></pre></div>
+<p>Access to telnet on port <code>2323</code> is only possible from interfaces
+  <code>eth0</code>, <code>eth1</code> and <code>eth2</code>.  The standard telnet port (<code>23</code>) is
+  available from all other interfaces, but also <code>eth2</code>.  The <code>*</code>
+  notation used in the ssh stanza means <em>any</em> interface, however, here
+  <code>eth0</code> is not allowed.</p>
+<p><strong>NOTE:</strong> This change breaks syntax compatibility with Finit v<a href="https://github.com/troglobit/finit/compare/1.11...1.12">1.12</a>.
+* Support for a more user-friendly configure script rather than editing
+  the top Makefile, or setting environment variables at build time.
+* Support for building Finit statically, no external libraries.  This
+  unfortunately means that some plugins cannot be built, at all.
+  Big thanks goes to James Mills for all help testing this out!
+* Support for disabling the built-in inetd server with <code>configure</code>.
+* Support for two new hook points: <code>HOOK_SVC_RECONF</code> and
+  <code>HOOK_RUNLEVEL_CHANGE</code>.  See the source for the exact location.
+* The <code>include &lt;FILE&gt;</code> option now needs an absolute path to <code>FILE</code>.</p>
+<h3 id="fixes_22">Fixes<a class="headerlink" href="#fixes_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Rename <code>patches/</code> to <code>contrib/</code> to simplify integration in 3rd party
+  build systems.</li>
+<li>Fix for unwanted zombies ... when receiving SIGCHLD we must reap <em>all</em>
+  children.  We only receive one signal, but multiple processes may have
+  exited and need to be collected.</li>
+</ul>
+<h2 id="112-2015-03-04"><a href="https://github.com/troglobit/finit/compare/1.11...1.12">1.12</a> - 2015-03-04<a class="headerlink" href="#112-2015-03-04" title="Permanent link">&para;</a></h2>
+<p>The inetd release.</p>
+<h3 id="changes_23">Changes<a class="headerlink" href="#changes_23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for built-in inetd super server -- launch services on
+  demand.  Supports filtering per interface and custom Inet ports.</li>
+<li>Upgrade to <a href="https://github.com/troglobit/libuev">libuEv</a> v1.1.0 to better handle error conditions.</li>
+<li>Allow mixed case config directives in <code>finit.conf</code></li>
+<li>Add support for RFC 868 (rdate) time plugin, start as inetd service.</li>
+<li>Load plugins before parsing <code>finit.conf</code>, this makes it possible to
+  extend finit even with configuration commands.  E.g., the <code>time.so</code>
+  plugin must be loaded for the <code>inetd time/tcp internal</code> service to be
+  accepted when parsing <code>finit.conf</code>.</li>
+<li>Slight change in TTY fallback behavior, if no TTY is listed in the
+  system <code>finit.conf</code> first inspect the <code>console</code> setting and only if
+  that too is unset fall back to <code>/bin/sh</code></li>
+<li>When falling back to the <code>console</code> TTY or <code>/bin/sh</code>, finit now marks
+  this fallback as console.  Should improve usability in some use cases.</li>
+</ul>
+<h3 id="fixes_23">Fixes<a class="headerlink" href="#fixes_23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Revert "Use vfork() instead of fork() before exec()" from v1.11.  It
+  turned out to not work so well after all.  For instance, launching
+  TTYs in a background process completely blocked inetd services from
+  even starting up listening sockets ... proper fork seems to work fine
+  though.  This is the cause for <em>yanking</em> the <a href="https://github.com/troglobit/finit/compare/1.10...1.11">1.11</a> release, below.</li>
+<li>Trap segfaults caused by external plugins/callbacks in a sub-process.
+  This prevents a single programming mistake in by a 3rd party developer
+  from taking down the entire system.</li>
+<li>Fix Coverity CID 56281: dlopen() resource leak by storing the pointer.
+  For the time being we do not support unloading plugins.</li>
+<li>Set hostname early, so bootstrap processes like syslog can use it.</li>
+<li>Only restart <em>lost daemons</em> when recovering from a SIGSTOP/norespawn.</li>
+</ul>
+<h2 id="111-2015-01-24-yanked"><a href="https://github.com/troglobit/finit/compare/1.10...1.11">1.11</a> - 2015-01-24 [YANKED]<a class="headerlink" href="#111-2015-01-24-yanked" title="Permanent link">&para;</a></h2>
+<p>The <a href="https://github.com/troglobit/libuev">libuEv</a> release.</p>
+<p><strong>Note:</strong> This release has been <em>yanked</em> from distribution due to a
+  regression in launching background processes and TTY's.  Fixed in
+  Finit v<a href="https://github.com/troglobit/finit/compare/1.11...1.12">1.12</a>.</p>
+<h3 id="changes_24">Changes<a class="headerlink" href="#changes_24" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Now using the asynchronous libuEv library for handling all events:
+  signals, timers and listening to sockets or file descriptors.</li>
+<li>Rename NEWS.md --&gt; CHANGELOG.md, with symlinks for <code>make install</code></li>
+<li>Attempt to align with http://keepachangelog.com/ for this file.</li>
+<li>Travis CI now only invokes Coverity Scan from the 'dev' branch.  This
+  means that all development, except documentation updates, must go into
+  that branch.</li>
+</ul>
+<h3 id="fixes_24">Fixes<a class="headerlink" href="#fixes_24" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix bug with finit dying when no <code>tty</code> is defined in <code>finit.conf</code>, now
+  even the fallback shell has control over its TTY, see fix in GIT
+  commit <a href="https://github.com/troglobit/finit/commit/dea3ae8">dea3ae8</a> for this.</li>
+</ul>
+<h2 id="110-2014-11-27"><a href="https://github.com/troglobit/finit/compare/1.9...1.10">1.10</a> - 2014-11-27<a class="headerlink" href="#110-2014-11-27" title="Permanent link">&para;</a></h2>
+<p>Major bug fix release.</p>
+<h3 id="changes_25">Changes<a class="headerlink" href="#changes_25" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Project now relies on static code analysis from Coverity, so this
+  release contains many serious bug fixes.</li>
+<li>Convert to use Markdown for README, NEWS and TODO.</li>
+<li>Serious update to README and slight pruning of finished TODO items.</li>
+</ul>
+<h3 id="fixes_25">Fixes<a class="headerlink" href="#fixes_25" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix serious file descriptor and memory leaks in the following
+  functions.  In particular the leaks in <code>run_interactive()</code> are very
+  serious since that function is called every time a service is started
+  and/or restarted!  For details, see the GIT log:</li>
+<li><code>helpers.c:run()</code></li>
+<li><code>helpers.c:run_interactive()</code></li>
+<li><code>helpers.c:set_hostname()</code></li>
+<li><code>helpers.c:procname_kill()</code></li>
+<li><code>svc.c:svc_start()</code>: Fix swapped arguments to dup2() and add close(fd)
+  to prevent descriptor leak.</li>
+<li><code>svc.c:svc_start()</code>: Fix out of bounds write to local stack variable,
+  wrote off-by-one outside array.</li>
+<li>Several added checks for return values to <code>mknod()</code>, <code>mkdir()</code>,
+  <code>remove()</code>, etc.</li>
+</ul>
+<h2 id="19-2014-04-21"><a href="https://github.com/troglobit/finit/compare/1.8...1.9">1.9</a> - 2014-04-21<a class="headerlink" href="#19-2014-04-21" title="Permanent link">&para;</a></h2>
+<h3 id="changes_26">Changes<a class="headerlink" href="#changes_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for an include directive to <code>.conf</code> files</li>
+<li>Fallback to <code>/bin/sh</code> if user forgets tty setting</li>
+<li>Initial support for restarting lost services during <code>norespwan</code></li>
+</ul>
+<h3 id="fixes_26">Fixes<a class="headerlink" href="#fixes_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Bug fixes, code cleanup</li>
+<li>Handle <code>SIGHUP</code> from service callback properly when switching runlevel</li>
+<li>Misc. major (memleak) and minor fixes and additions to <code>libite/lite.h</code></li>
+</ul>
+<h2 id="18-2013-06-07"><a href="https://github.com/troglobit/finit/compare/1.7...1.8">1.8</a> - 2013-06-07<a class="headerlink" href="#18-2013-06-07" title="Permanent link">&para;</a></h2>
+<h3 id="changes_27">Changes<a class="headerlink" href="#changes_27" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for runlevels, with a bootstrap runlevel 'S'</li>
+<li>Support for saving previous and current runlevel to UTMP</li>
+<li>Support for new <code>finit.conf</code> commands: run, task, and runlevel</li>
+<li>Support for tty and console commands in <code>finit.conf</code>, like services
+  but for launching multiple getty logins</li>
+<li>New tty plugin to monitor TTYs coming and going, like USB TTYs</li>
+</ul>
+<h3 id="fixes_27">Fixes<a class="headerlink" href="#fixes_27" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Bugfixes to libite</li>
+</ul>
+<h2 id="17-2012-10-08"><a href="https://github.com/troglobit/finit/compare/1.6...1.7">1.7</a> - 2012-10-08<a class="headerlink" href="#17-2012-10-08" title="Permanent link">&para;</a></h2>
+<h3 id="changes_28">Changes<a class="headerlink" href="#changes_28" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Show <code>__FILE__</code> in <code>_d()</code> debug messages, useful for plugins with
+  similarly named callbacks. Also, only in debug mode anyway</li>
+<li>Make sure to cleanup recorded PID when a service is lost.  Required by
+  service plugins for their callbacks to work.</li>
+<li>Only clear screen when in verbose mode. Maybe this should be removed
+  altogether?</li>
+</ul>
+<h3 id="fixes_28">Fixes<a class="headerlink" href="#fixes_28" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Bugfix: Do not <code>free()</code> static string in <code>finit.conf</code> parser</li>
+</ul>
+<h2 id="16-2012-10-06"><a href="https://github.com/troglobit/finit/compare/1.5...1.6">1.6</a> - 2012-10-06<a class="headerlink" href="#16-2012-10-06" title="Permanent link">&para;</a></h2>
+<h3 id="changes_29">Changes<a class="headerlink" href="#changes_29" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Skip <code>.</code> and <code>..</code> in plugin loader and display error when failing to
+  load plugins</li>
+<li>Support for overriding <code>/etc/finit.d</code> with <code>runparts DIR</code> in
+  <code>finit.conf</code></li>
+<li>Revoke support for starting services not starting with a slash.</li>
+<li>Prevent endless restart of non-existing services in <code>finit.conf</code></li>
+<li>Support for sysvinit style startstop scripts in <code>/etc/finit.d</code></li>
+</ul>
+<h3 id="fixes_29">Fixes<a class="headerlink" href="#fixes_29" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Minor fix to alsa-utils plugin to silence on non-existing cards</li>
+</ul>
+<h2 id="15-2012-10-03"><a href="https://github.com/troglobit/finit/compare/1.4...1.5">1.5</a> - 2012-10-03<a class="headerlink" href="#15-2012-10-03" title="Permanent link">&para;</a></h2>
+<h3 id="changes_30">Changes<a class="headerlink" href="#changes_30" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use bootmisc plugin to setup standard FHS 2.3 structure in <code>/var</code></li>
+<li>Added <code>FLOG_WARN()</code> syslog macro, for plugins</li>
+<li>Add plugin dependency resolver. Checks <code>plugin_t</code> for <code>.depends</code></li>
+</ul>
+<h2 id="14-2012-10-02"><a href="https://github.com/troglobit/finit/compare/1.3...1.4">1.4</a> - 2012-10-02<a class="headerlink" href="#14-2012-10-02" title="Permanent link">&para;</a></h2>
+<h3 id="changes_31">Changes<a class="headerlink" href="#changes_31" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start refactoring helpers.c into a libite.so (-lite).  This means
+  other user space applications/daemons can make use of the neat toolbox
+  available in finit</li>
+<li>Use short-form -s/-w -u to work with BusyBox hwclock as well</li>
+<li>Use RTLD_GLOBAL flag to tell dynamic loader to load dependent .so
+  files as well.  Lets other plugins use global symbols.</li>
+<li>Greatly simplify svc hook for external plugins and cleanup plugin API.</li>
+<li>And more ... see the GIT log for more details.</li>
+</ul>
+<h3 id="fixes_30">Fixes<a class="headerlink" href="#fixes_30" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix I/O plugin watcher and load plugins earlier for a new hook</li>
+</ul>
+<h2 id="13-2012-09-28"><a href="https://github.com/troglobit/finit/compare/1.2...1.3">1.3</a> - 2012-09-28<a class="headerlink" href="#13-2012-09-28" title="Permanent link">&para;</a></h2>
+<h3 id="changes_32">Changes<a class="headerlink" href="#changes_32" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cleanup public plugin API a bit and add new pid/pidfile funcs</li>
+<li>Add plugin hook to end of service startup</li>
+<li>Remove finit.h from svc.h, plugins should not need this.</li>
+<li>Move utility macros etc. to helpers.h</li>
+<li>Make <code>finit.h</code> daemon internal, only</li>
+<li>Move defines of FIFO, conf and rcS.d to Makefile =&gt; correct paths</li>
+<li>Add support for installing required headers in system include dir</li>
+<li>Better support for distributions and packagers with install-exec,
+  install-data, and install-dev targets in Makefile.  Useful if you want
+  to call targets with different <code>$DESTDIR</code>!</li>
+<li>Makefile fixes for installation, paths encoded wrong</li>
+<li>Strip binaries + .so files, support for <code>$(CROSS)</code> toolchain strip</li>
+<li>Default install is now to <code>/sbin/finit</code> and <code>/usr/</code></li>
+<li>Note change in <code>$PLUGIN_DIR</code> environment variable to <code>$plugindir</code></li>
+</ul>
+<h2 id="12-2012-09-27"><a href="https://github.com/troglobit/finit/compare/1.1...1.2">1.2</a> - 2012-09-27<a class="headerlink" href="#12-2012-09-27" title="Permanent link">&para;</a></h2>
+<h3 id="changes_33">Changes<a class="headerlink" href="#changes_33" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update README with section on building and environment variables</li>
+</ul>
+<h3 id="fixes_31">Fixes<a class="headerlink" href="#fixes_31" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix installation paths encoded in finit binary</li>
+</ul>
+<h2 id="11-2012-09-27"><a href="https://github.com/troglobit/finit/compare/1.0...1.1">1.1</a> - 2012-09-27<a class="headerlink" href="#11-2012-09-27" title="Permanent link">&para;</a></h2>
+<h3 id="changes_34">Changes<a class="headerlink" href="#changes_34" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Rename signal.[ch]--&gt;sig.[ch] to avoid name clash w/ system headers</li>
+</ul>
+<h3 id="fixes_32">Fixes<a class="headerlink" href="#fixes_32" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Build fixes for ARM eabi/uClibc</li>
+</ul>
+<h2 id="10-2012-09-26"><a href="https://github.com/troglobit/finit/compare/0.9...1.0">1.0</a> - 2012-09-26<a class="headerlink" href="#10-2012-09-26" title="Permanent link">&para;</a></h2>
+<h3 id="changes_35">Changes<a class="headerlink" href="#changes_35" title="Permanent link">&para;</a></h3>
+<ul>
+<li>New plugin based system for all odd extensions</li>
+<li>New service monitor that restarts services if they die</li>
+<li>New maintainer at GitHub http://github.com/troglobit/finit</li>
+<li>Add standard LICENSE and AUTHORS files</li>
+<li>New focus: embedded systems and small headless servers</li>
+</ul>
+<h2 id="06-2010-06-14"><a href="https://github.com/troglobit/finit/compare/0.5...0.6">0.6</a> - 2010-06-14<a class="headerlink" href="#06-2010-06-14" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Don't start consolekit manually, dbus starts it (rtp)</li>
+<li>Unmount all filesystems before rebooting</li>
+<li>Disable <code>USE_VAR_RUN_RESOLVCONF</code> for Mandriva</li>
+<li>Unset terminal type in Mandriva before running X</li>
+<li>Remove extra sleep in finit-alt before calling services.sh (caio)</li>
+</ul>
+<h2 id="05-2008-08-21"><a href="https://github.com/troglobit/finit/compare/0.4...0.5">0.5</a> - 2008-08-21<a class="headerlink" href="#05-2008-08-21" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Add option to start dbus and consolekit before the X server</li>
+<li>finit-alt listens to <code>/dev/initctl</code> to work with <code>reboot(8)</code> (smurfy)</li>
+<li>Write runlevel to utmp, needed by Printerdrake (Pascal Terjan)</li>
+<li>Fix ownership of <code>/var/run/utmp</code> (reported by Pascal Terjan)</li>
+<li>Remove obsolete code to load AGP drivers</li>
+<li>Conditional build of <code>/etc/resolveconf/run</code> support</li>
+<li>Add support to <code>/var/run/resolvconf</code> in Mandriva (blino)</li>
+</ul>
+<h2 id="04-2008-05-16"><a href="https://github.com/troglobit/finit/compare/0.3...0.4">0.4</a> - 2008-05-16<a class="headerlink" href="#04-2008-05-16" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Default username for finit-alt configurable in Makefile</li>
+<li>Create loopback device node in finit-alt (for squashfs)</li>
+<li>Add option to use built-in run-parts instead of <code>/bin/run-parts</code></li>
+<li>Ignore signal instead of setting to an empty handler (Metalshark)</li>
+<li>Handle pam_console permissions in finit-alt for Mandriva</li>
+<li>Add services.sh example and nash-hotplug patch for Mandriva</li>
+<li>Mount <code>/proc/bus/usb</code> in Mandriva</li>
+<li>Add runtime debug to finit-alt if finit_debug parameter is specified</li>
+<li>Read configuration from <code>/etc/finit.conf</code></li>
+<li>Run getty with openvt on the virtual terminal</li>
+</ul>
+<h2 id="03-2008-02-23"><a href="https://github.com/troglobit/finit/compare/0.2...0.3">0.3</a> - 2008-02-23<a class="headerlink" href="#03-2008-02-23" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Change poweroff method to <code>reboot(RB_POWER_OFF)</code> (Metalshark)</li>
+<li>Remove duplicate <code>unionctl()</code> reimplementation error</li>
+<li>Fix string termination in path creation</li>
+<li>Mount <code>/var/lock</code> and <code>/var/run</code> as tmpfs</li>
+</ul>
+<h2 id="02-2008-02-19"><a href="https://github.com/troglobit/finit/compare/0.1...0.2">0.2</a> - 2008-02-19<a class="headerlink" href="#02-2008-02-19" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Replace <code>system("touch")</code> with <code>touch()</code> in finit-mod (Metalshark)</li>
+<li>Disable <code>NO_HCTOSYS</code> by default to match stock Eeepc kernel</li>
+<li>Drop <code>system("rm -f")</code> to clean <code>/tmp</code>, its a fresh mounted tmpfs</li>
+<li>Write ACPI sleep state to <code>/sys/power/state</code> instead of
+  <code>/proc/acpi/sleep</code> (Metalshark)</li>
+<li>Use direct calls to set loopback instead of <code>system("ifconfig")</code></li>
+<li>Replace <code>system("cat")</code> and <code>system("dd")</code> with C implementation</li>
+<li>Moved finit-mod and finit-alt helpers to <code>helpers.c</code></li>
+<li>Replace <code>system("echo;cat")</code> to draw shutdown splash with C calls</li>
+</ul>
+<h2 id="01-2008-02-14">0.1 - 2008-02-14<a class="headerlink" href="#01-2008-02-14" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Initial release</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2008-2025 Joachim Wiberg
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["toc.follow", "toc.integrate", "navigation.path", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.footer", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
