@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../switchroot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Root
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../commands/" class="md-nav__link">
         
   
@@ -1615,6 +1643,17 @@
     <span class="md-ellipsis">
       
         Runtime Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-root-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switch Root Hooks
       
     </span>
   </a>
@@ -2037,6 +2076,15 @@ you must build with <code>configure --enable-hook-scripts-plugin</code>.</p>
   Finit continues to start all services in the new runlevel.</p>
 </li>
 </ul>
+<h3 id="switch-root-hooks">Switch Root Hooks<a class="headerlink" href="#switch-root-hooks" title="Permanent link">¶</a></h3>
+<ul>
+<li><code>HOOK_SWITCH_ROOT</code>, <code>hook/sys/switchroot</code>: Called when
+  <code>initctl switch-root</code> is issued, before the transition begins.  Use
+  this hook to save state, unmount initramfs-only filesystems, or perform
+  cleanup before switching to the new root.  Only runs when Finit is
+  operating as PID 1 in an initramfs.</li>
+</ul>
+<p>See the <a href="../switchroot/">Switch Root</a> section for more information.</p>
 <h3 id="shutdown-hooks">Shutdown Hooks<a class="headerlink" href="#shutdown-hooks" title="Permanent link">¶</a></h3>
 <ul>
 <li>

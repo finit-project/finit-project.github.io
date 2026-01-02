@@ -2,150 +2,154 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>http://finit-project.github.io/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/build/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/cmdline/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/commands/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/conditions/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/distro/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/example/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/features/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/initctl/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/keventd/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/plugins/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/requirements/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/runlevels/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/runparts/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/service/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/signals/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/state-machine/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
+    </url>
+    <url>
+         <loc>http://finit-project.github.io/switchroot/</loc>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/watchdog/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/capabilities/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/cgroups/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/env/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/files/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/limitations/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/logging/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/rescue/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/runlevels/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/runparts/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/service-env/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/service-opts/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/service-sync/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/service-wrappers/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/services/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/sysv/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/task-and-run/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/templating/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
     <url>
          <loc>http://finit-project.github.io/config/tty/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-02</lastmod>
     </url>
 </urlset>

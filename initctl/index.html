@@ -13,7 +13,7 @@
         <link rel="prev" href="../config/limitations/">
       
       
-        <link rel="next" href="../commands/">
+        <link rel="next" href="../switchroot/">
       
       
         
@@ -1273,6 +1273,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands &amp; Status
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1290,6 +1308,64 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#switch-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switch Root
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../switchroot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Root
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1784,8 +1860,9 @@ not return until the given command has fully completed.</p>
 <a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>  halt                      Halt system
 <a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>  poweroff                  Halt and power off system
 <a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>  suspend                   Suspend system
-<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>  utmp     show             Raw dump of UTMP/WTMP db
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>  switch-root NEWROOT [INIT]  Switch to new root filesystem (initramfs only)
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>  utmp     show             Raw dump of UTMP/WTMP db
 </code></pre></div>
 <p>For services <em>not</em> supporting <code>SIGHUP</code> the <code>&lt;!&gt;</code> notation in the .conf
 file must be used to tell Finit to stop and start it on <code>reload</code> and
@@ -1855,6 +1932,20 @@ system:</p>
 <a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>Apr  8 15:02:11 alpine authpriv.info dropbear[2634]: Child connection from 192.168.121.1:48576
 <a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>Apr  8 15:02:12 alpine authpriv.notice dropbear[2634]: Password auth succeeded for 'root' from 192.168.121.1:48576
 </code></pre></div>
+<h2 id="switch-root">Switch Root<a class="headerlink" href="#switch-root" title="Permanent link">¶</a></h2>
+<p>The <code>switch-root</code> command is used when running Finit in an initramfs to
+transition to the real root filesystem.  This is similar to the standalone
+<code>switch_root(8)</code> utility but integrated into Finit.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>initctl switch-root /mnt/root [/sbin/init]
+</code></pre></div>
+<p>Requirements:</p>
+<ul>
+<li>Must be run during runlevel S (bootstrap) or runlevel 1</li>
+<li>The new root must be a mount point (different device than /)</li>
+<li>Can only be used when Finit is running as PID 1 in an initramfs</li>
+</ul>
+<p>For complete documentation and usage examples, see the dedicated
+<a href="../switchroot/">Switch Root</a> section.</p>
 
 
 
@@ -1901,13 +1992,13 @@ system:</p>
         
         
           
-          <a href="../commands/" class="md-footer__link md-footer__link--next" aria-label="Next: Rebooting &amp; Halting">
+          <a href="../switchroot/" class="md-footer__link md-footer__link--next" aria-label="Next: Switch Root">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Rebooting &amp; Halting
+                Switch Root
               </div>
             </div>
             <div class="md-footer__button md-icon">

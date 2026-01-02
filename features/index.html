@@ -1302,6 +1302,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../switchroot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Root
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../commands/" class="md-nav__link">
         
   
@@ -1930,6 +1958,23 @@ maintenance shell. This provides secure access for system recovery.</p>
 <code>reboot -f</code> to force reboot.</p>
 <p>Rescue mode can be disabled at build time with <code>configure --without-rescue</code>.</p>
 <p>See the <a href="../config/rescue/">Rescue Mode</a> section for more information.</p>
+<p><strong>Switch Root</strong></p>
+<p>Finit supports switching from an initramfs to a real root filesystem using
+the built-in <code>initctl switch-root</code> command.  This allows Finit to serve as
+the init system in an initramfs for early boot tasks (LUKS unlock, LVM
+activation, network boot) before transitioning to the real root.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># In initramfs, after mounting the real root:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>initctl<span class="w"> </span>switch-root<span class="w"> </span>/mnt/root
+</code></pre></div>
+<p>The switch-root operation:</p>
+<ol>
+<li>Runs the <code>HOOK_SWITCH_ROOT</code> hook for cleanup</li>
+<li>Stops all services gracefully</li>
+<li>Moves virtual filesystems (<code>/dev</code>, <code>/proc</code>, <code>/sys</code>, <code>/run</code>) to the new root</li>
+<li>Deletes initramfs contents to free memory</li>
+<li>Pivots to the new root and execs the new init</li>
+</ol>
+<p>See the <a href="../switchroot/">Switch Root</a> section for complete documentation.</p>
 
 
 

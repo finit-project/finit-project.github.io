@@ -7,13 +7,13 @@
       
       
       
-        <link rel="canonical" href="http://finit-project.github.io/keventd/">
+        <link rel="canonical" href="http://finit-project.github.io/switchroot/">
       
       
-        <link rel="prev" href="../watchdog/">
+        <link rel="prev" href="../initctl/">
       
       
-        <link rel="next" href="../state-machine/">
+        <link rel="next" href="../commands/">
       
       
         
@@ -24,7 +24,7 @@
     
     
       
-        <title>keventd - </title>
+        <title>Switch Root - </title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#keventd" class="md-skip">
+        <a href="#switch-root" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              keventd
+              Switch Root
             
           </span>
         </div>
@@ -274,10 +274,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../initctl/" class="md-tabs__link">
           
   
@@ -294,12 +296,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../runlevels/" class="md-tabs__link">
           
   
@@ -1206,24 +1206,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1241,7 +1246,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1284,10 +1289,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../switchroot/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Root
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1303,6 +1335,114 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-initramfs-finitconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Initramfs finit.conf
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-using-runlevel-1-for-switch-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Using Runlevel 1 for Switch Root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1431,29 +1571,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -1471,7 +1606,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1598,19 +1733,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../keventd/" class="md-nav__link">
         
   
   
@@ -1626,7 +1752,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1749,16 +1874,117 @@
   
 
 
-<h1 id="keventd">keventd<a class="headerlink" href="#keventd" title="Permanent link">¶</a></h1>
-<p>The kernel event daemon bundled with Finit is a simple uevent monitor
-for <code>/sys/class/power_supply</code>.  It provides the <code>sys/pwr/ac</code> condition,
-which can be useful to prevent power hungry services like anacron to run
-when a laptop is only running on battery, for instance.</p>
-<p>Since keventd is not an integral part of Finit yet it is not enabled by
-default.  Enable it using <code>./configure --with-keventd</code>.  The bundled
-<code>contrib/</code> build scripts for Debian, Alpine, and Void have this enabled.</p>
-<p>This daemon is planned to be extended with monitoring of other uevents,
-patches and ideas are welcome in the issue tracker.</p>
+<h1 id="switch-root">Switch Root<a class="headerlink" href="#switch-root" title="Permanent link">¶</a></h1>
+<p>Finit supports switching from an initramfs to a real root filesystem
+using the <code>initctl switch-root</code> command.  This is useful for systems
+that use an initramfs for early boot (LUKS, LVM, network boot, etc.)
+and need to transition to the real root before starting services.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>initctl<span class="w"> </span>switch-root<span class="w"> </span>NEWROOT<span class="w"> </span><span class="o">[</span>INIT<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li><code>NEWROOT</code>: Path to the mounted new root filesystem (e.g., <code>/mnt/root</code>)</li>
+<li><code>INIT</code>: Optional path to init on the new root (default: <code>/sbin/init</code>)</li>
+</ul>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
+<ol>
+<li>Must be run during runlevel S (bootstrap) or runlevel 1</li>
+<li><code>NEWROOT</code> must be a mount point (different device than /)</li>
+<li><code>INIT</code> must exist and be executable on the new root</li>
+<li>Finit must be running as PID 1 (in initramfs)</li>
+</ol>
+<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">¶</a></h2>
+<ol>
+<li>Runs <code>HOOK_SWITCH_ROOT</code> for any cleanup scripts/plugins</li>
+<li>Runs <code>HOOK_SHUTDOWN</code> to notify plugins</li>
+<li>Stops all services and kills remaining processes</li>
+<li>Exits all plugins gracefully</li>
+<li>Moves <code>/dev</code>, <code>/proc</code>, <code>/sys</code>, <code>/run</code> to new root</li>
+<li>Deletes initramfs contents (if on tmpfs/ramfs) to free memory</li>
+<li>Moves new root mount to <code>/</code></li>
+<li>Chroots to new root</li>
+<li>Reopens <code>/dev/console</code> for stdin/stdout/stderr</li>
+<li>Execs new init as PID 1</li>
+</ol>
+<h2 id="example-initramfs-finitconf">Example: Initramfs finit.conf<a class="headerlink" href="#example-initramfs-finitconf" title="Permanent link">¶</a></h2>
+<p>Configuration file <code>/etc/finit.conf</code> in the initramfs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># /etc/finit.conf in initramfs
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a># Mount the real root filesystem
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>run [S] name:mount-root /bin/mount /dev/sda1 /mnt/root -- Mounting root filesystem
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a># Switch to real root after mount completes
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>run [S] name:switch-root /sbin/initctl switch-root /mnt/root -- Switching to real root
+</code></pre></div>
+<p>For more complex setups (LUKS, LVM, etc.):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># Unlock LUKS volume
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>run [S] name:cryptsetup /sbin/cryptsetup open /dev/sda2 cryptroot -- Unlocking encrypted root
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a># Activate LVM
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>run [S] name:lvm /sbin/lvm vgchange -ay -- Activating LVM volumes
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a># Mount root
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>run [S] name:mount-root /bin/mount /dev/vg0/root /mnt/root -- Mounting root
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a># Switch root
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>run [S] name:switch-root /sbin/initctl switch-root /mnt/root -- Switching to real root
+</code></pre></div>
+<h2 id="example-using-runlevel-1-for-switch-root">Example: Using Runlevel 1 for Switch Root<a class="headerlink" href="#example-using-runlevel-1-for-switch-root" title="Permanent link">¶</a></h2>
+<p>For more complex initramfs setups where ordering of tasks becomes
+difficult in runlevel S, you can perform the switch-root in runlevel 1:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># /etc/finit.conf in initramfs
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a># Start mdevd for device handling
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>service [S] name:mdevd notify:s6 /sbin/mdevd -D %n -- Device event daemon
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>run [S] name:coldplug &lt;service/mdevd/ready&gt; /sbin/mdevd-coldplug -- Coldplug devices
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># Mount the real root filesystem (after devices are ready)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>run [S] name:mount-root &lt;run/coldplug/success&gt; /bin/mount /dev/sda1 /mnt/root -- Mounting root
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a># Transition to runlevel 1 after all S tasks complete
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a># The switch-root runs cleanly in runlevel 1
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>run [1] name:switch-root /sbin/initctl switch-root /mnt/root -- Switching to real root
+</code></pre></div>
+<p>This approach separates the initramfs setup (runlevel S) from the
+switch-root operation (runlevel 1), making task ordering simpler.</p>
+<h2 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">¶</a></h2>
+<p>The <code>HOOK_SWITCH_ROOT</code> hook runs before the switch begins.  Use it for:</p>
+<ul>
+<li>Saving state to the new root</li>
+<li>Unmounting initramfs-only mounts</li>
+<li>Cleanup tasks</li>
+</ul>
+<p>Plugins can register for <code>HOOK_SWITCH_ROOT</code> just like other hooks:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">my_switch_root_hook</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="cm">/* Cleanup before switch_root */</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">static</span><span class="w"> </span><span class="n">plugin_t</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"my-plugin"</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">.</span><span class="n">hook</span><span class="p">[</span><span class="n">HOOK_SWITCH_ROOT</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="p">.</span><span class="n">cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_switch_root_hook</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">};</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">PLUGIN_INIT</span><span class="p">(</span><span class="n">plugin_init</span><span class="p">)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">{</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="n">plugin_register</span><span class="p">(</span><span class="o">&amp;</span><span class="n">plugin</span><span class="p">);</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="conditions">Conditions<a class="headerlink" href="#conditions" title="Permanent link">¶</a></h2>
+<p>After switch_root, the new finit instance starts fresh.  No conditions
+or state are preserved across the switch.  The new finit will:</p>
+<ol>
+<li>Re-read <code>/etc/finit.conf</code> from the new root</li>
+<li>Re-initialize all conditions</li>
+<li>Start services according to the new configuration</li>
+</ol>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://man7.org/linux/man-pages/man8/switch_root.8.html">switch_root(8)</a> - util-linux switch_root utility</li>
+<li><a href="https://docs.kernel.org/filesystems/ramfs-rootfs-initramfs.html">Kernel initramfs documentation</a></li>
+</ul>
 
 
 
@@ -1788,7 +2014,7 @@ patches and ideas are welcome in the issue tracker.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../watchdog/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Watchdog">
+          <a href="../initctl/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Commands &amp; Status">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -1798,20 +2024,20 @@ patches and ideas are welcome in the issue tracker.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Watchdog
+                Commands &amp; Status
               </div>
             </div>
           </a>
         
         
           
-          <a href="../state-machine/" class="md-footer__link md-footer__link--next" aria-label="Next: Service State Machine">
+          <a href="../commands/" class="md-footer__link md-footer__link--next" aria-label="Next: Rebooting &amp; Halting">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Service State Machine
+                Rebooting &amp; Halting
               </div>
             </div>
             <div class="md-footer__button md-icon">
