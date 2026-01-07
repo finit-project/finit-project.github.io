@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#top-level-group-configuration" class="md-skip">
+        <a href="#top-level-cgroup-definition" class="md-skip">
           Skip to content
         </a>
       
@@ -1095,10 +1095,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#top-level-group-configuration" class="md-nav__link">
+  <a href="#top-level-cgroup-definition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Top-level Group Configuration
+        Top-level Cgroup Definition
       
     </span>
   </a>
@@ -1106,15 +1106,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#selecting-cgroups" class="md-nav__link">
+  <a href="#global-cgroup-selector" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Selecting Cgroups
+        Global Cgroup Selector
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Selecting Cgroups">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-service-cgroup-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Service Cgroup Option
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Per-Service Cgroup Option">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1834,19 +1845,41 @@
 
   <h1>Cgroups</h1>
 
-<p>There are three major cgroup configuration directives:</p>
+<p>Finit provides three different cgroup directives for controlling resource allocation:</p>
 <ol>
-<li>Global top-level group: <code>init</code>, <code>system</code>, <code>user</code>, or a custom group</li>
-<li>Selecting a top-level group for a set of run/task/services</li>
-<li>Per run/task/service limits</li>
+<li>
+<p><strong>Top-level cgroup definition</strong>: <code>cgroup NAME settings</code></p>
+<ul>
+<li>Defines a top-level cgroup (e.g., <code>init</code>, <code>system</code>, <code>user</code>) with default settings</li>
+<li>Space-separated syntax</li>
+<li>Example: <code>cgroup system cpu.weight:9700</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Global cgroup selector</strong>: <code>cgroup.NAME[,options]</code> (standalone directive)</p>
+<ul>
+<li>Sets the default cgroup for subsequent services in a <code>.conf</code> file</li>
+<li>Dot-separated with optional comma-separated options</li>
+<li>Example: <code>cgroup.maint</code> or <code>cgroup.system,delegate</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Per-service cgroup option</strong>: <code>cgroup.NAME[,options]</code> or <code>cgroup:options</code></p>
+<ul>
+<li>Overrides the cgroup for a specific service</li>
+<li>Part of the service directive line</li>
+<li>Example: <code>service [...] cgroup.maint,mem.max:1G /path/to/cmd</code></li>
+</ul>
+</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Linux cgroups and details surrounding values are not explained in the
-Finit documentation.  The Linux admin-guide cover this well:
+Finit documentation.  The Linux admin-guide covers this well:
 <a href="https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html">https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html</a></p>
 </div>
-<h2 id="top-level-group-configuration">Top-level Group Configuration<a class="headerlink" href="#top-level-group-configuration" title="Permanent link">¶</a></h2>
+<h2 id="top-level-cgroup-definition">Top-level Cgroup Definition<a class="headerlink" href="#top-level-cgroup-definition" title="Permanent link">¶</a></h2>
+<p><strong>Syntax:</strong> <code>cgroup NAME settings</code></p>
 <div class="highlight"><pre><span></span><code># Top-level cgroups and their default settings.  All groups mandatory
 # but more can be added, max 8 groups in total currently.  The cgroup
 # 'root' is also available, reserved for RT processes.  Settings are
@@ -1867,23 +1900,36 @@ cgroup maint  cpu.weight:100
 <p>By default, the <code>system/</code> cgroup is selected for almost everything.  The
 <code>init/</code> cgroup is reserved for PID 1 itself and its closest relatives.
 The <code>user/</code> cgroup is for local TTY logins spawned by getty.</p>
-<h2 id="selecting-cgroups">Selecting Cgroups<a class="headerlink" href="#selecting-cgroups" title="Permanent link">¶</a></h2>
-<p>To select a different top-level cgroup, e.g. <code>maint/</code>, one can either
-define it for a group of run/task/service directives in a <code>.conf</code> or per
-each stanza:</p>
+<h2 id="global-cgroup-selector">Global Cgroup Selector<a class="headerlink" href="#global-cgroup-selector" title="Permanent link">¶</a></h2>
+<p><strong>Syntax:</strong> <code>cgroup.NAME[,options]</code> (standalone directive)</p>
+<p>To select a different top-level cgroup, e.g. <code>maint/</code>, for a group of
+run/task/service directives in a <code>.conf</code> file, use the <code>cgroup.NAME</code>
+directive as a standalone line:</p>
 <div class="highlight"><pre><span></span><code>cgroup.maint
 service [...] &lt;...&gt; /path/to/foo args -- description
 service [...] &lt;...&gt; /path/to/bar args -- description
 </code></pre></div>
-<p>or</p>
+<p>Both services will run in the <code>maint/</code> cgroup.</p>
+<p>You can also include options with the global selector:</p>
+<div class="highlight"><pre><span></span><code>cgroup.system,delegate
+service [...] &lt;...&gt; /path/to/foo args -- description
+</code></pre></div>
+<h2 id="per-service-cgroup-option">Per-Service Cgroup Option<a class="headerlink" href="#per-service-cgroup-option" title="Permanent link">¶</a></h2>
+<p><strong>Syntax:</strong> <code>cgroup.NAME[,options]</code> or <code>cgroup:options</code> (service option)</p>
+<p>To override the cgroup for a specific service, use the <code>cgroup.NAME</code>
+option within the service directive:</p>
 <div class="highlight"><pre><span></span><code>service [...] &lt;...&gt; cgroup.maint /path/to/foo args -- description
 </code></pre></div>
-<p>The latter form also allows per-stanza limits. Two syntaxes are supported:</p>
+<p>This form also allows per-service limits. Two syntaxes are supported:</p>
 <p><strong>New comma-separated syntax (recommended):</strong></p>
 <div class="highlight"><pre><span></span><code>service [...] &lt;...&gt; cgroup.maint,cpu.max:10000,mem.max:655360 /path/to/foo args -- description
 </code></pre></div>
 <p><strong>Old colon-separated syntax (legacy):</strong></p>
 <div class="highlight"><pre><span></span><code>service [...] &lt;...&gt; cgroup.maint:cpu.max:10000,mem.max:655360 /path/to/foo args -- description
+</code></pre></div>
+<p>You can also apply options to the current default cgroup (without changing it)
+using the <code>cgroup:options</code> syntax:</p>
+<div class="highlight"><pre><span></span><code>service [...] &lt;...&gt; cgroup:cpu.max:10000,mem.max:655360 /path/to/foo args -- description
 </code></pre></div>
 <p>Both syntaxes work identically. The new comma-separated syntax is recommended
 as it's more consistent with other option parsing in Finit.</p>
@@ -1906,21 +1952,21 @@ service defined in <code>system/10-hotplug.conf</code> would create a cgroup at
 <div class="highlight"><pre><span></span><code>service [...] &lt;...&gt; cgroup.system,name:udevd,cpu.max:10000 /lib/systemd/systemd-udevd -- Device event daemon
 </code></pre></div>
 <p>Or with delegation:</p>
-<div class="highlight"><pre><span></span><code>service [2345] user:podman group:podman \
+<div class="highlight"><pre><span></span><code>service [2345] @podman:podman \
     cgroup.containers,name:podman,delegate,mem.max:4G \
     /usr/bin/podman system service -- Podman API
 </code></pre></div>
-<p>A daemon using <code>SCHED_RR</code> currently need to run outside the default cgroups.</p>
+<p>A daemon using <code>SCHED_RR</code> currently needs to run outside the default cgroups.</p>
 <div class="highlight"><pre><span></span><code>service [...] &lt;...&gt; cgroup.root /path/to/daemon arg -- Real-Time process
 </code></pre></div>
 <h2 id="cgroup-delegation">Cgroup Delegation<a class="headerlink" href="#cgroup-delegation" title="Permanent link">¶</a></h2>
 <p>For services that need to create their own child cgroups (container runtimes
 like Docker, Podman, systemd-nspawn, LXC), use the <code>delegate</code> option:</p>
-<div class="highlight"><pre><span></span><code>service [2345] user:dockerd group:dockerd \
+<div class="highlight"><pre><span></span><code>service [2345] @dockerd:dockerd \
     cgroup.system,delegate /usr/bin/dockerd -- Docker daemon
 </code></pre></div>
 <p>Or with the old colon syntax:</p>
-<div class="highlight"><pre><span></span><code>service [2345] user:dockerd group:dockerd \
+<div class="highlight"><pre><span></span><code>service [2345] @dockerd:dockerd \
     cgroup.system:delegate /usr/bin/dockerd -- Docker daemon
 </code></pre></div>
 <p>This allows the container runtime to:</p>
@@ -1939,20 +1985,30 @@ like Docker, Podman, systemd-nspawn, LXC), use the <code>delegate</code> option:
 </ol>
 <p><strong>Requirements:</strong></p>
 <ul>
-<li>The service should specify <code>user:</code> and <code>group:</code> for proper ownership</li>
+<li>The service should specify <code>@user:group</code> for proper ownership</li>
 <li>Controllers are delegated from the parent cgroup</li>
 </ul>
 <p><strong>Example with additional config (new syntax):</strong></p>
-<div class="highlight"><pre><span></span><code>service [2345] user:podman group:podman \
+<div class="highlight"><pre><span></span><code>service [2345] @podman:podman \
     cgroup.containers,delegate,mem.max:4G \
     /usr/bin/podman system service -- Podman API
 </code></pre></div>
 <p><strong>Or with old syntax:</strong></p>
-<div class="highlight"><pre><span></span><code>service [2345] user:podman group:podman \
+<div class="highlight"><pre><span></span><code>service [2345] @podman:podman \
     cgroup.containers:delegate,mem.max:4G \
     /usr/bin/podman system service -- Podman API
 </code></pre></div>
 <p>Both examples delegate the cgroup while also setting a 4GB memory limit.</p>
+<p><strong>Container template example:</strong></p>
+<p>Here's a real-world example from <a href="https://github.com/kernelkit/infix">Infix OS</a>
+for running rootful podman container instances using delegation:</p>
+<div class="highlight"><pre><span></span><code>sysv log:prio:local1,tag:%i kill:30 pid:!/run/container:%i.pid \
+    pre:0,/usr/sbin/container cleanup:0,/usr/sbin/container \
+    cgroup.system,delegate                                   \
+    [2345] &lt;!&gt; :%i container -n %i -- container %i
+</code></pre></div>
+<p>This template uses <code>sysv</code> type with delegation, demonstrating that cgroup
+delegation works with different service types, not just <code>service</code>.</p>
 <p><strong>Cgroup structure with delegation:</strong></p>
 <p>Initially, the service process runs directly in the cgroup root:</p>
 <div class="highlight"><pre><span></span><code>/sys/fs/cgroup/system/container@web/
