@@ -1857,6 +1857,11 @@ confines of that the following options are available:</p>
 <li><code>respawn</code> -- bypasses the <code>restart</code> mechanism completely, allows
     endless restarts.  Useful in many use-cases, but not what <code>service</code>
     was originally designed for so not the default behavior</li>
+<li><code>remain:yes</code> -- for <code>run</code> and <code>task</code> only.  Prevents the task from
+    re-running on runlevel re-entry and ensures the <code>post:</code> script runs
+    when the task is explicitly stopped or leaves its valid runlevels.
+    Similar to systemd's <code>RemainAfterExit=yes</code>.  See <a href="../task-and-run/">Task and Run</a>
+    for more details</li>
 <li><code>oncrash:reboot</code> -- when all retries have failed, and the service
     has <em>crashed</em>, if this option is set the system is rebooted</li>
 <li><code>oncrash:script</code> -- similarly, but instead of rebooting, call the

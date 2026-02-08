@@ -778,6 +778,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#remainyes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remain:yes
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1845,6 +1856,41 @@ redirects can be used:</p>
 </code></pre></div>
 <p>Please note, <code>;</code>, <code>&amp;&amp;</code>, <code>||</code>, and similar are <em>not supported</em>.  Any
 non-trivial constructs are better placed in a separate shell script.</p>
+<h2 id="remainyes">remain:yes<a class="headerlink" href="#remainyes" title="Permanent link">¶</a></h2>
+<p>By default, a <code>run</code> or <code>task</code> will re-run each time its runlevel is
+entered, and its <code>post:</code> script does not run on completion.</p>
+<p>With <code>remain:yes</code>, the task runs once and does not re-run on runlevel
+re-entry:</p>
+<div class="highlight"><pre><span></span><code>task [2345] remain:yes /usr/sbin/setup-firewall -- Firewall setup
+</code></pre></div>
+<p>This has the following effects:</p>
+<ul>
+<li>The task does not re-run on runlevel re-entry</li>
+<li>The <code>post:</code> script runs when:<ul>
+<li>The task is explicitly stopped (<code>initctl stop NAME</code>)</li>
+<li>The task leaves its valid runlevels (e.g., runlevel change)</li>
+</ul>
+</li>
+</ul>
+<p>This is useful for tasks that set up persistent state where:</p>
+<ul>
+<li>Cleanup should only happen on explicit stop or when leaving valid runlevels</li>
+<li>The setup should not be re-run on every runlevel entry</li>
+</ul>
+<p><strong>Example:</strong> Setting up firewall rules with cleanup on shutdown:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>task [2345] remain:yes \
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>     post:/usr/sbin/teardown-firewall \
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>     /usr/sbin/setup-firewall -- Firewall setup
+</code></pre></div>
+<p>The firewall rules are created once.  The <code>post:</code> script runs when
+entering runlevel 0 (halt) or 6 (reboot), or on explicit stop.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>remain:yes</code> option is not supported for bootstrap-only tasks
+(tasks with only runlevel S).  Bootstrap tasks are deleted immediately
+after completion, and their <code>post:</code> scripts never run.  A warning is
+logged if <code>remain:yes</code> is used on such tasks.</p>
+</div>
 
 
 
