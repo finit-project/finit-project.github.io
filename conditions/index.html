@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -709,6 +709,17 @@
     <span class="md-ellipsis">
       
         Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propagating-reload-in-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propagating Reload in Dependencies
       
     </span>
   </a>
@@ -1865,11 +1876,11 @@ of the <code>service</code>, <code>task</code>, or <code>run</code> stanza.  Mul
 specified separated by comma.  Multiple conditions are logically AND'ed
 during evaluation, i.e. all conditions must be satisfied in order for a
 service to run.</p>
-<p>A special syntax, using a leading <code>!</code> in run/task/service conditions,
-denote if a:</p>
+<p>Two special prefixes can be used inside the angle brackets:</p>
 <ul>
-<li>service does not support <code>SIGHUP</code></li>
-<li>run/task should not block runlevel changes (i.e., bootstrap)</li>
+<li><code>!</code> -- service does not support <code>SIGHUP</code> (noreload), or run/task
+   should not block runlevel changes (i.e., bootstrap)</li>
+<li><code>~</code> -- propagate reload from this dependency, see below</li>
 </ul>
 <p>Finit guarantees by default that all run/tasks run (at least) once
 per runlevel.  For most tasks this is a good default, for example
@@ -1899,6 +1910,23 @@ own task to act on it.  We do not want this task to block Finit from
 moving to the next runlevel after bootstrap, so we set <code>&lt;!&gt;</code>:</p>
 <div class="highlight"><pre><span></span><code>task [S0123456789] &lt;!sys/pwr/fail&gt; name:pwrfail initctl poweroff -- Power failure, shutting down
 </code></pre></div>
+<h2 id="propagating-reload-in-dependencies">Propagating Reload in Dependencies<a class="headerlink" href="#propagating-reload-in-dependencies" title="Permanent link">¶</a></h2>
+<p>By default, when a service reloads during <code>initctl reload</code>, dependent
+services are paused (<code>SIGSTOP</code>) and simply resumed (<code>SIGCONT</code>) when the
+condition is reasserted.  This is correct for barrier-style dependencies
+like <code>&lt;pid/syslogd&gt;</code>, where dependents just need syslogd running and do
+not care if it reloads its config.</p>
+<p>For services that need to react when their upstream reloads, the <code>~</code>
+prefix propagates the reload from the dependency:</p>
+<div class="highlight"><pre><span></span><code>service &lt;pid/svc_a&gt;   name:svc_b /sbin/svc_b -- Needs A (barrier)
+service &lt;!~pid/svc_b&gt; name:svc_c /sbin/svc_c -- Propagate reload from B
+</code></pre></div>
+<p>Here, <code>&lt;~pid/svc_b&gt;</code> means: propagate a reload of <code>svc_b</code> to <code>svc_c</code>.
+When <code>svc_b</code> reloads, <code>svc_c</code> will be restarted (because of <code>!</code>,
+noreload) instead of merely resumed.  If <code>svc_c</code> supported <code>SIGHUP</code>
+(no <code>!</code> prefix), it would be sent <code>SIGHUP</code> instead.</p>
+<p>This is similar to systemd's <code>PropagatesReloadTo=</code> directive, but
+declared on the consumer side rather than the provider side.</p>
 <h2 id="triggering">Triggering<a class="headerlink" href="#triggering" title="Permanent link">¶</a></h2>
 <p>Conditions are mainly triggered (asserted) by built-in plugins, e.g.,</p>
 <ul>
@@ -2103,6 +2131,10 @@ service will then be stopped, otherwise no further action is taken.</p>
 <p>This STOP/CONT handling minimizes the number of unnecessary service
 restarts that would otherwise occur because a depending service was sent
 <code>SIGHUP</code> for example.</p>
+<p>Services with the <code>~</code> prefix are an exception to this rule: when their
+conditions return to <code>on</code> after being in <code>flux</code>, the reload is propagated
+-- the service is reloaded (SIGHUP) or restarted (noreload <code>!</code>) instead
+of simply being resumed.</p>
 <p>Therefore, any plugin that supplies Finit with conditions must ensure
 that their state is updated after each reconfiguration.  This can be
 done by binding to the <code>HOOK_SVC_RECONF</code> hook.  For an example of how

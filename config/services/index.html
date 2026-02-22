@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -1903,6 +1903,13 @@ waits for another service, <code>zebra</code>, to have created its PID file in
 <code>/var/run/quagga/zebra.pid</code> before starting <code>ospfd</code>.  Finit watches
 <em>all</em> files in <code>/var/run</code>, for each file named <code>*.pid</code>, or <code>*/pid</code>,
 Finit opens it and find the matching <code>NAME:ID</code> using the PID.</p>
+<p>The condition can be prefixed with <code>!</code> and/or <code>~</code>:</p>
+<ul>
+<li><code>&lt;!pid/zebra&gt;</code> -- <code>ospfd</code> does not support <code>SIGHUP</code> (noreload)</li>
+<li><code>&lt;~pid/zebra&gt;</code> -- propagate reload from <code>zebra</code> to <code>ospfd</code></li>
+<li><code>&lt;!~pid/zebra&gt;</code> -- both: noreload and propagate reload</li>
+</ul>
+<p>For details, see the <a href="../../conditions/">Finit Conditions</a> document.</p>
 <p>Some services do not maintain a PID file and rather than patching each
 application Finit provides a workaround.  A <code>pid</code> keyword can be set
 to have Finit automatically create (when starting) and later remove
