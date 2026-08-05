@@ -821,6 +821,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#command-candidates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Candidates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provided-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provided Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplicate-titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duplicate Titles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#restarting" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1811,6 +1844,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#command-candidates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Candidates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provided-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provided Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplicate-titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duplicate Titles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#restarting" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1978,6 +2044,84 @@ It can then be started at any time with <code>initctl start &lt;service&gt;</cod
 <li>a leading <code>-</code> on <code>command</code> -- see
     <a href="../services/#conditional-loading">Conditional Loading</a></li>
 </ul>
+<h2 id="command-candidates">Command Candidates<a class="headerlink" href="#command-candidates" title="Permanent link">¶</a></h2>
+<p>The <code>command</code> setting may list several candidates for the same
+service, in which case Finit starts the first one it finds:</p>
+<div class="highlight"><pre><span></span><code>service udevd {
+    command = { "/lib/systemd/systemd-udevd", "-udevd" }
+}
+</code></pre></div>
+<p>A candidate that is not installed is skipped without a warning, that
+is the point of listing more than one.  The leading <code>-</code> is read from
+the candidate that wins, or from the last one when none are found, so
+a block with a single command behaves as it always has.</p>
+<p>The candidates are alternative spellings of one service, not a
+fallback for a service that fails to start.  Finit chooses when the
+.conf file is read and does not revisit the choice.</p>
+<p>A <a href="../tty/"><code>tty</code></a> block takes the same list, where the candidates are
+the getty to run:</p>
+<div class="highlight"><pre><span></span><code>tty ttyAMA0 {
+    command = { "/sbin/agetty -L ttyAMA0 115200 vt100",
+                "/sbin/getty -L 115200 /dev/ttyAMA0 vt100" }
+}
+</code></pre></div>
+<h2 id="provided-conditions">Provided Conditions<a class="headerlink" href="#provided-conditions" title="Permanent link">¶</a></h2>
+<p>A service always asserts <code>pid/&lt;ident&gt;</code> for itself, named after the
+block title.  <code>provides</code> names conditions it asserts in addition to
+that one:</p>
+<div class="highlight"><pre><span></span><code>service syslogd:udev {
+    if       = "udevd"
+    provides = "pid/syslogd"
+    command  = "syslogd -F"
+}
+</code></pre></div>
+<p>This is what lets variants of one service, picked apart by
+<a href="../services/#conditional-execution"><code>if</code></a>, share the barrier that
+everything downstream waits for.  Each variant has its own title, so
+each is its own service to <code>initctl</code>, while the condition they publish
+stays the same.</p>
+<p>Any namespace works, <code>pid/</code>, <code>usr/</code>, <code>service/</code>, since the point is
+publishing a name existing configuration already waits on.  A value
+without a namespace separator is not a condition and is rejected.  The
+list holds at most four.</p>
+<p>A provided condition is asserted and cleared with the service, exactly
+like its own, so stopping the provider clears the barrier.</p>
+<p>Two services cannot supply the same condition.  The second claim is
+refused, with the owner named:</p>
+<div class="highlight"><pre><span></span><code>finit.conf: second: provides condition &lt;usr/barrier&gt; already registered by service first, ignoring
+</code></pre></div>
+<p>The service itself still registers and runs, only the claim is
+dropped.  Which one is "first" is .conf load order, so it follows the
+file names, see <a href="../files/">Files &amp; Layout</a>.</p>
+<p>A real identity outranks a claim on it.  <code>provides = "pid/sshd"</code> in a
+system that also runs a service titled <code>sshd</code> loses to that service,
+because <code>pid/&lt;ident&gt;</code> is how Finit tracks the service itself.</p>
+<p><code>initctl cond dump</code> names the owner of every condition, which for a
+provided one is the service that claimed it:</p>
+<div class="highlight"><pre><span></span><code>$ initctl cond dump
+PID    IDENT         STATUS  CONDITION
+1234   syslogd:udev  on      &lt;pid/syslogd&gt;
+1234   syslogd:udev  on      &lt;pid/syslogd:udev&gt;
+</code></pre></div>
+<h2 id="duplicate-titles">Duplicate Titles<a class="headerlink" href="#duplicate-titles" title="Permanent link">¶</a></h2>
+<p>The title is the service identity, so two blocks sharing a title in
+one file are two declarations of one service.  The parser underneath
+merges them without a word, leaving a single service holding a mix of
+both, so Finit rejects the file and names the title:</p>
+<div class="highlight"><pre><span></span><code>/etc/finit.d/hotplug.conf:12: found duplicate title 'udevd'
+</code></pre></div>
+<p>Nothing from a rejected file is loaded and the rest of the
+configuration is unaffected.</p>
+<p>The same title in <em>another</em> file is fine.  That is how a system .conf
+is overridden, the later file wins, see <a href="../files/">Files &amp; Layout</a>.</p>
+<p>Two shapes need a single identity and used to be written as repeated
+declarations.  One is a service with several candidate binaries, which
+is now a <a href="#command-candidates">command list</a>.  The other is a service
+gated differently per platform, e.g. a syslog daemon waiting for
+whichever hotplug daemon the system happens to have.  For that one,
+give each variant its own file, or keep them as one-liners in the
+line-based format, which has no titles.  The <a href="../migration/">migration
+guide</a> works through it.</p>
 <h2 id="restarting">Restarting<a class="headerlink" href="#restarting" title="Permanent link">¶</a></h2>
 <p>Services are automatically started, restarted, and stopped, depending
 on the configuration and conditions.  Within the confines of that the

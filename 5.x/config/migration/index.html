@@ -614,6 +614,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#repeated-stanzas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeated stanzas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cgroups" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1853,6 +1864,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#repeated-stanzas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeated stanzas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cgroups" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2128,6 +2150,71 @@ things for daemons and one-shots; each meaning is now its own key.  A
 </tr>
 </tbody>
 </table>
+<h2 id="repeated-stanzas">Repeated stanzas<a class="headerlink" href="#repeated-stanzas" title="Permanent link">¶</a></h2>
+<p>The line-based format has no titles, so the same service could be
+declared more than once and Finit would sort out which line applied.
+A block title <em>is</em> the identity, and two blocks sharing one in the
+same file are rejected.  The two shapes that relied on the repetition
+convert differently.</p>
+<p><strong>Several candidate binaries for one service.</strong>  The daemon is known
+under more than one name and the stanzas were repeated once per name,
+each with <code>nowarn</code> so the ones that were not installed were skipped:</p>
+<div class="highlight"><pre><span></span><code>service nowarn pid:!/run/udevd.pid [S12345789] /lib/systemd/systemd-udevd -- Device event daemon
+service nowarn pid:!/run/udevd.pid [S12345789] udevd -- Device event daemon
+</code></pre></div>
+<p>The candidates now go in one block, and Finit starts the first one it
+finds:</p>
+<div class="highlight"><pre><span></span><code>service udevd {
+    description = "Device event daemon"
+    runlevel    = "S12345789"
+    pidfile     = "/run/udevd.pid"
+    command     = { "/lib/systemd/systemd-udevd", "-udevd" }
+}
+</code></pre></div>
+<p><strong>One service gated differently per platform.</strong>  The command is the
+same every time, only <code>if:</code> and the conditions differ, e.g. a syslog
+daemon that has to wait for whichever hotplug daemon the system has:</p>
+<div class="highlight"><pre><span></span><code>service if:udevd nowarn env:-/etc/default/sysklogd &lt;run/udevadm:5/success&gt; \
+       [S0123456789] syslogd -F $SYSLOGD_ARGS -- System log daemon
+service if:mdev  nowarn env:-/etc/default/sysklogd &lt;run/coldplug/success&gt; \
+       [S0123456789] syslogd -F $SYSLOGD_ARGS -- System log daemon
+</code></pre></div>
+<p>All of these are one service, <code>syslogd</code>, and everything downstream
+waits for the one <code>pid/syslogd</code> barrier it provides.  That barrier is
+the reason the repetition existed: the title alone spells it, so
+separate titles would rename it.</p>
+<p>Give each variant its own title and name the shared barrier with
+<code>provides</code>:</p>
+<div class="highlight"><pre><span></span><code>service syslogd:udev {
+    description = "System log daemon"
+    runlevel    = "S0123456789"
+    if          = "udevd"
+    conditions  = { "run/udevadm:5/success" }
+    provides    = "pid/syslogd"
+    envfile     = "-/etc/default/sysklogd"
+    command     = "-syslogd -F $SYSLOGD_ARGS"
+}
+service syslogd:mdev {
+    description = "System log daemon"
+    runlevel    = "S0123456789"
+    if          = "mdev"
+    conditions  = { "run/coldplug/success" }
+    provides    = "pid/syslogd"
+    envfile     = "-/etc/default/sysklogd"
+    command     = "-syslogd -F $SYSLOGD_ARGS"
+}
+</code></pre></div>
+<p>Whichever variant <code>if</code> qualifies asserts <code>pid/syslogd</code> on top of its
+own <code>pid/syslogd:udev</code>, so downstream blocks need no change.  The <code>if</code>
+statements are meant to be mutually exclusive; if two of them do
+qualify, the second claim is refused with a warning and only the first
+variant supplies the barrier.  See <a href="../service-opts/#provided-conditions">Provided
+Conditions</a>.</p>
+<p><code>initctl</code> now knows the variants apart, <code>initctl status syslogd:udev</code>,
+and a bare <code>initctl status syslogd</code> still lists them all.</p>
+<p>Splitting the variants across files also works, since the ban on
+duplicate titles is per file, as does leaving that one file in the
+line-based format.  Neither is needed for this shape any more.</p>
 <h2 id="cgroups">Cgroups<a class="headerlink" href="#cgroups" title="Permanent link">¶</a></h2>
 <p>The standalone <code>cgroup.NAME</code> line selected a group for every stanza
 after it in the file, and <code>cgroup:opts</code> applied settings to whichever
@@ -2176,6 +2263,12 @@ tty shell {
     notty    = true
 }
 </code></pre></div>
+<p>The bare flags keep their names as booleans: <code>noclear</code>, <code>nowait</code>,
+<code>nologin</code>, <code>passenv</code>, <code>rescue</code>, e.g. <code>passenv</code> becomes
+<code>passenv = true</code>.</p>
+<p>A <code>tty</code> block is named by the device, not the title, so all three above
+show up as <code>tty:ttyS0</code> and the like in <code>initctl</code>.  The title still has
+to be unique within the file.</p>
 <h2 id="top-level-directives">Top-level directives<a class="headerlink" href="#top-level-directives" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -2258,8 +2351,11 @@ tty shell {
     exactly like its legacy counterpart.</li>
 <li>A list cannot hold comments; the lexer reads entries after a <code>#</code>
     regardless.  Put commented-out candidates above the list.</li>
-<li><code>$VAR</code> in a value is expanded when the file is read, against
-    Finit's environment.  An unset variable expands to nothing.</li>
+<li><code>${VAR}</code> in a value is expanded when the file is read, against
+    Finit's environment, and <code>${VAR:-default}</code> works too.  An unset
+    variable expands to nothing.  A plain <code>$VAR</code> is left alone and
+    reaches the service, which is what keeps <code>command = "syslogd -F
+    $SYSLOGD_ARGS"</code> working with an <code>envfile</code>.</li>
 <li>New settings only appear in the block format.  The first are the
     <a href="../service-opts/#service-directories">per-service directories</a>,
     <code>runtime-dir</code> and friends.</li>

@@ -2095,29 +2095,32 @@ the title carries both name and ID.</p>
 <p>Finit supports conditional loading of blocks.  The following example is
 taken from the <code>system/10-hotplug.conf</code> file in the Finit distribution.
 Here we only show a simplified subset.</p>
-<p>Starting with the leading <code>-</code> on <code>command</code>.</p>
+<p>Starting with the udev daemon, which goes by two names depending on
+how it was built.  Both are candidates for the same service:</p>
 <div class="highlight"><pre><span></span><code>service udevd {
     pidfile = "udevd"
-    command = "-/lib/systemd/systemd-udevd"
-}
-
-service udevd {
-    pidfile = "udevd"
-    command = "-udevd"
+    command = { "/lib/systemd/systemd-udevd", "-udevd" }
 }
 </code></pre></div>
 <p>When loading the .conf file Finit looks for
-<code>/lib/systemd/systemd-udevd</code>, and if that is not found it logs a
-warning.  The leading <code>-</code> says a missing binary is expected here, so
-the block is skipped quietly and the second one can be evaluated,
-which also provides a service named <code>udevd</code>.</p>
-<div class="highlight"><pre><span></span><code>run udevadm:1 {
+<code>/lib/systemd/systemd-udevd</code>, and if that is not there it moves on to
+<code>udevd</code>.  A candidate that is not installed is expected, so no warning
+is logged for the ones that are skipped.  The leading <code>-</code> on the last
+one says it is also fine if none of them are found, in which case the
+block is dropped quietly and no service named <code>udevd</code> exists.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This needs to be one block.  The title is the service identity, so
+two blocks titled <code>udevd</code> in the same file are two declarations of
+one service, which Finit rejects.  See <a href="../service-opts/#duplicate-titles">Duplicate
+titles</a>.</p>
+<p>run udevadm:1 {
     runlevel   = "S"
     if         = "udevd"
     conditions = { "pid/udevd" }
     command    = "-udevadm settle -t 0"
-}
-</code></pre></div>
+}</p>
+</div>
 <p>This block is only loaded if we know of a service named <code>udevd</code>.  Again,
 we do not warn if <code>udevadm</code> is not found, execution will also stop here
 until the PID condition is asserted, i.e., Finit detecting udevd has
@@ -2213,6 +2216,11 @@ can be written as:</p>
     command    = "confd ..."
 }
 </code></pre></div>
+<p>Variants of one service are often qualified this way, one per platform,
+and they usually have to supply the same barrier to whatever waits for
+them.  Each variant needs its own title, since a title is an identity,
+and the shared barrier is named with <code>provides</code>.  See <a href="../service-opts/#provided-conditions">Provided
+Conditions</a>.</p>
 
 
 

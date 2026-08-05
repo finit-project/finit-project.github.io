@@ -1821,6 +1821,9 @@ in what they open: <code>device</code> runs the built-in getty on that TTY, and 
 may be the special keyword <code>@console</code>, expanded from
 <code>/sys/class/tty/console/active</code>, useful on embedded systems.  <code>command</code>
 hands the TTY to an external getty.  <code>notty</code> opens nothing at all.</p>
+<p><code>command</code> may name several candidates, <code>{ "agetty ...", "getty ..." }</code>,
+and Finit runs the first one it finds.  See <a href="../service-opts/#command-candidates">Command
+Candidates</a>.</p>
 <p>Settings common to all three:</p>
 <table>
 <thead>
@@ -1855,6 +1858,11 @@ hands the TTY to an external getty.  <code>notty</code> opens nothing at all.</p
 <td><code>nologin</code></td>
 <td></td>
 <td>Skip login, give a shell straight away</td>
+</tr>
+<tr>
+<td><code>passenv</code></td>
+<td></td>
+<td>Pass the environment on to <code>login</code>, built-in getty only</td>
 </tr>
 </tbody>
 </table>
