@@ -1930,7 +1930,9 @@ the above three.  We leave <code>init/</code> and <code>user/</code> as-is reduc
 cgroup maint  { cpu.weight = 100  }
 </code></pre></div>
 <p>By default, the <code>system/</code> cgroup is selected for almost everything.  The
-<code>init/</code> cgroup is reserved for PID 1 itself and its closest relatives.
+<code>init/</code> cgroup is reserved for the early boot helpers Finit drives
+itself, like udev and mdev.  PID 1 runs in the root cgroup, since a
+cgroup holding processes cannot delegate controllers to its children.
 The <code>user/</code> cgroup is for local TTY logins spawned by getty.</p>
 <h2 id="joining-a-cgroup">Joining a Cgroup<a class="headerlink" href="#joining-a-cgroup" title="Permanent link">¶</a></h2>
 <p><strong>Syntax:</strong> <code>cgroup NAME { settings }</code> (inside a service block)</p>
