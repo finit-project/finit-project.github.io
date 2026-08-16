@@ -1420,6 +1420,8 @@
       
         
       
+        
+      
     
     
     
@@ -1726,6 +1728,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../dbus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-Bus Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../state-machine/" class="md-nav__link">
         
   
@@ -1968,7 +1998,10 @@ the <code>/etc/fstab</code> file and in the Linux kernel config.</p>
 <ul>
 <li>
 <p><em>dbus.so</em>: Setup and start system message bus, D-Bus, at boot.
-  <em>Optional plugin.</em></p>
+  Enabled by default, and a no-op on systems without a <code>dbus-daemon</code>.
+  The daemon is declared in <code>20-dbus.conf</code> and its directories in
+  <code>tmpfiles.d/dbus.conf</code>, both overridable from <code>/etc</code>; the plugin
+  itself only handles what has to inspect the running system.</p>
 </li>
 <li>
 <p><em>hook-scripts.so</em>: Trigger the execution of scripts from plugin hook

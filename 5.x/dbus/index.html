@@ -7,13 +7,13 @@
       
       
       
-        <link rel="canonical" href="https://finit-project.github.io/runparts/">
+        <link rel="canonical" href="https://finit-project.github.io/dbus/">
       
       
-        <link rel="prev" href="../runlevels/">
+        <link rel="prev" href="../keventd/">
       
       
-        <link rel="next" href="../plugins/">
+        <link rel="next" href="../state-machine/">
       
       
         
@@ -24,7 +24,7 @@
     
     
       
-        <title>Runparts &amp; rc.local - User's Guide</title>
+        <title>D-Bus Integration - User's Guide</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#runparts-etcrclocal" class="md-skip">
+        <a href="#d-bus-integration" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Runparts &amp; rc.local
+              D-Bus Integration
             
           </span>
         </div>
@@ -1494,37 +1494,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Runparts &amp; rc.local
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../runparts/" class="md-nav__link">
         
   
   
@@ -1540,37 +1513,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1664,10 +1606,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../dbus/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-Bus Integration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1683,6 +1652,198 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#bus-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bus address
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orgfinitmanager1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        org.finit.Manager1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="org.finit.Manager1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orgfinitservice1-per-service-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        org.finit.Service1 (per-service objects)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="org.finit.Service1 (per-service objects)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orgfinitcond1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        org.finit.Cond1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="org.finit.Cond1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signals_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initctl-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initctl integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1806,10 +1967,171 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
+  <a href="#bus-address" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Limitations
+        Bus address
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orgfinitmanager1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        org.finit.Manager1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="org.finit.Manager1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orgfinitservice1-per-service-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        org.finit.Service1 (per-service objects)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="org.finit.Service1 (per-service objects)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orgfinitcond1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        org.finit.Cond1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="org.finit.Cond1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signals_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initctl-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initctl integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
       
     </span>
   </a>
@@ -1842,44 +2164,653 @@
   
 
 
-<h1 id="runparts-etcrclocal">Runparts &amp; <code>/etc/rc.local</code><a class="headerlink" href="#runparts-etcrclocal" title="Permanent link">¶</a></h1>
-<p>At the end of the boot, when all bootstrap (<code>S</code>) tasks and services have
-started, but not networking, Finit calls its built-in <a href="https://manpages.debian.org/cgi-bin/man.cgi?query=run-parts">run-parts(8)</a>
-command on any configured <code>runparts = "DIR"</code> directory.  This happens just
-before changing to the configured runlevel (default 2).  (Networking is
-enabled just prior to changing from single user mode.)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">runparts</span><span class="w"> </span>=<span class="w"> </span><span class="s2">"/etc/rc.d/"</span>
-</code></pre></div>
-<p>Right after the runlevel change when all services have started properly,
-<code>/etc/rc.local</code> is called.</p>
-<p>No setting in <code>/etc/finit.conf</code> is required for <code>rc.local</code>.
-If it exists and is an executable shell script Finit calls it at the very
-end of the boot, before calling the <code>HOOK_SYSTEM_UP</code>.  See more in the
-<a href="../plugins/#hooks">Hook Scripts</a> section.</p>
-<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">¶</a></h3>
-<p>It is not possible to call Finit via signals or use <code>initctl</code> in any
-runparts or <code>/etc/rc.local</code> script.  This because Finit is single
-threaded and is calling these scripts in a blocking fashion at the end
-of runlevel S, at which point the event loop has not yet been started.</p>
-<p>The event loop is the whole thing which Finit is built around, except
-for runlevel S, which remains a slow procession through a lot of set up,
-with a few hooks and blocking call outs to external scripts.</p>
-<p>However, not all <code>initctl</code> commands are prohibited. Supported commands:</p>
-<ul>
-<li><code>initctl cond</code>: only operate on files in <code>/run/finit/cond</code></li>
-<li><code>initctl enable/disable</code>: enabled run/task/service is activated on
-   the runlevel change from S to 2</li>
-<li><code>initctl touch/show/create/delete/list</code>: <code>create</code>, provided the
-   non-interactive mode is used, again changes take effect in the
-   runlevel change directly after bootstrap</li>
-<li><code>initctl -f reboot/poweroff/halt</code>: provided the <code>-f</code> flag is used to
-   force direct kernel commands</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>you can set a <code>usr/</code> condition in <code>/etc/rc.local</code> and have a
-service/task in runlevel 2 depend on it to execute.</p>
+<h1 id="d-bus-integration">D-Bus Integration<a class="headerlink" href="#d-bus-integration" title="Permanent link">¶</a></h1>
+<p>Finit ships with a built-in, brokerless <a href="https://dbus.freedesktop.org/doc/dbus-specification.html">D-Bus</a> implementation, <strong>libink</strong>
+(<code>-link</code>), that exposes the running init system as a peer on its own private
+bus, and optionally on the system bus when <code>dbus-daemon</code> is available.
+Everything <code>initctl</code> does is also reachable from any generic D-Bus tooling —
+<code>dbus-send</code>, <code>dbus-monitor</code>, <code>gdbus</code>, language bindings, dashboards,
+monitoring agents, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>D-Bus support is enabled by default, opt out at build time with
+<code>--disable-dbus</code>, see <a href="../build/">Building</a> for details.  When disabled,
+<code>initctl</code> keeps using the legacy <code>INIT_SOCKET</code> transport and Finit
+exposes no bus.</p>
 </div>
+<h2 id="bus-address">Bus address<a class="headerlink" href="#bus-address" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Bus</th>
+<th>Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local (always)</td>
+<td><code>unix:path=/run/finit/bus</code></td>
+</tr>
+<tr>
+<td>System (opportunistic)</td>
+<td><code>unix:path=/var/run/dbus/system_bus_socket</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>local</strong> bus is brokerless: clients connect straight to Finit over a
+Unix-domain socket using the standard D-Bus SASL EXTERNAL handshake.  No
+<code>dbus-daemon</code> is required, which makes it suitable for embedded systems that
+don't ship one.</p>
+<p>The socket is <code>0660</code>, owned by <code>root</code> and the group given to
+<code>--with-group</code> at build time, the same gate as <code>/run/finit/socket</code> that
+<code>initctl</code> falls back on.  The bus reaches every operation <code>initctl</code>
+does, so restricting one and not the other would leave the door open.
+Members of that group may use it, see <a href="#authorization">Authorization</a>.</p>
+<p>The <strong>system</strong> bus is best-effort: Finit probes for a running <code>dbus-daemon</code>
+and, when reachable, claims the well-known name <code>org.finit</code> so that standard
+tooling sees Finit just like any other system service:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dbus-send<span class="w"> </span>--system<span class="w"> </span>--print-reply<span class="w"> </span>--dest<span class="o">=</span>org.finit<span class="w"> </span>/org/finit/manager<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">          </span>org.finit.Manager1.ListServices
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>dbus-monitor<span class="w"> </span>--system<span class="w"> </span><span class="s2">"sender='org.finit'"</span>
+</code></pre></div>
+<p>If no system bus is present (the common case on embedded targets), this step
+is silently skipped.</p>
+<h2 id="object-tree">Object tree<a class="headerlink" href="#object-tree" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── org/
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   └── finit/
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│       ├── manager                          Manager1
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│       ├── cond                             Cond1
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│       └── service/
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│           ├── keventd                      Service1 (one per service)
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│           ├── sshd
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│           └── …
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>└── org/freedesktop/DBus                     Standard well-known interfaces
+</code></pre></div>
+<p>Every node implements the usual stock interfaces:</p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>org.freedesktop.DBus</code></td>
+<td><code>Hello</code>, <code>AddMatch</code>, <code>RemoveMatch</code></td>
+</tr>
+<tr>
+<td><code>org.freedesktop.DBus.Peer</code></td>
+<td><code>Ping</code>, <code>GetMachineId</code></td>
+</tr>
+<tr>
+<td><code>org.freedesktop.DBus.Introspectable</code></td>
+<td><code>Introspect()</code> — XML description</td>
+</tr>
+<tr>
+<td><code>org.freedesktop.DBus.Properties</code></td>
+<td><code>Get</code>, <code>GetAll</code>; nothing is writable</td>
+</tr>
+</tbody>
+</table>
+<p>Note: <code>Hello</code>, <code>AddMatch</code>, and <code>RemoveMatch</code> are answered on the canonical
+<code>/org/freedesktop/DBus</code> object only, as per the D-Bus specification.</p>
+<h2 id="orgfinitmanager1"><code>org.finit.Manager1</code><a class="headerlink" href="#orgfinitmanager1" title="Permanent link">¶</a></h2>
+<p>Lives at <strong><code>/org/finit/manager</code></strong>.  Owns the global init operations
+and the service registry.</p>
+<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>In sig</th>
+<th>Out sig</th>
+<th>Priv.</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ListServices</code></td>
+<td>—</td>
+<td><code>as</code></td>
+<td>no</td>
+<td>Returns identities (<code>name</code>, <code>name:id</code>) of loaded services</td>
+</tr>
+<tr>
+<td><code>GetService</code></td>
+<td><code>s</code></td>
+<td><code>o</code></td>
+<td>no</td>
+<td>Resolves an identity to its <code>Service1</code> object path</td>
+</tr>
+<tr>
+<td><code>Start</code></td>
+<td><code>s</code></td>
+<td>—</td>
+<td>yes</td>
+<td>Start the service(s) matching the identity</td>
+</tr>
+<tr>
+<td><code>Stop</code></td>
+<td><code>s</code></td>
+<td>—</td>
+<td>yes</td>
+<td>Stop the service(s) matching the identity</td>
+</tr>
+<tr>
+<td><code>Restart</code></td>
+<td><code>s</code></td>
+<td>—</td>
+<td>yes</td>
+<td>Restart (stop + start) the service(s)</td>
+</tr>
+<tr>
+<td><code>Reload</code></td>
+<td>—</td>
+<td>—</td>
+<td>yes</td>
+<td>Re-read all <code>*.conf</code> and apply changes</td>
+</tr>
+<tr>
+<td><code>SetRunlevel</code></td>
+<td><code>u</code></td>
+<td>—</td>
+<td>yes</td>
+<td>Transition to runlevel <code>u</code> (0–6)</td>
+</tr>
+<tr>
+<td><code>SetDebug</code></td>
+<td>—</td>
+<td>—</td>
+<td>yes</td>
+<td>Toggle Finit's runtime debug flag</td>
+</tr>
+<tr>
+<td><code>Signal</code></td>
+<td><code>su</code></td>
+<td>—</td>
+<td>yes</td>
+<td>Send signal <code>u</code> (1–31) to services matching identity <code>s</code></td>
+</tr>
+<tr>
+<td><code>Suspend</code></td>
+<td>—</td>
+<td>—</td>
+<td>yes</td>
+<td><code>sync()</code> + suspend-to-RAM</td>
+</tr>
+<tr>
+<td><code>Reboot</code>, <code>Halt</code>, <code>Poweroff</code></td>
+<td>—</td>
+<td>—</td>
+<td>yes</td>
+<td>Trigger the corresponding shutdown sequence</td>
+</tr>
+</tbody>
+</table>
+<h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">¶</a></h3>
+<p>All read-only strings; observable via <code>Properties.Get</code> and
+<code>Properties.GetAll</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Runlevel</code></td>
+<td><code>s</code></td>
+<td>Current runlevel as a digit (<code>"2"</code>, <code>"3"</code>, …) or <code>"S"</code></td>
+</tr>
+<tr>
+<td><code>PrevRunlevel</code></td>
+<td><code>s</code></td>
+<td>Previous runlevel, same encoding, <code>"N"</code> when none</td>
+</tr>
+<tr>
+<td><code>Version</code></td>
+<td><code>s</code></td>
+<td>Finit's version string (<code>PACKAGE_VERSION</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="signals">Signals<a class="headerlink" href="#signals" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Body</th>
+<th>Fires when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ServiceStateChanged</code></td>
+<td><code>sss</code> — identity, old state, new state</td>
+<td>Service transitions</td>
+</tr>
+<tr>
+<td><code>RunlevelChanged</code></td>
+<td><code>ss</code>  — old level, new level</td>
+<td>System runlevel change</td>
+</tr>
+</tbody>
+</table>
+<p>State names emitted by <code>ServiceStateChanged</code> are stable wire strings:
+<code>halted</code>, <code>done</code>, <code>dead</code>, <code>cleanup</code>, <code>teardown</code>, <code>stopping</code>, <code>setup</code>,
+<code>paused</code>, <code>waiting</code>, <code>starting</code>, <code>running</code>.  <code>RunlevelChanged</code> levels
+use the same encoding as the <code>Runlevel</code> property: digits, <code>"S"</code>, <code>"N"</code>.</p>
+<h2 id="orgfinitservice1-per-service-objects"><code>org.finit.Service1</code> (per-service objects)<a class="headerlink" href="#orgfinitservice1-per-service-objects" title="Permanent link">¶</a></h2>
+<p>Lives at <strong><code>/org/finit/service/&lt;encoded&gt;</code></strong>, one object per loaded service.
+<code>&lt;encoded&gt;</code> is the service identity (name, or <code>name:id</code> for templated
+services) put through systemd-style <code>_HH</code> hex escaping — ASCII alphanumerics
+and <code>_</code> pass through, anything else becomes <code>_HH</code> where <code>HH</code> is the hex byte.
+Use <code>Manager1.GetService(identity)</code> to look up the exact path rather than
+constructing it by hand.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>In sig</th>
+<th>Out sig</th>
+<th>Priv.</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Start</code></td>
+<td>—</td>
+<td>—</td>
+<td>yes</td>
+<td>Equivalent to <code>Manager1.Start(&lt;identity&gt;)</code> for this service</td>
+</tr>
+<tr>
+<td><code>Stop</code></td>
+<td>—</td>
+<td>—</td>
+<td>yes</td>
+<td>…</td>
+</tr>
+<tr>
+<td><code>Restart</code></td>
+<td>—</td>
+<td>—</td>
+<td>yes</td>
+<td>…</td>
+</tr>
+<tr>
+<td><code>Reload</code></td>
+<td>—</td>
+<td>—</td>
+<td>yes</td>
+<td>Reload (SIGHUP if supported, else restart)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">¶</a></h3>
+<p>All read-only; observable via <code>Properties.Get</code> and <code>Properties.GetAll</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Identity</code></td>
+<td><code>s</code></td>
+<td>Service identity, <code>name</code> or <code>name:id</code></td>
+</tr>
+<tr>
+<td><code>Name</code></td>
+<td><code>s</code></td>
+<td>Program name (basename of the command)</td>
+</tr>
+<tr>
+<td><code>State</code></td>
+<td><code>s</code></td>
+<td>Current status, same vocabulary as <code>initctl status</code></td>
+</tr>
+<tr>
+<td><code>Pid</code></td>
+<td><code>u</code></td>
+<td>Current PID, 0 when not running</td>
+</tr>
+<tr>
+<td><code>RestartCount</code></td>
+<td><code>u</code></td>
+<td>Restarts since the last stable run</td>
+</tr>
+<tr>
+<td><code>Runlevels</code></td>
+<td><code>u</code></td>
+<td>Allowed runlevels as a bitmask, bit N = runlevel N, bit 10 = S</td>
+</tr>
+<tr>
+<td><code>Description</code></td>
+<td><code>s</code></td>
+<td>The service's <code>description</code> string</td>
+</tr>
+<tr>
+<td><code>Command</code></td>
+<td><code>s</code></td>
+<td>Full command line, arguments included</td>
+</tr>
+<tr>
+<td><code>Conditions</code></td>
+<td><code>s</code></td>
+<td>Declared conditions, raw <code>.conf</code> form</td>
+</tr>
+<tr>
+<td><code>Type</code></td>
+<td><code>s</code></td>
+<td>Unit type: <code>service</code>, <code>task</code>, <code>run</code>, <code>sysv</code>, <code>tty</code>, <code>free</code></td>
+</tr>
+<tr>
+<td><code>Origin</code></td>
+<td><code>s</code></td>
+<td>Source <code>.conf</code> file, empty for built-ins</td>
+</tr>
+<tr>
+<td><code>Environment</code></td>
+<td><code>s</code></td>
+<td>The service's <code>env</code> setting, raw</td>
+</tr>
+<tr>
+<td><code>PidFile</code></td>
+<td><code>s</code></td>
+<td>Declared PID file, raw (<code>!</code> prefix included)</td>
+</tr>
+<tr>
+<td><code>User</code></td>
+<td><code>s</code></td>
+<td>User the service runs as</td>
+</tr>
+<tr>
+<td><code>Group</code></td>
+<td><code>s</code></td>
+<td>Group the service runs as</td>
+</tr>
+<tr>
+<td><code>Uptime</code></td>
+<td><code>u</code></td>
+<td>Seconds since start, 0 when not running</td>
+</tr>
+<tr>
+<td><code>ExitStatus</code></td>
+<td><code>u</code></td>
+<td>Raw <code>waitpid(2)</code> status from the last exit</td>
+</tr>
+<tr>
+<td><code>RestartsTotal</code></td>
+<td><code>u</code></td>
+<td>Restarts over the service's lifetime</td>
+</tr>
+<tr>
+<td><code>RestartMax</code></td>
+<td><code>u</code></td>
+<td>Restart limit before the service is blocked</td>
+</tr>
+<tr>
+<td><code>Starts</code></td>
+<td><code>u</code></td>
+<td>Times started, for <code>manual-start</code> units</td>
+</tr>
+<tr>
+<td><code>ManualStart</code></td>
+<td><code>b</code></td>
+<td><code>manual-start</code> set in the <code>.conf</code></td>
+</tr>
+<tr>
+<td><code>Forking</code></td>
+<td><code>b</code></td>
+<td>Daemon forks to background</td>
+</tr>
+<tr>
+<td><code>Started</code></td>
+<td><code>b</code></td>
+<td>Run/task completed successfully</td>
+</tr>
+</tbody>
+</table>
+<p>On every state transition the object also emits the standard
+<code>org.freedesktop.DBus.Properties.PropertiesChanged</code> signal: <code>State</code>
+in the changed dictionary, <code>Pid</code> and <code>RestartCount</code> invalidated (call
+<code>Get</code> for fresh values).</p>
+<p>The per-service surface lets generic tooling supply an object handle
+once and then invoke methods on it, instead of repeatedly passing the
+identity string.</p>
+<h2 id="orgfinitcond1"><code>org.finit.Cond1</code><a class="headerlink" href="#orgfinitcond1" title="Permanent link">¶</a></h2>
+<p>Lives at <strong><code>/org/finit/cond</code></strong>.  Exposes Finit's
+<a href="../conditions/">condition system</a> to bus clients.</p>
+<h3 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>In sig</th>
+<th>Out sig</th>
+<th>Priv.</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Get</code></td>
+<td><code>s</code></td>
+<td><code>s</code></td>
+<td>no</td>
+<td>Returns <code>"on"</code>, <code>"off"</code>, or <code>"flux"</code> for the named condition</td>
+</tr>
+<tr>
+<td><code>Set</code></td>
+<td><code>s</code></td>
+<td>—</td>
+<td>yes</td>
+<td>Assert a <code>usr/&lt;name&gt;</code> condition</td>
+</tr>
+<tr>
+<td><code>Clear</code></td>
+<td><code>s</code></td>
+<td>—</td>
+<td>yes</td>
+<td>Deassert a <code>usr/&lt;name&gt;</code> condition</td>
+</tr>
+<tr>
+<td><code>List</code></td>
+<td>—</td>
+<td><code>as</code></td>
+<td>no</td>
+<td>Names of all known conditions</td>
+</tr>
+<tr>
+<td><code>Dump</code></td>
+<td>—</td>
+<td><code>a(ss)</code></td>
+<td>no</td>
+<td><code>(name, state)</code> pairs for everything <code>List</code> returns</td>
+</tr>
+</tbody>
+</table>
+<p>Note: non-<code>usr/*</code> paths are rejected with <code>InvalidArgs</code> -- system
+conditions belong to Finit's state machine.</p>
+<h3 id="signals_1">Signals<a class="headerlink" href="#signals_1" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Body</th>
+<th>Fires when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ConditionChanged</code></td>
+<td><code>ss</code> — name, new state</td>
+<td>A condition is asserted or deasserted</td>
+</tr>
+</tbody>
+</table>
+<h2 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">¶</a></h2>
+<p>Privileged methods accept <code>root</code>, and any caller belonging to the group given
+to <code>--with-group</code> at build time.  That is the same set the socket mode already
+admits, so the two gates agree instead of the socket letting the group in and
+every method turning it away.</p>
+<p>On the <strong>local</strong> bus the kernel settles this at <code>connect()</code>: <code>SO_PEERCRED</code>
+gives Finit the caller's uid and <code>SO_PEERGROUPS</code> its group set, both straight
+from the kernel.  Finit matches the group against <code>--with-group</code> itself, so
+the check never touches NSS -- <code>getpwuid</code>/<code>getgrouplist</code> can block on a slow
+LDAP or SSSD backend, and PID 1 must never block.  Because the group set is
+the caller's real credentials, privilege escalation through the bus is
+impossible.</p>
+<p>On the <strong>system</strong> bus one connection carries every caller, so <code>SO_PEERCRED</code>
+describes <code>dbus-daemon</code> rather than whoever asked.  Finit asks the bus driver
+<code>GetConnectionUnixUser</code> about the message sender and holds the call until the
+answer arrives -- nothing blocks, the reply comes back through the same event
+loop as everything else.  The broker does not report the caller's groups in
+that reply, so <strong>privileged methods over the system bus are root-only</strong>; group
+membership is honoured on the local bus only.  Lifting that is future work,
+see <code>libink/README.md</code>.</p>
+<p>Answers are cached per sender.  A bus never reuses a unique name while it
+runs, so an answer holds for as long as that bus does; Finit empties the cache
+when the broker goes away, since a new one numbers its clients from scratch.
+A caller Finit cannot identify is refused, so the failure mode is a denial
+rather than an escalation.</p>
+<p>When a privileged method is rejected the error name is exactly
+<code>org.freedesktop.DBus.Error.AccessDenied</code>, and the body carries a short reason
+string.</p>
+<h2 id="initctl-integration"><code>initctl</code> integration<a class="headerlink" href="#initctl-integration" title="Permanent link">¶</a></h2>
+<p><code>initctl</code> transparently routes through D-Bus when the bus socket is present,
+and falls back to the legacy <code>INIT_SOCKET</code> transport otherwise.  Concretely,
+the following subcommands use the bus first:</p>
+<table>
+<thead>
+<tr>
+<th>Subcommand</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>initctl start</code></td>
+<td><code>Manager1.Start(svc)</code></td>
+</tr>
+<tr>
+<td><code>initctl stop</code></td>
+<td><code>Manager1.Stop(svc)</code></td>
+</tr>
+<tr>
+<td><code>initctl restart</code></td>
+<td><code>Manager1.Restart(svc)</code></td>
+</tr>
+<tr>
+<td><code>initctl reload</code></td>
+<td><code>Manager1.Reload()</code></td>
+</tr>
+<tr>
+<td><code>initctl reload S</code></td>
+<td><code>Service1.Reload()</code> (per-svc)</td>
+</tr>
+<tr>
+<td><code>initctl reboot</code></td>
+<td><code>Manager1.Reboot()</code></td>
+</tr>
+<tr>
+<td><code>initctl halt</code></td>
+<td><code>Manager1.Halt()</code></td>
+</tr>
+<tr>
+<td><code>initctl poweroff</code></td>
+<td><code>Manager1.Poweroff()</code></td>
+</tr>
+<tr>
+<td><code>initctl suspend</code></td>
+<td><code>Manager1.Suspend()</code></td>
+</tr>
+<tr>
+<td><code>initctl debug</code></td>
+<td><code>Manager1.SetDebug()</code></td>
+</tr>
+<tr>
+<td><code>initctl signal</code></td>
+<td><code>Manager1.Signal(svc, signo)</code></td>
+</tr>
+<tr>
+<td><code>initctl runlevel</code></td>
+<td><code>Properties.Get(Manager1.Runlevel/PrevRunlevel)</code></td>
+</tr>
+<tr>
+<td><code>initctl cond set/get/clear</code></td>
+<td><code>Cond1.{Set,Get,Clear}</code>, <code>clr</code> is an alias</td>
+</tr>
+</tbody>
+</table>
+<p>Two <code>initctl</code> subcommands are pure D-Bus features without legacy equivalents:</p>
+<ul>
+<li>
+<p><code>initctl monitor</code> — subscribes to every signal on the local bus and prints
+  one line per delivery (with timestamp, interface and member).  Same idea as
+  <code>dbus-monitor</code>, but scoped to Finit and with no need to pass <code>--address</code>.</p>
+</li>
+<li>
+<p><code>initctl cond</code> emits the standard <code>Cond1.ConditionChanged</code> signal as a side
+  effect, so subscribers observe user-driven state changes the same way they
+  observe service-driven ones.</p>
+</li>
+</ul>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h2>
+<p>The examples below use <code>dbus-send</code> and <code>dbus-monitor</code>, which ship as part of
+the <a href="https://gitlab.freedesktop.org/dbus/dbus">dbus</a> reference implementation; they're widely packaged and don't pull
+in any extra runtime.  Any tool that speaks D-Bus over an AF_UNIX socket works
+equally well — <code>gdbus</code>, Python's <code>jeepney</code>/<code>dasbus</code>, etc. — substitute their
+syntax for setting the bus address.  The wire protocol is the compatibility
+surface: Finit's own <strong>libink</strong> is an internal implementation detail, external
+clients should use any standard D-Bus library.</p>
+<p>When <code>org.finit</code> is registered on the system bus you can replace
+<code>--address=unix:path=/run/finit/bus</code> with <code>--system</code> in any example below.</p>
+<p>List the running services:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dbus-send<span class="w"> </span>--address<span class="o">=</span>unix:path<span class="o">=</span>/run/finit/bus<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">          </span>--type<span class="o">=</span>method_call<span class="w"> </span>--print-reply<span class="w"> </span>--dest<span class="o">=</span>org.finit<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">          </span>/org/finit/manager<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">          </span>org.finit.Manager1.ListServices
+</code></pre></div>
+<p>Read the current runlevel via the Properties interface:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dbus-send<span class="w"> </span>--address<span class="o">=</span>unix:path<span class="o">=</span>/run/finit/bus<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">          </span>--type<span class="o">=</span>method_call<span class="w"> </span>--print-reply<span class="w"> </span>--dest<span class="o">=</span>org.finit<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">          </span>/org/finit/manager<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">          </span>org.freedesktop.DBus.Properties.Get<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">          </span>string:org.finit.Manager1<span class="w"> </span>string:Runlevel
+</code></pre></div>
+<p>Subscribe to every state change on the manager object:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dbus-monitor<span class="w"> </span>--address<span class="o">=</span>unix:path<span class="o">=</span>/run/finit/bus<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">             </span><span class="s2">"type='signal',interface='org.finit.Manager1'"</span>
+</code></pre></div>
+<p>Or use <code>initctl monitor</code>, which does the same without any address
+plumbing.</p>
+<p>Restart a service by its object path:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dbus-send<span class="w"> </span>--address<span class="o">=</span>unix:path<span class="o">=</span>/run/finit/bus<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">          </span>--type<span class="o">=</span>method_call<span class="w"> </span>--dest<span class="o">=</span>org.finit<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">          </span>/org/finit/service/sshd<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">          </span>org.finit.Service1.Restart
+</code></pre></div>
+<p>Trigger a <code>usr/</code>-condition assertion that wakes any dependent service:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dbus-send<span class="w"> </span>--address<span class="o">=</span>unix:path<span class="o">=</span>/run/finit/bus<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">          </span>--type<span class="o">=</span>method_call<span class="w"> </span>--dest<span class="o">=</span>org.finit<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">          </span>/org/finit/cond<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">          </span>org.finit.Cond1.Set<span class="w"> </span>string:<span class="s2">"data-ready"</span>
+</code></pre></div>
+<p>The <code>--dest=org.finit</code> argument is informational on the local
+brokerless bus — Finit accepts any destination because there's no
+broker to route by name — but <code>dbus-send</code> requires it syntactically.</p>
 
 
 

@@ -485,6 +485,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#running" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1522,6 +1533,8 @@
       
         
       
+        
+      
     
     
     
@@ -1709,6 +1722,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../dbus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-Bus Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../state-machine/" class="md-nav__link">
         
   
@@ -1842,6 +1883,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#running" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1955,10 +2007,20 @@ version of the above mentioned libraries.  Currently required versions:</p>
   init for container apps that can see the host's <code>/proc</code> filesystem</p>
 </li>
 <li>
+<p><code>--disable-dbus</code>: Opt out of Finit's built-in D-Bus support, enabled by
+  default.  See <a href="../dbus/">D-Bus Integration</a> for what it provides.  Not to
+  be confused with <code>--disable-dbus-plugin</code> below, which only governs
+  starting an external <code>dbus-daemon</code></p>
+</li>
+<li>
 <p><code>--enable-alsa-utils-plugin</code>: Enable the optional <code>alsa-utils.so</code> sound plugin.</p>
 </li>
 <li>
-<p><code>--enable-dbus-plugin</code>: Enable the optional D-Bus <code>dbus.so</code> plugin.</p>
+<p><code>--disable-dbus-plugin</code>: Drop the <code>dbus.so</code> plugin, which launches
+  <code>dbus-daemon</code> at boot.  Enabled by default; the plugin does nothing on
+  a system that has no <code>dbus-daemon</code> installed, so opting out is only
+  needed to keep init from starting a bus on a system that has one.
+  Unrelated to the built-in bus, see <code>--disable-dbus</code> above.</p>
 </li>
 <li>
 <p><code>--enable-resolvconf-plugin</code>: Enable the <code>resolvconf.so</code> optional plugin.</p>
@@ -2015,6 +2077,43 @@ One of the most common problems is a custom Linux kernel build that
 lack <code>CONFIG_DEVTMPFS</code>.  Another is too much cruft in the system
 <code>/etc/fstab</code>.</p>
 </div>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">¶</a></h2>
+<p><code>make check</code> runs the test suite in a private namespace, so it is safe
+on a running system.  It needs <code>unshare</code> and, on Ubuntu, unprivileged
+user namespaces enabled:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>kernel.apparmor_restrict_unprivileged_userns<span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>make<span class="w"> </span>check
+</code></pre></div>
+<p>The D-Bus message parser is the only place in Finit where bytes off a
+socket become pointers, so it also has a fuzz target.  <code>make check</code>
+runs it as a fixed sweep, which takes milliseconds and needs nothing
+beyond the normal build.  To fuzz it properly, build it with clang and
+libFuzzer:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>clang<span class="w"> </span>-fsanitize<span class="o">=</span>fuzzer,address<span class="w"> </span>-DLINK_FUZZ_LIBFUZZER<span class="w"> </span>-D_GNU_SOURCE<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">      </span>-I<span class="w"> </span>libink<span class="w"> </span>-I<span class="w"> </span>.<span class="w"> </span>-o<span class="w"> </span>fuzz-msg-parse<span class="w">                              </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">      </span>test/src/fuzz-msg-parse.c<span class="w"> </span>libink/*.c
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>.fuzz-corpus
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>./fuzz-msg-parse<span class="w"> </span>.fuzz-corpus<span class="w"> </span>-max_total_time<span class="o">=</span><span class="m">300</span>
+</code></pre></div>
+<p>Give it a corpus directory as above and it saves what it learns there,
+so the next run picks up where this one left off instead of starting
+cold.  Nothing writes to it unless you name it: without the argument
+libFuzzer keeps everything in memory and the run leaves only crashes
+behind.  <code>make distclean</code> clears the corpus and the target.</p>
+<p>Once a corpus has grown, most of it reaches code some earlier input
+already reached.  Minimise it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./fuzz-msg-parse<span class="w"> </span>-merge<span class="o">=</span><span class="m">1</span><span class="w"> </span>.fuzz-corpus-min<span class="w"> </span>.fuzz-corpus
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>.fuzz-corpus<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>.fuzz-corpus-min<span class="w"> </span>.fuzz-corpus
+</code></pre></div>
+<p>Run <code>./configure</code> first, the target needs the generated <code>config.h</code>.
+If the link fails with <code>cannot find -lstdc++</code>, install the <code>libstdc++</code>
+headers matching the newest GCC on the system, not the default one:
+clang picks the newest tree it finds, and that is the one that needs
+them.  CI runs this target on every pull request, carrying its
+corpus between runs so it reaches deeper over time.</p>
+<p>Feed a file back to the target to reproduce a find:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./fuzz-msg-parse<span class="w"> </span>crash-3f2a...
+</code></pre></div>
 <h2 id="running">Running<a class="headerlink" href="#running" title="Permanent link">¶</a></h2>
 <p>Having successfully built Finit it is now be time to take it for a test
 drive.  The <code>make install</code> attempts to set up finit as the system system
@@ -2023,13 +2122,13 @@ current init.</p>
 <p>So either change the symlink, or change your boot loader (GRUB, LOADLIN,
 LILO, U-Boot/Barebox or RedBoot) configuration to append the following
 to the kernel command line:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">append</span><span class="o">=</span><span class="s2">"init=/sbin/finit"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">append</span><span class="o">=</span><span class="s2">"init=/sbin/finit"</span>
 </code></pre></div>
 <p>Remember to also set up an initial <code>/etc/finit.conf</code> before rebooting!</p>
 <h2 id="recovery">Recovery<a class="headerlink" href="#recovery" title="Permanent link">¶</a></h2>
 <p>To rescue a system with Finit, append the following to the kernel
 command line:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">append</span><span class="o">=</span><span class="s2">"init=/sbin/finit rescue"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">append</span><span class="o">=</span><span class="s2">"init=/sbin/finit rescue"</span>
 </code></pre></div>
 <p>This tells Finit to start in a very limited recovery mode, no services
 are loaded, no filesystems are mounted or checked, and no networking is
@@ -2045,7 +2144,7 @@ versions of these commands.  Use the <code>-f</code> flag to force the action.</
 <h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">¶</a></h2>
 <p>Edit, or append to, the kernel command line: remove <code>quiet</code> to enable
 kernel messages and add <code>finit.debug</code> to enable Finit debug messages.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">append</span><span class="o">=</span><span class="s2">"init=/sbin/finit -- finit.debug"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">append</span><span class="o">=</span><span class="s2">"init=/sbin/finit -- finit.debug"</span>
 </code></pre></div>
 <p>Notice the <code>--</code> separator.</p>
 <p>To debug startup issues, in particular issues with getty/login, add
