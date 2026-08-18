@@ -1422,6 +1422,8 @@
       
         
       
+        
+      
     
     
     
@@ -1728,6 +1730,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../udev-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rule Matching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../dbus/" class="md-nav__link">
         
   
@@ -1996,17 +2026,19 @@ disks and <code>/dev</code> is usually a <code>devtmpfs</code>.  This must be de
 the <code>/etc/fstab</code> file and in the Linux kernel config.</p>
 </div>
 <ul>
-<li>
-<p><em>dbus.so</em>: Setup and start system message bus, D-Bus, at boot.
+<li><em>dbus.so</em>: Setup and start system message bus, D-Bus, at boot.
   Enabled by default, and a no-op on systems without a <code>dbus-daemon</code>.
   The daemon is declared in <code>20-dbus.conf</code> and its directories in
   <code>tmpfiles.d/dbus.conf</code>, both overridable from <code>/etc</code>; the plugin
-  itself only handles what has to inspect the running system.</p>
-</li>
-<li>
-<p><em>hook-scripts.so</em>: Trigger the execution of scripts from plugin hook
-  points (see <a href="#hooks">Hooks</a>).  <em>Optional plugin.</em></p>
-</li>
+  itself only handles what has to inspect the running system.</li>
+</ul>
+<p>Not to be confused with Finit's built-in <a href="../dbus/">D-Bus API</a>: the
+  plugin (<code>--disable-dbus-plugin</code>) starts the external system bus
+  daemon, while the built-in support (<code>--disable-dbus</code>) is the
+  <code>org.finit</code> interface served by Finit itself.</p>
+<ul>
+<li><em>hook-scripts.so</em>: Trigger the execution of scripts from plugin hook
+  points (see <a href="#hooks">Hooks</a>).  <em>Optional plugin.</em></li>
 </ul>
 <p>This plugin is particularly useful for early boot debugging that needs
   to take place before regular services are available.</p>

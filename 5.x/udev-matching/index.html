@@ -7,31 +7,31 @@
       
       
       
-        <link rel="canonical" href="https://finit-project.github.io/config/tty/">
+        <link rel="canonical" href="https://finit-project.github.io/udev-matching/">
       
       
-        <link rel="prev" href="../runparts/">
+        <link rel="prev" href="../keventd/">
       
       
-        <link rel="next" href="../env/">
+        <link rel="next" href="../dbus/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>TTY &amp; Console - User's Guide</title>
+        <title>udev Rule Matching - User's Guide</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,15 +50,15 @@
       
     
     
-      <link rel="stylesheet" href="../../extra.css">
+      <link rel="stylesheet" href="../extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ttys-and-consoles" class="md-skip">
+        <a href="#how-udev-rules-work" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://finit-project.github.io/" title="User's Guide" class="md-header__button md-logo" aria-label="User's Guide" data-md-component="logo">
       
-  <img src="../../img/logo.png" alt="logo">
+  <img src="../img/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TTY &amp; Console
+              udev Rule Matching
             
           </span>
         </div>
@@ -250,7 +250,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://finit-project.github.io/" title="User's Guide" class="md-nav__button md-logo" aria-label="User's Guide" data-md-component="logo">
       
-  <img src="../../img/logo.png" alt="logo">
+  <img src="../img/logo.png" alt="logo">
 
     </a>
     User's Guide
@@ -301,7 +301,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href=".." class="md-nav__link ">
               
   
   
@@ -345,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/" class="md-nav__link">
+      <a href="../features/" class="md-nav__link">
         
   
   
@@ -373,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../example/" class="md-nav__link">
+      <a href="../example/" class="md-nav__link">
         
   
   
@@ -401,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/" class="md-nav__link">
+      <a href="../build/" class="md-nav__link">
         
   
   
@@ -433,8 +433,6 @@
       
   
   
-    
-  
   
   
     
@@ -480,15 +478,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../config/" class="md-nav__link ">
               
   
   
@@ -512,7 +510,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -532,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migration/" class="md-nav__link">
+      <a href="../config/migration/" class="md-nav__link">
         
   
   
@@ -560,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../files/" class="md-nav__link">
+      <a href="../config/files/" class="md-nav__link">
         
   
   
@@ -588,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../conditions/" class="md-nav__link">
+      <a href="../conditions/" class="md-nav__link">
         
   
   
@@ -616,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runlevels/" class="md-nav__link">
+      <a href="../config/runlevels/" class="md-nav__link">
         
   
   
@@ -644,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../task-and-run/" class="md-nav__link">
+      <a href="../config/task-and-run/" class="md-nav__link">
         
   
   
@@ -731,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../services/" class="md-nav__link">
+      <a href="../config/services/" class="md-nav__link">
         
   
   
@@ -759,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../service-opts/" class="md-nav__link">
+      <a href="../config/service-opts/" class="md-nav__link">
         
   
   
@@ -787,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../service-env/" class="md-nav__link">
+      <a href="../config/service-env/" class="md-nav__link">
         
   
   
@@ -815,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../service-sync/" class="md-nav__link">
+      <a href="../config/service-sync/" class="md-nav__link">
         
   
   
@@ -843,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../service-wrappers/" class="md-nav__link">
+      <a href="../config/service-wrappers/" class="md-nav__link">
         
   
   
@@ -879,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runparts/" class="md-nav__link">
+      <a href="../config/runparts/" class="md-nav__link">
         
   
   
@@ -904,37 +902,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TTY &amp; Console
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../config/tty/" class="md-nav__link">
         
   
   
@@ -950,37 +921,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#controlling-tty-for-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Controlling TTY for Services
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -993,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../env/" class="md-nav__link">
+      <a href="../config/env/" class="md-nav__link">
         
   
   
@@ -1021,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../logging/" class="md-nav__link">
+      <a href="../config/logging/" class="md-nav__link">
         
   
   
@@ -1049,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cgroups/" class="md-nav__link">
+      <a href="../config/cgroups/" class="md-nav__link">
         
   
   
@@ -1077,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../capabilities/" class="md-nav__link">
+      <a href="../config/capabilities/" class="md-nav__link">
         
   
   
@@ -1105,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../templating/" class="md-nav__link">
+      <a href="../config/templating/" class="md-nav__link">
         
   
   
@@ -1133,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sysv/" class="md-nav__link">
+      <a href="../config/sysv/" class="md-nav__link">
         
   
   
@@ -1161,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rescue/" class="md-nav__link">
+      <a href="../config/rescue/" class="md-nav__link">
         
   
   
@@ -1189,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../limitations/" class="md-nav__link">
+      <a href="../config/limitations/" class="md-nav__link">
         
   
   
@@ -1285,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../initctl/" class="md-nav__link">
+      <a href="../initctl/" class="md-nav__link">
         
   
   
@@ -1313,7 +1253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../switchroot/" class="md-nav__link">
+      <a href="../switchroot/" class="md-nav__link">
         
   
   
@@ -1341,7 +1281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../commands/" class="md-nav__link">
+      <a href="../commands/" class="md-nav__link">
         
   
   
@@ -1369,7 +1309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cmdline/" class="md-nav__link">
+      <a href="../cmdline/" class="md-nav__link">
         
   
   
@@ -1397,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../service/" class="md-nav__link">
+      <a href="../service/" class="md-nav__link">
         
   
   
@@ -1425,7 +1365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../signals/" class="md-nav__link">
+      <a href="../signals/" class="md-nav__link">
         
   
   
@@ -1457,8 +1397,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1486,11 +1428,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1511,7 +1453,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1529,7 +1471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runlevels/" class="md-nav__link">
+      <a href="../runlevels/" class="md-nav__link">
         
   
   
@@ -1557,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runparts/" class="md-nav__link">
+      <a href="../runparts/" class="md-nav__link">
         
   
   
@@ -1585,7 +1527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plugins/" class="md-nav__link">
+      <a href="../plugins/" class="md-nav__link">
         
   
   
@@ -1613,7 +1555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../watchdog/" class="md-nav__link">
+      <a href="../watchdog/" class="md-nav__link">
         
   
   
@@ -1641,7 +1583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../keventd/" class="md-nav__link">
+      <a href="../keventd/" class="md-nav__link">
         
   
   
@@ -1666,10 +1608,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../udev-matching/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rule Matching
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1685,6 +1654,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-the-complete-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary of the complete fix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-from-undersigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment from Undersigned
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-udev-attrs-matching-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How udev ATTRS{} matching works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-locked-buses-cant-be-accidentally-unlocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why locked buses can't be accidentally unlocked
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-the-guarantee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary of the guarantee
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1697,7 +1741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbus/" class="md-nav__link">
+      <a href="../dbus/" class="md-nav__link">
         
   
   
@@ -1725,7 +1769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../state-machine/" class="md-nav__link">
+      <a href="../state-machine/" class="md-nav__link">
         
   
   
@@ -1753,7 +1797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../distro/" class="md-nav__link">
+      <a href="../distro/" class="md-nav__link">
         
   
   
@@ -1781,7 +1825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../requirements/" class="md-nav__link">
+      <a href="../requirements/" class="md-nav__link">
         
   
   
@@ -1836,10 +1880,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#controlling-tty-for-services" class="md-nav__link">
+  <a href="#summary-of-the-complete-fix" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Controlling TTY for Services
+        Summary of the complete fix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-from-undersigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment from Undersigned
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-udev-attrs-matching-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How udev ATTRS{} matching works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-locked-buses-cant-be-accidentally-unlocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why locked buses can't be accidentally unlocked
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-the-guarantee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary of the guarantee
       
     </span>
   </a>
@@ -1872,196 +1960,105 @@
   
 
 
-<h1 id="ttys-and-consoles">TTYs and Consoles<a class="headerlink" href="#ttys-and-consoles" title="Permanent link">¶</a></h1>
-<p><strong>Syntax:</strong> <code>tty NAME { device = DEV }</code> -- built-in getty<br>
-<code>tty NAME { command = "CMD ARGS" }</code> -- external getty<br>
-<code>tty NAME { notty = true }</code>, or <code>{ rescue = true }</code> -- bare shell, no device</p>
-<p>The block title NAME is what <code>initctl</code> shows.  The three variants differ
-in what they open: <code>device</code> runs the built-in getty on that TTY, and DEV
-may be the special keyword <code>@console</code>, expanded from
-<code>/sys/class/tty/console/active</code>, useful on embedded systems.  <code>command</code>
-hands the TTY to an external getty.  <code>notty</code> opens nothing at all.</p>
-<p><code>command</code> may name several candidates, <code>{ "agetty ...", "getty ..." }</code>,
-and Finit runs the first one it finds.  See <a href="../service-opts/#command-candidates">Command
-Candidates</a>.</p>
-<p>Settings common to all three:</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Alias</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>runlevel</code></td>
-<td></td>
-<td>Runlevels to run in, e.g. <code>"12345"</code></td>
-</tr>
-<tr>
-<td><code>conditions</code></td>
-<td><code>cond</code></td>
-<td>Conditions to wait for</td>
-</tr>
-<tr>
-<td><code>noclear</code></td>
-<td></td>
-<td>Do not clear the TTY after each session</td>
-</tr>
-<tr>
-<td><code>nowait</code></td>
-<td></td>
-<td>Do not wait for Enter before the login prompt</td>
-</tr>
-<tr>
-<td><code>nologin</code></td>
-<td></td>
-<td>Skip login, give a shell straight away</td>
-</tr>
-<tr>
-<td><code>passenv</code></td>
-<td></td>
-<td>Pass the environment on to <code>login</code>, built-in getty only</td>
-</tr>
-</tbody>
-</table>
-<p>The <code>device</code> variant takes two more:</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>baud</code></td>
-<td>Baud rate, default 0, i.e., keep kernel default</td>
-</tr>
-<tr>
-<td><code>term</code></td>
-<td><code>$TERM</code> value, e.g. <code>"vt220"</code></td>
-</tr>
-</tbody>
-</table>
+<h1 id="how-udev-rules-work">How udev rules work<a class="headerlink" href="#how-udev-rules-work" title="Permanent link">¶</a></h1>
+<h2 id="summary-of-the-complete-fix">Summary of the complete fix<a class="headerlink" href="#summary-of-the-complete-fix" title="Permanent link">¶</a></h2>
+<ul>
+<li>hardware.c: Write authorized_default=1 on the bus path before nftw
+  runs (just 2 lines added). This exploits the fact that apath already
+  contains path/authorized_default at that point (set by the snprintf on
+  line 71). With authorized_default=1 set on the root hub, any device
+  that appears behind an intermediate hub during hub enumeration gets
+  auto-authorized by the kernel.</li>
+<li>70-usb-authorize.rules: Belt-and-suspenders for the async case. If hub
+  port probing is slow enough that children appear after nftw has
+  already returned, udev sees the add event with authorized=0, walks up
+  the parent chain with ATTRS{authorized_default}=="1", and authorizes
+  the device. Locked buses (authorized_default=0) are correctly skipped.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ACTION=="add", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", \
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ATTR{authorized}=="0", \
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ATTRS{authorized_default}=="1", \
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    RUN+="/bin/sh -c 'echo 1 &gt; /sys%p/authorized'"
+</code></pre></div>
+<p>This keeps authorized_default=2 (deny by default) fully intact — the
+  security window stays closed. The udev rule only fires when confd has
+  explicitly marked a bus as unlocked.</p>
+<h2 id="comment-from-undersigned">Comment from Undersigned<a class="headerlink" href="#comment-from-undersigned" title="Permanent link">¶</a></h2>
+<p>Very interesting, I did not know you could do such complex operations
+with udev rules. Could you explain a bit more in detail how the matching
+works and how we can guarantee locked buses/ports are not accidentally unlocked?</p>
 <blockquote>
-<p>A <code>tty</code> block inherits runlevel, condition (and other feature)
-parsing from the <code>service</code> block.  So TTYs can run in one or many
-runlevels and depend on any condition supported by Finit.  This is
-useful e.g. to depend on <code>&lt;pid/elogind&gt;</code> before starting a TTY.</p>
+<p>Sure. Let's walk through it step by step.</p>
 </blockquote>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>tty ttyAMA0 {
-    runlevel = "12345"
-    device   = "/dev/ttyAMA0"
-    baud     = 115200
-    term     = "vt220"
-    noclear  = true
-}
+<h2 id="how-udev-attrs-matching-works">How udev ATTRS{} matching works<a class="headerlink" href="#how-udev-attrs-matching-works" title="Permanent link">¶</a></h2>
+<p>A udev rule matches against a device and its entire parent chain in the
+sysfs device tree. When a device like 2-1.4 (the keyboard) is added, its
+sysfs hierarchy looks like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/sys/devices/.../0000:01:00.0/usb2/           ← root hub (usbN)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                              usb2/2-1/       ← VIA Labs hub
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                              usb2/2-1/2-1.4/ ← keyboard ← event fires here
 </code></pre></div>
-<p>The second <code>tty</code> syntax variant is for using an external getty, like
-agetty or the BusyBox getty.</p>
-<p>The third variant is for board bringup and the <code>rescue</code> boot mode.  No
-device node is required, the same output the kernel uses is reused for
-stdio.  With <code>notty</code> a shell is started (<code>nologin</code>, <code>noclear</code>, and
-<code>nowait</code> are implied); with <code>rescue</code> the bundled
-<code>/libexec/finit/sulogin</code> presents a bare-bones root login prompt.  If
-the root (uid:0, gid:0) user does not have a password set, no rescue is
-possible.  For more information, see the <a href="../rescue/">Rescue Mode</a>
-section.</p>
-<p>By default, the first two syntax variants <em>clear</em> the TTY and <em>wait</em> for
-the user to press enter before starting getty.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>tty getty {
-    runlevel = "12345"
-    command  = "/sbin/getty -L 115200 /dev/ttyAMA0 vt100"
-}
-
-tty agetty {
-    runlevel = "12345"
-    command  = "/sbin/agetty -L ttyAMA0 115200 vt100"
-    nowait   = true
-}
+<ul>
+<li>ATTR{} (no trailing S) — matches attributes on the device itself only</li>
+<li>ATTRS{} (with S) — matches attributes on the device or any of its
+  parents, walking up the tree until it finds a match or runs out of
+  parents</li>
+</ul>
+<p>So ATTRS{authorized_default}=="1" on a keyboard event at 2-1.4 walks:</p>
+<ol>
+<li>2-1.4/authorized_default — doesn't exist (not a hub/controller)</li>
+<li>2-1/authorized_default — doesn't exist (downstream hubs don't have
+   this attribute, only root hubs do)</li>
+<li>usb2/authorized_default — exists, check its value</li>
+</ol>
+<p>This is exactly the right level: authorized_default only lives on root
+hubs (usbN), which is precisely where confd writes.</p>
+<h2 id="why-locked-buses-cant-be-accidentally-unlocked">Why locked buses can't be accidentally unlocked<a class="headerlink" href="#why-locked-buses-cant-be-accidentally-unlocked" title="Permanent link">¶</a></h2>
+<p>The invariant is: confd owns <code>authorized_default</code>. It sets it to 0
+(locked) or 1 (unlocked). The udev rule only reads it, never writes it.</p>
+<p>Walk through the locked case:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>confd sets usb2/authorized_default = 0   ← locked
 </code></pre></div>
-<p>The <code>noclear</code> setting disables clearing the TTY after each session.
-Clearing the TTY when a user logs out is usually preferable.</p>
-<p>The <code>nowait</code> setting disables the <code>press Enter to activate console</code>
-message before actually starting the getty program.  On small and
-embedded systems running multiple unused getty wastes both memory
-and CPU cycles, so <code>wait</code> is the preferred default.</p>
-<p>The <code>nologin</code> setting disables getty and <code>/bin/login</code>, and gives the
-user a root (login) shell on the given TTY immediately.
-Needless to say, this is a rather insecure option, but can be very
-useful for developer builds, during board bringup, or similar.</p>
-<p>Embedded systems may want to enable automatic <code>DEV</code> by supplying the
-special <code>@console</code> device.  This works regardless whether the system
-uses <code>ttyS0</code>, <code>ttyAMA0</code>, <code>ttyMXC0</code>, or anything else.  Finit figures
-it out by querying sysfs: <code>/sys/class/tty/console/active</code>.  Leave
-<code>baud</code> out to keep the kernel default.</p>
-<blockquote>
-<p>Most systems get by fine by just using <code>console</code>, which will evaluate
-to <code>/dev/console</code>.  If you have to use <code>@console</code> to get any output,
-you may have some issue with your kernel config.</p>
-</blockquote>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>tty console {
-    runlevel = "12345"
-    device   = "@console"
-    term     = "vt220"
-    noclear  = true
-}
+<p>A device plugs into usb2. udev fires:</p>
+<ol>
+<li>ATTR{authorized}=="0" — matches (device is unauthorized)</li>
+<li>ATTRS{authorized_default}=="1" — walks up to usb2, finds 0 → no match</li>
+<li>Rule doesn't fire. Device stays denied. ✓</li>
+</ol>
+<p>For a device behind an intermediate hub on a locked bus:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>usb2/authorized_default = 0              ← bus locked
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>usb2/2-1/                                ← hub (somehow authorized)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>usb2/2-1/2-1.4/                          ← keyboard
 </code></pre></div>
-<p>On really bare bones systems, or for board bringup, Finit can give you a
-shell prompt as soon as bootstrap is done, without opening any device
-node:</p>
-<div class="highlight"><pre><span></span><code>tty board {
-    runlevel = "12345789"
-    notty    = true
-}
+<p>Even if the hub itself were authorized somehow, the keyboard's parent
+chain still reaches <code>usb2/authorized_default = 0</code> before finding any
+<code>authorized_default = 1</code>. The rule doesn't fire. ✓</p>
+<p>The only remaining question: what if two buses exist and one is locked?</p>
+<p>Say usb1 is unlocked and usb2 is locked. A device on usb2 fires a udev
+event. ATTRS walks up: <code>usb2/authorized_default = 0</code> — stops there (once
+it finds the attribute it stops).  It does not continue up to PCIe or
+platform buses looking for usb1's attribute. Each USB device's parent
+chain only goes through its own root hub.</p>
+<p>This is because authorized_default is found at usb2 — udev stops as soon
+as it matches the attribute name, regardless of value. If the value
+doesn't match the condition, the whole rule fails. It doesn't continue
+looking at other buses.</p>
+<h2 id="summary-of-the-guarantee">Summary of the guarantee<a class="headerlink" href="#summary-of-the-guarantee" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>┌───────────────────────┬─────────────────────────┬─────────────────────────┐
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>│       Scenario        │ usb2/authorized_default │       Rule fires?       │
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>├───────────────────────┼─────────────────────────┼─────────────────────────┤
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>│ Bus unlocked by confd │ 1                       │ Yes → device authorized │
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>├───────────────────────┼─────────────────────────┼─────────────────────────┤
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>│ Bus locked by confd   │ 0                       │ No → device denied      │
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>├───────────────────────┼─────────────────────────┼─────────────────────────┤
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>│ Bus at kernel default │ 2                       │ No → device denied      │
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>├───────────────────────┼─────────────────────────┼─────────────────────────┤
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>│ Bus doesn't exist yet │ —                       │ No → no match           │
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>└───────────────────────┴─────────────────────────┴─────────────────────────┘
 </code></pre></div>
-<p>This should of course not be enabled on production systems.  Because it
-may give a user root access without having to log in.  However, for
-board bringup and system debugging it can come in handy.</p>
-<p>One can also use a <code>service</code> block to start a stand-alone shell:</p>
-<div class="highlight"><pre><span></span><code>service shell {
-    runlevel = "12345"
-    command  = "/bin/sh -l"
-}
-</code></pre></div>
-<h2 id="controlling-tty-for-services">Controlling TTY for Services<a class="headerlink" href="#controlling-tty-for-services" title="Permanent link">¶</a></h2>
-<p>The <code>tty</code> setting gives a <code>run</code>, <code>task</code>, or <code>service</code> a controlling
-terminal on the given device.  The device is opened, set as the
-controlling terminal for the session (after <code>setsid()</code>), and connected to
-the process's stdin, stdout, and stderr.  A default <code>TERM</code> environment
-variable is set based on the device type: <code>vt102</code> for serial lines and
-<code>linux</code> for virtual terminals.</p>
-<p>The value may be a device node like <code>/dev/ttyS0</code>, or the special
-keyword <code>@console</code> (see above).  Note that <code>@console</code> expands only to
-the first console, not all.</p>
-<p>When <code>tty</code> is combined with a <code>log</code> block, stdout and stderr are
-redirected to the log sink instead of the TTY, but stdin remains
-connected to the TTY device.</p>
-<blockquote>
-<p>The <code>tty</code> setting is for <code>run</code>, <code>task</code>, and <code>service</code> blocks only.
-A <code>tty</code> block (for getty/login) is a different thing entirely, see
-above.</p>
-</blockquote>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code>service foo {
-    description = "Foo on serial console"
-    runlevel    = "2345"
-    tty         = "/dev/ttyS0"
-    command     = "/usr/sbin/foo"
-}
-
-task setup {
-    description = "Board bringup on console"
-    runlevel    = "S"
-    tty         = "@console"
-    command     = "my-setup-script"
-}
-</code></pre></div>
+<p>The rule is purely reactive: it can only authorize devices on buses that
+confd has already explicitly declared unlocked. It has no ability to
+override a lock.</p>
 
 
 
@@ -2125,10 +2122,10 @@ task setup {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.follow", "navigation.path", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["toc.follow", "navigation.path", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.footnote.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   

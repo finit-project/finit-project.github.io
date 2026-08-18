@@ -10,7 +10,7 @@
         <link rel="canonical" href="https://finit-project.github.io/dbus/">
       
       
-        <link rel="prev" href="../keventd/">
+        <link rel="prev" href="../udev-matching/">
       
       
         <link rel="next" href="../state-machine/">
@@ -1422,6 +1422,8 @@
       
         
       
+        
+      
     
     
     
@@ -1589,6 +1591,34 @@
     
   
     keventd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../udev-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rule Matching
   
 
     
@@ -2197,6 +2227,9 @@ exposes no bus.</p>
 </tr>
 </tbody>
 </table>
+<p>The bundled device manager serves its own <code>org.finit.Device1</code> the same
+way on <code>unix:path=/run/keventd/bus</code>, see <a href="../keventd/">keventd</a>; one
+socket per daemon, no forwarding between them.</p>
 <p>The <strong>local</strong> bus is brokerless: clients connect straight to Finit over a
 Unix-domain socket using the standard D-Bus SASL EXTERNAL handshake.  No
 <code>dbus-daemon</code> is required, which makes it suitable for embedded systems that
@@ -2206,6 +2239,15 @@ don't ship one.</p>
 <code>initctl</code> falls back on.  The bus reaches every operation <code>initctl</code>
 does, so restricting one and not the other would leave the door open.
 Members of that group may use it, see <a href="#authorization">Authorization</a>.</p>
+<p>Finit accepts at most 64 concurrent local-bus peers; further
+connections are refused until one disconnects.  Match rules given to
+<code>AddMatch</code> support the <code>type</code>, <code>interface</code>, <code>member</code>, and <code>path</code> keys;
+<code>arg0</code> and its variants are not implemented.</p>
+<p>For the system bus a standard busconfig policy ships in
+<code>dbus-1/org.finit.conf</code>: only root may own <code>org.finit</code>, unprivileged
+callers reach introspection, properties, and the read-only methods.
+Finit also enforces per-method authorization itself, so a permissive
+policy installed by mistake does not open state-changing methods.</p>
 <p>The <strong>system</strong> bus is best-effort: Finit probes for a running <code>dbus-daemon</code>
 and, when reachable, claims the well-known name <code>org.finit</code> so that standard
 tooling sees Finit just like any other system service:</p>
@@ -2239,7 +2281,7 @@ is silently skipped.</p>
 <tbody>
 <tr>
 <td><code>org.freedesktop.DBus</code></td>
-<td><code>Hello</code>, <code>AddMatch</code>, <code>RemoveMatch</code></td>
+<td><code>Hello</code>, <code>AddMatch</code>, <code>RemoveMatch</code> — on <code>/org/freedesktop/DBus</code> only</td>
 </tr>
 <tr>
 <td><code>org.freedesktop.DBus.Peer</code></td>
@@ -2319,7 +2361,7 @@ and the service registry.</p>
 <td><code>u</code></td>
 <td>—</td>
 <td>yes</td>
-<td>Transition to runlevel <code>u</code> (0–6)</td>
+<td>Transition to runlevel <code>u</code> (0–9)</td>
 </tr>
 <tr>
 <td><code>SetDebug</code></td>
@@ -2344,13 +2386,20 @@ and the service registry.</p>
 </tr>
 <tr>
 <td><code>Reboot</code>, <code>Halt</code>, <code>Poweroff</code></td>
-<td>—</td>
+<td><code>u</code></td>
 <td>—</td>
 <td>yes</td>
-<td>Trigger the corresponding shutdown sequence</td>
+<td>Trigger the corresponding shutdown sequence; the argument arms the emergency fallback timer (seconds, 0 = none)</td>
 </tr>
 </tbody>
 </table>
+<p>Edge cases follow the legacy <code>initctl</code> protocol: <code>Suspend</code> and the
+reboot family reply <code>WrongRunlevel</code> during bootstrap and shutdown,
+<code>SetRunlevel</code> is a warning + no-op in runlevel 0/6 and records the
+level for the end of bootstrap in runlevel S, and <code>Signal</code> fails for
+stopped services.  One deliberate divergence: a <code>SetRunlevel</code> argument
+outside 0–9 returns <code>InvalidArgs</code>, where the legacy protocol
+acknowledges silently.</p>
 <h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">¶</a></h3>
 <p>All read-only strings; observable via <code>Properties.Get</code> and
 <code>Properties.GetAll</code>.</p>
@@ -2399,6 +2448,11 @@ and the service registry.</p>
 <td><code>RunlevelChanged</code></td>
 <td><code>ss</code>  — old level, new level</td>
 <td>System runlevel change</td>
+</tr>
+<tr>
+<td><code>ConfigReloaded</code></td>
+<td>—</td>
+<td><code>initctl reload</code> completed; providers of generation-file conditions re-assert</td>
 </tr>
 </tbody>
 </table>
@@ -2450,7 +2504,7 @@ constructing it by hand.</p>
 <td>—</td>
 <td>—</td>
 <td>yes</td>
-<td>Reload (SIGHUP if supported, else restart)</td>
+<td>Send the service's <code>reload-signal</code>, default <code>SIGHUP</code>; restart when set to <code>"none"</code></td>
 </tr>
 </tbody>
 </table>
@@ -2643,6 +2697,16 @@ identity string.</p>
 </table>
 <p>Note: non-<code>usr/*</code> paths are rejected with <code>InvalidArgs</code> -- system
 conditions belong to Finit's state machine.</p>
+<p>A service consuming such a condition:</p>
+<div class="highlight"><pre><span></span><code>service alarm {
+    description = "Foo alarm"
+    runlevel    = "2345"
+    conditions  = { "usr/data-ready" }
+    command     = "alarm --arg foo"
+}
+</code></pre></div>
+<p>asserted from any bus client with <code>Cond1.Set string:"data-ready"</code>, see
+the examples below.</p>
 <h3 id="signals_1">Signals<a class="headerlink" href="#signals_1" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -2722,15 +2786,15 @@ the following subcommands use the bus first:</p>
 </tr>
 <tr>
 <td><code>initctl reboot</code></td>
-<td><code>Manager1.Reboot()</code></td>
+<td><code>Manager1.Reboot(timeout)</code></td>
 </tr>
 <tr>
 <td><code>initctl halt</code></td>
-<td><code>Manager1.Halt()</code></td>
+<td><code>Manager1.Halt(timeout)</code></td>
 </tr>
 <tr>
 <td><code>initctl poweroff</code></td>
-<td><code>Manager1.Poweroff()</code></td>
+<td><code>Manager1.Poweroff(timeout)</code></td>
 </tr>
 <tr>
 <td><code>initctl suspend</code></td>
@@ -2741,7 +2805,7 @@ the following subcommands use the bus first:</p>
 <td><code>Manager1.SetDebug()</code></td>
 </tr>
 <tr>
-<td><code>initctl signal</code></td>
+<td><code>initctl signal</code> (or <code>kill</code>)</td>
 <td><code>Manager1.Signal(svc, signo)</code></td>
 </tr>
 <tr>

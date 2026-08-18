@@ -1432,6 +1432,8 @@
       
         
       
+        
+      
     
     
     
@@ -1599,6 +1601,34 @@
     
   
     keventd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../udev-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rule Matching
   
 
     
@@ -1983,6 +2013,9 @@ runtime. Key capabilities include:</p>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>initctl<span class="w"> </span>top<span class="w">                       </span><span class="c1"># Interactive resource monitor</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>initctl<span class="w"> </span>cond<span class="w"> </span><span class="nb">set</span><span class="w"> </span>usr/custom<span class="w">       </span><span class="c1"># Set custom condition</span>
 </code></pre></div>
+<p><code>initctl</code> rides Finit's built-in <a href="../dbus/">D-Bus API</a> when available,
+which is also open to any other bus client, including <code>dbus-send</code> and
+language bindings.</p>
 <p>See the <a href="../initctl/">Commands &amp; Status</a> section for complete documentation.</p>
 <p><strong>Rescue Mode</strong></p>
 <p>Finit provides a built-in rescue mode for system recovery and maintenance.

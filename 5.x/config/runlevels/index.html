@@ -1535,6 +1535,8 @@
       
         
       
+        
+      
     
     
     
@@ -1702,6 +1704,34 @@
     
   
     keventd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../udev-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rule Matching
   
 
     
@@ -2057,8 +2087,10 @@ regardless.  Put commented-out candidates above the list.</p>
 <p>Deprecated, there is both a <code>modules-load.so</code> and a <code>modprobe.so</code> plugin
 that can handle module loading better.  The former supports loading from
 <code>/etc/modules-load.d/</code>, the latter uses kernel modinfo to automatically
-load (or coldplug) every required module.  For hotplug we recommend the
-BusyBox mdev tool, add to <code>/etc/mdev.conf</code>:</p>
+load (or coldplug) every required module.  Hotplug module loading is
+handled by <a href="../../keventd/">keventd</a>, the built-in device manager.  On
+systems using the hotplug plugin with BusyBox mdev instead, add to
+<code>/etc/mdev.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>$MODALIAS=.*  root:root       0660    @modprobe -b "$MODALIAS"
 </code></pre></div>
 <div class="admonition note">

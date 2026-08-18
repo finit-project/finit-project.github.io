@@ -13,7 +13,7 @@
         <link rel="prev" href="../watchdog/">
       
       
-        <link rel="next" href="../dbus/">
+        <link rel="next" href="../udev-matching/">
       
       
         
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#keventd" class="md-skip">
+        <a href="#bundled-device-manager" class="md-skip">
           Skip to content
         </a>
       
@@ -1422,6 +1422,8 @@
       
         
       
+        
+      
     
     
     
@@ -1590,6 +1592,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    keventd
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1607,6 +1627,258 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device Nodes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Device Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persistent-symlinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persistent Symlinks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firmware-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware Loading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module Loading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coldplug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coldplug
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netlink-rebroadcast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Netlink Rebroadcast
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Netlink Rebroadcast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-conditions-dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device Conditions (dev/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-conditions-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Conditions (class/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#driver-conditions-driver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driver Conditions (driver/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-supply-conditions-syspwr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power Supply Conditions (sys/pwr/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-bus-interface-orgfinitdevice1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D-Bus Interface (org.finit.Device1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-finit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration with Finit
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../udev-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rule Matching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1751,6 +2023,219 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device Nodes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Device Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persistent-symlinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persistent Symlinks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firmware-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware Loading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module Loading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coldplug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coldplug
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netlink-rebroadcast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Netlink Rebroadcast
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Netlink Rebroadcast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-conditions-dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device Conditions (dev/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-conditions-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Conditions (class/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#driver-conditions-driver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driver Conditions (driver/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-supply-conditions-syspwr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power Supply Conditions (sys/pwr/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-bus-interface-orgfinitdevice1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D-Bus Interface (org.finit.Device1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-finit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration with Finit
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1775,16 +2260,510 @@
   
 
 
-<h1 id="keventd">keventd<a class="headerlink" href="#keventd" title="Permanent link">¶</a></h1>
-<p>The kernel event daemon bundled with Finit is a simple uevent monitor
-for <code>/sys/class/power_supply</code>.  It provides the <code>sys/pwr/ac</code> condition,
-which can be useful to prevent power hungry services like anacron to run
-when a laptop is only running on battery, for instance.</p>
-<p>Since keventd is not an integral part of Finit yet it is not enabled by
-default.  Enable it using <code>./configure --with-keventd</code>.  The bundled
-<code>contrib/</code> build scripts for Debian, Alpine, and Void have this enabled.</p>
-<p>This daemon is planned to be extended with monitoring of other uevents,
-patches and ideas are welcome in the issue tracker.</p>
+<h1 id="bundled-device-manager">Bundled Device Manager<a class="headerlink" href="#bundled-device-manager" title="Permanent link">¶</a></h1>
+<p>The kernel event daemon <code>keventd</code> is a built-in device manager bundled
+with Finit.  It replaces the need for external device managers like
+mdev, mdevd, or udevd on systems where a lighter-weight solution is
+preferred, particularly on embedded systems.</p>
+<p>It is enabled by default since Finit v5, and needs libblkid from
+util-linux (the <code>libblkid-dev</code> package, or whatever your distribution
+calls it) to read the filesystem UUID and label behind the
+<code>/dev/disk/by-uuid/</code> and <code>/dev/disk/by-label/</code> symlinks.  To disable it
+and use an external device manager instead:</p>
+<div class="highlight"><pre><span></span><code>./configure --without-keventd
+</code></pre></div>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">¶</a></h2>
+<p>When started, keventd listens on a <code>NETLINK_KOBJECT_UEVENT</code> socket for
+kernel events and handles:</p>
+<ul>
+<li><strong>Device node creation</strong>: creates and removes <code>/dev</code> nodes with
+  correct permissions on device add/remove events</li>
+<li><strong>udev rules</strong>: matches events against rules read from
+  <code>/lib/udev/rules.d/</code>, <code>/run/udev/rules.d/</code>, and <code>/etc/udev/rules.d/</code>,
+  with a curated ruleset derived from eudev installed by default</li>
+<li><strong>Persistent symlinks</strong>: creates <code>by-id</code> and <code>by-path</code> symlinks under
+  <code>/dev/disk/</code>, <code>/dev/input/</code>, and elsewhere, for stable device naming</li>
+<li><strong>Firmware loading</strong>: responds to kernel firmware requests by searching
+  <code>/lib/firmware/</code> and writing firmware data to sysfs</li>
+<li><strong>Module loading</strong>: parses <code>MODALIAS</code> from uevents and spawns <code>modprobe</code>
+  to load the appropriate kernel module</li>
+<li><strong>Coldplug</strong>: with the <code>-c</code> flag, walks <code>/sys/devices</code> and triggers
+  add events for all devices present at boot</li>
+<li><strong>Power supply monitoring</strong>: tracks AC power status and provides the
+  <code>sys/pwr/ac</code> condition</li>
+<li><strong>Device conditions</strong>: sets <code>dev/*</code> conditions in the Finit condition
+  system when device nodes appear or disappear</li>
+<li><strong>Netlink rebroadcast</strong>: rebroadcasts processed uevents to netlink
+  group 0x4 for <a href="https://github.com/illiliti/libudev-zero">libudev-zero</a> consumers (enabled by default)</li>
+<li><strong>D-Bus interface</strong>: <code>org.finit.Device1</code> -- settle, trigger, device
+  info, rules reload, and queue state over its own bus socket</li>
+</ul>
+<h2 id="device-nodes">Device Nodes<a class="headerlink" href="#device-nodes" title="Permanent link">¶</a></h2>
+<p>On receiving an <code>add</code> event with <code>MAJOR</code>, <code>MINOR</code>, and <code>DEVNAME</code>
+fields, keventd creates the corresponding device node in <code>/dev</code> using
+<code>mknod()</code>.  Parent directories are created automatically (e.g.,
+<code>/dev/input/</code> for <code>/dev/input/event0</code>).</p>
+<p>On <code>remove</code> events, the device node and its associated symlinks and
+conditions are cleaned up.</p>
+<h3 id="default-permissions">Default Permissions<a class="headerlink" href="#default-permissions" title="Permanent link">¶</a></h3>
+<p>keventd applies permissions based on built-in rules that match on
+device subsystem and name:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Subsystem</strong></th>
+<th><strong>Pattern</strong></th>
+<th><strong>Mode</strong></th>
+<th><strong>Owner:Group</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td>sd<em>, vd</em>, nvme<em>, mmcblk</em>, loop<em>, dm-</em>, md*</td>
+<td>0660</td>
+<td>root:disk</td>
+</tr>
+<tr>
+<td>tty</td>
+<td>tty[0-9]*</td>
+<td>0620</td>
+<td>root:tty</td>
+</tr>
+<tr>
+<td>tty</td>
+<td>ttyS<em>, ttyUSB</em>, ttyACM*</td>
+<td>0660</td>
+<td>root:dialout</td>
+</tr>
+<tr>
+<td>input</td>
+<td>event<em>, mouse</em>, mice</td>
+<td>0660</td>
+<td>root:root</td>
+</tr>
+<tr>
+<td>sound</td>
+<td>*</td>
+<td>0660</td>
+<td>root:audio</td>
+</tr>
+<tr>
+<td>video4linux</td>
+<td>*</td>
+<td>0660</td>
+<td>root:video</td>
+</tr>
+<tr>
+<td>drm</td>
+<td>card<em>, render</em></td>
+<td>0660</td>
+<td>root:video</td>
+</tr>
+<tr>
+<td>(any)</td>
+<td>null, zero, full, random, urandom</td>
+<td>0666</td>
+<td>root:root</td>
+</tr>
+<tr>
+<td>(any)</td>
+<td>console</td>
+<td>0600</td>
+<td>root:root</td>
+</tr>
+<tr>
+<td>(default)</td>
+<td></td>
+<td>0660</td>
+<td>root:root</td>
+</tr>
+</tbody>
+</table>
+<h2 id="persistent-symlinks">Persistent Symlinks<a class="headerlink" href="#persistent-symlinks" title="Permanent link">¶</a></h2>
+<p>Symlinks come from two places.  A handful are built into keventd and are
+created for every device in the subsystem, whatever rules are loaded.</p>
+<p>For block devices, under <code>/dev/disk/</code>:</p>
+<ul>
+<li><strong>by-id</strong>: based on the device serial number and model, read from
+  sysfs attributes (<code>/sys/.../device/vendor</code>, <code>model</code>, <code>serial</code>)</li>
+<li><strong>by-path</strong>: based on the device topology path</li>
+</ul>
+<p>For input devices, under <code>/dev/input/</code>:</p>
+<ul>
+<li><strong>by-id</strong>: based on the device name from sysfs</li>
+<li><strong>by-path</strong>: based on the physical device path</li>
+</ul>
+<p>The rest come from <code>SYMLINK+=</code> in the udev rules, so what you get
+depends on the ruleset installed.  The curated rules Finit ships add,
+among others:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Directory</strong></th>
+<th><strong>Links</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/dev/disk/</code></td>
+<td><code>by-uuid</code>, <code>by-label</code>, <code>by-partuuid</code>, <code>by-partlabel</code>, <code>by-diskseq</code>, and further <code>by-id</code> and <code>by-path</code> names for NVMe, virtio, MMC, WWN, and FireWire</td>
+</tr>
+<tr>
+<td><code>/dev/input/</code></td>
+<td>longer <code>by-id</code> and <code>by-path</code> names than the built-in ones, down to the USB interface number</td>
+</tr>
+<tr>
+<td><code>/dev/serial/</code></td>
+<td><code>by-id</code>, <code>by-path</code></td>
+</tr>
+<tr>
+<td><code>/dev/snd/</code></td>
+<td><code>by-id</code>, <code>by-path</code></td>
+</tr>
+<tr>
+<td><code>/dev/v4l/</code></td>
+<td><code>by-id</code>, <code>by-path</code></td>
+</tr>
+<tr>
+<td><code>/dev/tape/</code></td>
+<td><code>by-id</code>, <code>by-path</code></td>
+</tr>
+<tr>
+<td><code>/dev/dri/</code></td>
+<td><code>by-path</code></td>
+</tr>
+</tbody>
+</table>
+<p>They also set up a few fixed names: <code>/dev/rtc</code>, <code>/dev/cdrom</code>, and
+<code>/dev/virtio-ports/&lt;name&gt;</code>.</p>
+<p>The <code>by-uuid</code> and <code>by-label</code> links are why keventd needs libblkid.  The
+rules read the filesystem metadata off the device with
+<code>IMPORT{builtin}="blkid"</code>, and libblkid is what that builtin calls.</p>
+<p>Built-in and rule-provided symlinks alike are tracked internally and
+removed when the corresponding device is unplugged.</p>
+<h2 id="firmware-loading">Firmware Loading<a class="headerlink" href="#firmware-loading" title="Permanent link">¶</a></h2>
+<p>When a kernel driver requests firmware (via <code>request_firmware()</code>), the
+kernel sends a uevent with a <code>FIRMWARE=</code> field.  keventd handles this
+by:</p>
+<ol>
+<li>Searching for the firmware file in order:</li>
+<li><code>/lib/firmware/updates/&lt;kernel-version&gt;/&lt;name&gt;</code></li>
+<li><code>/lib/firmware/updates/&lt;name&gt;</code></li>
+<li><code>/lib/firmware/&lt;kernel-version&gt;/&lt;name&gt;</code></li>
+<li><code>/lib/firmware/&lt;name&gt;</code></li>
+<li>Writing <code>1</code> to <code>/sys/&lt;devpath&gt;/loading</code> to signal start</li>
+<li>Copying the firmware data to <code>/sys/&lt;devpath&gt;/data</code></li>
+<li>Writing <code>0</code> to <code>/sys/&lt;devpath&gt;/loading</code> on success (or <code>-1</code> on failure)</li>
+</ol>
+<p>This is particularly important early in boot when drivers for graphics
+cards, network adapters, and other hardware need firmware before they
+can operate.</p>
+<h2 id="module-loading">Module Loading<a class="headerlink" href="#module-loading" title="Permanent link">¶</a></h2>
+<p>When a device add event includes a <code>MODALIAS</code> field, keventd spawns
+<code>modprobe -bq &lt;modalias&gt;</code> to load the matching kernel module.  Module
+loading is done asynchronously (keventd does not wait for modprobe to
+complete) to avoid blocking other event processing.</p>
+<h2 id="coldplug">Coldplug<a class="headerlink" href="#coldplug" title="Permanent link">¶</a></h2>
+<p>To handle devices that were present before keventd started, it supports
+a coldplug mode activated with the <code>-c</code> flag.  This walks the entire
+<code>/sys/devices</code> tree and writes <code>add</code> to each <code>uevent</code> file, causing the
+kernel to re-emit add events for all existing devices.</p>
+<p>This replaces the separate <code>coldplug</code> script previously used with mdev.</p>
+<p>When <code>-c</code> is used, keventd defers its pidfile (and the <code>pid/keventd</code>
+condition Finit asserts from it) until the coldplug event queue has
+been fully drained.  Services that depend on <code>&lt;pid/keventd&gt;</code> can
+therefore assume <code>/dev</code> is populated and persistent symlinks are live,
+without needing a separate <code>settle</code> step.</p>
+<h2 id="netlink-rebroadcast">Netlink Rebroadcast<a class="headerlink" href="#netlink-rebroadcast" title="Permanent link">¶</a></h2>
+<p>The Linux kernel sends uevents to netlink multicast group 1 (bit 0) of
+<code>NETLINK_KOBJECT_UEVENT</code>.  Only the device manager listens on this raw
+kernel group.  Userspace consumers — applications using libudev —
+expect to receive processed events on a separate netlink group.</p>
+<p>systemd/udevd established the convention of rebroadcasting processed
+events to a separate group, and <a href="https://github.com/illiliti/libudev-zero">libudev-zero</a>, a daemonless drop-in
+replacement for libudev, listens on group <code>0x4</code> for these events.
+Without a device manager rebroadcasting, graphical applications,
+Wayland/X11 compositors, libinput, and anything else using libudev to
+monitor device hotplug will never see any events.</p>
+<p>keventd rebroadcasts by default to netlink group 4 (<code>0x4</code>).  A second
+netlink socket is created at startup, and after each uevent has been
+fully processed (device nodes created, symlinks set up, modules loaded),
+the original raw event is sent to the configured group(s).
+Rebroadcasting after processing ensures that device nodes and symlinks
+already exist by the time consumers receive the notification.</p>
+<p>Use <code>-g GROUP</code> to override the default group mask, or <code>-G</code> to disable
+rebroadcast entirely.  Bit 0 of the group mask is always forced off to
+prevent a feedback loop with the kernel's own multicast group.</p>
+<h3 id="background">Background<a class="headerlink" href="#background" title="Permanent link">¶</a></h3>
+<p>The netlink uevent architecture uses separate multicast groups to
+isolate the kernel-to-device-manager channel from the device-manager-to-
+application channel:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Group</strong></th>
+<th><strong>Bit</strong></th>
+<th><strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>Kernel events (device manager listens here)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>Processed events (libudev consumers listen)</td>
+</tr>
+</tbody>
+</table>
+<p>This two-group design was established by systemd/udevd and is the de
+facto standard.  <a href="https://skarnet.org/software/mdevd/">mdevd</a> implements the same mechanism via its <code>-O</code>
+flag, and keventd follows the same convention.</p>
+<p>For more details, see:</p>
+<ul>
+<li><a href="https://github.com/illiliti/libudev-zero">libudev-zero</a> — daemonless replacement for libudev</li>
+<li><a href="https://skarnet.org/software/mdevd/">mdevd</a> — mdev-compatible device manager with rebroadcast support</li>
+</ul>
+<h2 id="conditions">Conditions<a class="headerlink" href="#conditions" title="Permanent link">¶</a></h2>
+<p>keventd provides conditions in two namespaces:</p>
+<h3 id="device-conditions-dev">Device Conditions (<code>dev/</code>)<a class="headerlink" href="#device-conditions-dev" title="Permanent link">¶</a></h3>
+<p>When a device node is created, keventd asserts a corresponding condition
+in <code>/run/finit/cond/dev/</code>.  This allows services to wait for specific
+devices:</p>
+<div class="highlight"><pre><span></span><code>service mdadm {
+    description = "RAID monitor"
+    runlevel    = "2345"
+    conditions  = { "dev/sda" }
+    command     = "/usr/sbin/mdadm --monitor /dev/md0"
+}
+
+service gps-daemon {
+    description = "GPS daemon"
+    runlevel    = "2345"
+    conditions  = { "dev/ttyUSB0" }
+    command     = "/usr/sbin/gps-daemon"
+}
+</code></pre></div>
+<p>Network interfaces are not device nodes and do not live in the <code>dev/</code>
+namespace -- a <code>/dev/wan</code> node created by a user must not be confused
+with a <code>wan</code> interface.  To wait for an interface, use the <code>netlink</code>
+plugin's <code>net/&lt;iface&gt;/exist</code> condition, plus <code>net/&lt;iface&gt;/up</code> (admin
+up) and <code>net/&lt;iface&gt;/running</code> (carrier present) to gate on link state:</p>
+<div class="highlight"><pre><span></span><code>service dhcpcd {
+    description = "DHCP client"
+    runlevel    = "2345"
+    conditions  = { "net/wan/exist" }
+    command     = "/usr/sbin/dhcpcd"
+}
+</code></pre></div>
+<p>keventd provides the parallel <code>class/net/&lt;iface&gt;</code> condition, like for
+any other sysfs class device.</p>
+<p>When the device is removed, the condition is cleared and Finit stops
+the dependent services.</p>
+<h3 id="class-conditions-class">Class Conditions (<code>class/</code>)<a class="headerlink" href="#class-conditions-class" title="Permanent link">¶</a></h3>
+<p>Many devices live in sysfs without a <code>/dev/</code> node -- DSA switch ports,
+IIO sensors, LEDs, backlight, PHYs, regulators.  For those, keventd
+asserts <code>class/&lt;subsystem&gt;/&lt;sysname&gt;</code> on every <code>add</code> event so services
+can still wait for them:</p>
+<div class="highlight"><pre><span></span><code>service blink-blue {
+    description = "LED driver"
+    runlevel    = "2345"
+    conditions  = { "class/leds/blue" }
+    command     = "/usr/sbin/blink-blue"
+}
+</code></pre></div>
+<p>The condition is cleared on <code>remove</code>.</p>
+<h3 id="driver-conditions-driver">Driver Conditions (<code>driver/</code>)<a class="headerlink" href="#driver-conditions-driver" title="Permanent link">¶</a></h3>
+<p><code>driver/&lt;name&gt;</code> is asserted while the driver <code>&lt;name&gt;</code> is bound to at
+least one device, from the kernel's <code>bind</code>/<code>unbind</code> uevents.  Use this
+to gate on slow-probing hardware whose readiness isn't marked by a
+class device or <code>/dev</code> node, such as a switch core or complex PHY:</p>
+<div class="highlight"><pre><span></span><code>service dsa-probe {
+    description = "DSA topology probe"
+    runlevel    = "2345"
+    conditions  = { "driver/mt7530" }
+    command     = "/usr/sbin/dsa-probe"
+}
+</code></pre></div>
+<p>A driver bound to several devices keeps the condition asserted until
+the last device is unbound.  To wait for one specific device instance,
+gate on what its probe creates instead: the <code>class/</code> condition or
+<code>/dev</code> node of the child device.</p>
+<h3 id="power-supply-conditions-syspwr">Power Supply Conditions (<code>sys/pwr/</code>)<a class="headerlink" href="#power-supply-conditions-syspwr" title="Permanent link">¶</a></h3>
+<p>keventd monitors the <code>power_supply</code> subsystem and provides:</p>
+<ul>
+<li><code>sys/pwr/ac</code> — asserted when AC power is connected</li>
+</ul>
+<p>This is useful for preventing power-hungry services from running on
+battery:</p>
+<div class="highlight"><pre><span></span><code>service cron {
+    description = "Cron daemon"
+    runlevel    = "2345"
+    conditions  = { "sys/pwr/ac", "pid/syslogd" }
+    command     = "cron -f"
+}
+</code></pre></div>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code>keventd [-cdGhnpSv] [-g GROUP] [-r DIR] [-t SECONDS]
+
+Options:
+  -c        Run coldplug at startup
+  -d        Enable debug mode (foreground, verbose)
+  -g GROUP  Override netlink rebroadcast group (default: 4)
+  -G        Disable netlink rebroadcast entirely
+  -h        Show help text
+  -n        Run in foreground (no daemon)
+  -p        Passive mode: power supply events only
+  -r DIR    Extra rules directory
+  -S        Settle mode: wait for kernel uevent queue to quiet, then exit
+  -t SEC    Settle timeout (default 30s, used with -S)
+  -v        Show version
+</code></pre></div>
+<p>In normal operation, Finit starts keventd automatically via its system
+configuration.  The <code>-d</code> flag is useful for debugging device issues --
+it runs keventd in the foreground and logs all received uevents.</p>
+<p><code>keventd -S</code> is a one-shot command, not a flag to the running daemon.
+It is the <code>udevadm settle</code> equivalent for migration scenarios:</p>
+<div class="highlight"><pre><span></span><code>keventd -S -t 10 &amp;&amp; start-graphical-session
+</code></pre></div>
+<p>With D-Bus support it asks the running keventd over
+<a href="#d-bus-interface-orgfinitdevice1"><code>Device1.Settle</code></a>, which tracks the
+event queue where the events actually flow.  When no bus answers --
+another device manager, or a build without D-Bus -- it falls back to
+polling <code>/sys/kernel/uevent_seqnum</code> until the kernel's sequence
+counter has been stable for 200ms, then exits zero.  After the
+<code>-t SECONDS</code> timeout (default 30) it exits non-zero instead.  The
+fallback works regardless of which device manager is active, or even
+if none is.</p>
+<p>Prefer the condition-based model (<code>&lt;dev/X&gt;</code>, <code>&lt;class/...&gt;</code>,
+<code>&lt;driver/...&gt;</code>) over settle when you control the service definition --
+settle is racy with slow probes that fire after the queue appears
+quiet.  It is provided for legacy boot scripts and init transitions
+where condition wiring isn't feasible.</p>
+<p>Debug logging can also be toggled at runtime by sending <code>SIGUSR1</code>:</p>
+<div class="highlight"><pre><span></span><code>kill -USR1 $(pidof keventd)
+</code></pre></div>
+<h2 id="d-bus-interface-orgfinitdevice1">D-Bus Interface (<code>org.finit.Device1</code>)<a class="headerlink" href="#d-bus-interface-orgfinitdevice1" title="Permanent link">¶</a></h2>
+<p>With D-Bus support (default, <code>--disable-dbus</code> opts out) keventd serves
+<code>org.finit.Device1</code> at <code>/org/finit/device</code> on its own brokerless bus,
+<code>unix:path=/run/keventd/bus</code>, the same way Finit serves
+<a href="../dbus/"><code>org.finit</code></a> on <code>/run/finit/bus</code>.  There is no forwarding
+between the two -- clients that want both connect to both.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>In sig</th>
+<th>Out sig</th>
+<th>Priv.</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Settle</code></td>
+<td><code>u</code></td>
+<td><code>b</code></td>
+<td>no</td>
+<td>Wait until the event queue drains, timeout in seconds; <code>false</code> on timeout</td>
+</tr>
+<tr>
+<td><code>Trigger</code></td>
+<td><code>ss</code></td>
+<td>—</td>
+<td>yes</td>
+<td>Replay events: action, subsystem glob (empty = all)</td>
+</tr>
+<tr>
+<td><code>Info</code></td>
+<td><code>s</code></td>
+<td><code>a{ss}</code></td>
+<td>no</td>
+<td><code>/run/udev/data</code> properties for a devpath</td>
+</tr>
+<tr>
+<td><code>RulesReload</code></td>
+<td>—</td>
+<td><code>u</code></td>
+<td>yes</td>
+<td>Re-read the rules directories, returns rule count</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Sig</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>QueueEmpty</code></td>
+<td><code>b</code></td>
+<td>No device events in flight</td>
+</tr>
+<tr>
+<td><code>SeqnumProcessed</code></td>
+<td><code>t</code></td>
+<td>Highest kernel seqnum keventd has handled</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Body</th>
+<th>Fires when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DeviceProcessed</code></td>
+<td><code>ss</code> — devpath, action</td>
+<td>An event has been fully handled: node, symlinks, database</td>
+</tr>
+</tbody>
+</table>
+<p>Example, wait up to ten seconds for the queue to drain:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dbus-send<span class="w"> </span>--address<span class="o">=</span>unix:path<span class="o">=</span>/run/keventd/bus<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">          </span>--type<span class="o">=</span>method_call<span class="w"> </span>--print-reply<span class="w"> </span>--dest<span class="o">=</span>org.finit<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">          </span>/org/finit/device<span class="w"> </span>org.finit.Device1.Settle<span class="w"> </span>uint32:10
+</code></pre></div>
+<p>In passive mode (<code>-p</code>) <code>Trigger</code> and <code>RulesReload</code> refuse -- device
+events are not handled here -- while <code>Settle</code> and the queue-state
+properties remain meaningful.</p>
+<p>keventd's conditions are symlinks to Finit's <code>reconf</code> generation
+marker, so they read the current generation by construction and never
+enter <code>flux</code> -- like user-defined conditions, they need no reassert
+after <code>initctl reload</code>.  Device state does not change because Finit
+re-read its configuration.</p>
+<h2 id="integration-with-finit">Integration with Finit<a class="headerlink" href="#integration-with-finit" title="Permanent link">¶</a></h2>
+<p>keventd is a standalone daemon started by Finit as an internal service.
+It communicates with Finit exclusively through the filesystem-based
+condition system — creating and removing symlinks in <code>/run/finit/cond/</code>.</p>
+<p>This means keventd can also be tested independently:</p>
+<div class="highlight"><pre><span></span><code># Run in debug mode to see all kernel events
+keventd -d
+
+# Run with coldplug to populate /dev from scratch
+keventd -c -n
+
+# Run without rebroadcast (e.g., headless embedded system)
+keventd -c -G
+</code></pre></div>
+<p>Only one device manager should be active at a time.  This is settled
+at build time: with the hotplug plugin enabled, Finit starts keventd
+in passive mode (<code>-p</code>), leaving device management to the udevd, mdevd,
+or mdev service from <code>system/10-hotplug.conf</code> and monitoring only
+power supply events.  Without the hotplug plugin, keventd runs as the
+system device manager (<code>keventd -c</code>).</p>
 
 
 

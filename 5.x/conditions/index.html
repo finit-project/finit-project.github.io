@@ -1546,6 +1546,8 @@
       
         
       
+        
+      
     
     
     
@@ -1713,6 +1715,34 @@
     
   
     keventd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../udev-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rule Matching
   
 
     
@@ -2139,15 +2169,24 @@ support <code>SIGHUP</code>.</p>
 <h2 id="built-in-conditions">Built-in Conditions<a class="headerlink" href="#built-in-conditions" title="Permanent link">¶</a></h2>
 <p>Finit comes with a set of plugins for conditions:</p>
 <ul>
-<li><code>devmon</code> (built-in)</li>
-<li><code>netlink</code></li>
-<li><code>pidfile</code></li>
+<li><code>keventd</code>: provides <code>&lt;dev/...&gt;</code>, <code>&lt;class/...&gt;</code>, <code>&lt;driver/...&gt;</code>, and
+   <code>&lt;sys/pwr/...&gt;</code></li>
+<li><code>devmon</code> (built-in fallback for <code>&lt;dev/...&gt;</code> without keventd)</li>
+<li><code>netlink</code>: provides <code>&lt;net/...&gt;</code></li>
+<li><code>pidfile</code>: provides <code>&lt;pid/...&gt;</code></li>
 <li><code>sys</code></li>
 <li><code>usr</code></li>
 </ul>
-<p>The <code>devmon</code> (built-in) plugin monitors <code>/dev</code> and <code>/dev/dir</code> for device
-nodes being created and removed.  It is active only when a run, task, or
-service has declared a <code>&lt;dev/foo&gt;</code> or <code>&lt;dev/dir/bar&gt;</code> condition.</p>
+<p>The <code>dev/</code> conditions are provided by <code>keventd</code>, the built-in device
+manager.  When keventd creates a device node in <code>/dev</code>, it also asserts
+the corresponding <code>dev/</code> condition.  When a device is removed, the
+condition is cleared.  If keventd is not in use (an external device
+manager like udevd is used instead), the <code>devmon</code> built-in provides the
+same conditions by monitoring <code>/dev</code> and <code>/dev/dir</code> with inotify.</p>
+<p>keventd also asserts <code>class/&lt;subsystem&gt;/&lt;name&gt;</code> for devices that have
+no <code>/dev</code> node, e.g. LEDs and DSA switch ports, and <code>driver/&lt;name&gt;</code>
+while a driver is bound to at least one device.  See
+<a href="../keventd/">keventd</a> for details.</p>
 <p>The <code>pidfile</code> plugin recursively watches <code>/run/</code> for PID files created
 by the monitored services, and sets a corresponding condition in the
 <code>pid/</code> namespace.</p>
@@ -2185,6 +2224,8 @@ is a crude but effective way to have the PID file touched (re-created).</p>
 <li><code>usr/foo</code></li>
 <li><code>boot/arg</code></li>
 <li><code>dev/node</code> and <code>dev/dir/node</code></li>
+<li><code>class/&lt;subsystem&gt;/&lt;name&gt;</code></li>
+<li><code>driver/&lt;name&gt;</code></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
