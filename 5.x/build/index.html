@@ -2053,10 +2053,13 @@ version of the above mentioned libraries.  Currently required versions:</p>
   Finit starts it when the device node exists, see <a href="../watchdog/">Watchdog</a>.</p>
 </li>
 <li>
-<p><code>--without-libsystemd</code>: Drop the replacement <code>libsystemd</code>, built and
-  installed by default, which lets programs that use <code>sd_notify()</code> talk
-  to Finit without systemd.  Note, it installs <code>libsystemd.so</code> in
-  <code>$libdir</code>, where a system with systemd already has one.</p>
+<p><code>--with-libsystemd</code>: Build the replacement <code>libsystemd</code>, which lets
+  programs that use <code>sd_notify()</code> talk to Finit without systemd.  Off by
+  default because it installs <code>libsystemd.so.0</code> in <code>$libdir</code>: on a host
+  that has the real one, ours shadows it in the loader cache and every
+  program linking it, <code>dbus-daemon</code> and <code>udevd</code> included, loses the
+  symbols it needs.  Safe on a systemd-free system, which is the point
+  of it.</p>
 </li>
 </ul>
 <p>For more configure flags, see <kbd>./configure --help</kbd></p>
