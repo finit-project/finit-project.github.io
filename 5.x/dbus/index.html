@@ -2214,8 +2214,9 @@ connections are refused until one disconnects.  Match rules given to
 <code>AddMatch</code> support the <code>type</code>, <code>interface</code>, <code>member</code>, and <code>path</code> keys;
 <code>arg0</code> and its variants are not implemented.</p>
 <p>For the system bus a standard busconfig policy ships in
-<code>dbus-1/org.finit.conf</code>: only root may own <code>org.finit</code>, unprivileged
-callers reach introspection, properties, and the read-only methods.
+<code>dbus-1/org.finit.conf</code>, installed to <code>$datadir/dbus-1/system.d</code>: only
+root may own <code>org.finit</code>, unprivileged callers reach introspection,
+properties, and the read-only methods.
 Finit also enforces per-method authorization itself, so a permissive
 policy installed by mistake does not open state-changing methods.</p>
 <p>The <strong>system</strong> bus is best-effort: Finit probes for a running <code>dbus-daemon</code>

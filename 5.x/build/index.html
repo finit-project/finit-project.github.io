@@ -2041,9 +2041,22 @@ version of the above mentioned libraries.  Currently required versions:</p>
   thing that pulls in libblkid.  See <a href="../keventd/">Bundled Device Manager</a>.</p>
 </li>
 <li>
-<p><code>--with-sulogin</code>: Enable bundled <code>sulogin</code> program.  Default is to use the
-  system <code>sulogin(8)</code>.  The sulogin shipped with Finit <em>allows password-less</em>
-  login if the <code>root</code> user is disabled or has no password at all.</p>
+<p><code>--without-sulogin</code>: Drop the bundled <code>sulogin</code>, enabled by default,
+  and use the system <code>sulogin(8)</code> instead.  The one shipped with Finit
+  <em>allows password-less</em> login if the <code>root</code> user is disabled or has no
+  password at all.  <code>--with-sulogin=USER</code> prompts for another user's
+  password than <code>root</code>'s.</p>
+</li>
+<li>
+<p><code>--without-watchdog</code>: Drop the bundled <code>watchdogd</code>, enabled by default
+  on <code>/dev/watchdog</code>, <code>--with-watchdog=DEV</code> selects another device.
+  Finit starts it when the device node exists, see <a href="../watchdog/">Watchdog</a>.</p>
+</li>
+<li>
+<p><code>--without-libsystemd</code>: Drop the replacement <code>libsystemd</code>, built and
+  installed by default, which lets programs that use <code>sd_notify()</code> talk
+  to Finit without systemd.  Note, it installs <code>libsystemd.so</code> in
+  <code>$libdir</code>, where a system with systemd already has one.</p>
 </li>
 </ul>
 <p>For more configure flags, see <kbd>./configure --help</kbd></p>
@@ -2063,13 +2076,12 @@ the <code>autogen.sh</code> script.</p>
 </code></pre></div>
 <p>Then configure, build and install:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span>/usr<span class="w">                 </span>--exec-prefix<span class="o">=</span><span class="w">         </span><span class="se">\</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">              </span>--sysconfdir<span class="o">=</span>/etc<span class="w">             </span>--localstatedir<span class="o">=</span>/var<span class="w">   </span><span class="se">\</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">              </span>--with-keventd<span class="w">                </span>--with-watchdog
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>$<span class="w"> </span>make
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">              </span>--sysconfdir<span class="o">=</span>/etc<span class="w">             </span>--localstatedir<span class="o">=</span>/var
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$<span class="w"> </span>make
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>.
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>.
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>.
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>.
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>$<span class="w"> </span><span class="nv">DESTDIR</span><span class="o">=</span>/tmp/finit<span class="w"> </span>make<span class="w"> </span>install
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>$<span class="w"> </span><span class="nv">DESTDIR</span><span class="o">=</span>/tmp/finit<span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div>
 <p>In this example the <a href="https://github.com/finit-project/finit/releases/download/4.3/finit-4.3.tar.gz">finit-4.3.tar.gz</a> archive is unpacked to the
 user's home directory, configured, built and installed to a temporary
