@@ -24,7 +24,7 @@
     
     
       
-        <title>keventd - User's Guide</title>
+        <title>Device Manager - User's Guide</title>
       
     
     
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              keventd
+              Device Manager
             
           </span>
         </div>
@@ -1597,7 +1597,7 @@
   <span class="md-ellipsis">
     
   
-    keventd
+    Device Manager
   
 
     
@@ -1615,7 +1615,7 @@
   <span class="md-ellipsis">
     
   
-    keventd
+    Device Manager
   
 
     
@@ -1668,6 +1668,67 @@
     <span class="md-ellipsis">
       
         Default Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udev-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        udev Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="udev Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#match-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Match Keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-parent-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Parent Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assignments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substitutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Substitutions
       
     </span>
   </a>
@@ -2039,6 +2100,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#udev-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        udev Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="udev Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#match-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Match Keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-parent-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Parent Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assignments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substitutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Substitutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#persistent-symlinks" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2350,6 +2472,240 @@ device subsystem and name:</p>
 </tr>
 </tbody>
 </table>
+<h2 id="udev-rules">udev Rules<a class="headerlink" href="#udev-rules" title="Permanent link">¶</a></h2>
+<p>Rules are read from <code>/lib/udev/rules.d/</code>, <code>/run/udev/rules.d/</code>, and
+<code>/etc/udev/rules.d/</code>, plus any directory passed with <code>-r</code>.  Files need a
+<code>.rules</code> suffix.  Like udev, all files sort together by filename,
+whichever directory they live in, and a file masks one of the same name
+in an earlier directory: <code>/etc/</code> overrides <code>/run/</code>, which overrides
+<code>/lib/</code>, and the <code>-r</code> directory overrides them all.  A symlink to
+<code>/dev/null</code> in <code>/etc/udev/rules.d/</code> disables the <code>/lib/</code> file of the
+same name.</p>
+<p>The syntax is the one described in <a href="https://man7.org/linux/man-pages/man7/udev.7.html">udev(7)</a>.  What follows is the
+subset keventd understands, not a second copy of the grammar.  To pick up
+edited rules, call <code>RulesReload</code> on
+<a href="#d-bus-interface-orgfinitdevice1"><code>org.finit.Device1</code></a>.  <code>initctl reload</code>
+does not touch them.</p>
+<h3 id="match-keys">Match Keys<a class="headerlink" href="#match-keys" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Key</strong></th>
+<th><strong>Matches</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ACTION</code></td>
+<td><code>add</code>, <code>remove</code>, <code>change</code>, <code>move</code>, <code>bind</code>, <code>unbind</code>, <code>online</code>, <code>offline</code></td>
+</tr>
+<tr>
+<td><code>DEVPATH</code></td>
+<td>kernel device path, without the <code>/sys</code> prefix</td>
+</tr>
+<tr>
+<td><code>KERNEL</code></td>
+<td>sysfs name of the device</td>
+</tr>
+<tr>
+<td><code>NAME</code></td>
+<td>device node name</td>
+</tr>
+<tr>
+<td><code>SUBSYSTEM</code>, <code>DRIVER</code></td>
+<td>subsystem and bound driver</td>
+</tr>
+<tr>
+<td><code>ATTR{file}</code></td>
+<td>sysfs attribute of the device</td>
+</tr>
+<tr>
+<td><code>SYSCTL{param}</code></td>
+<td>value under <code>/proc/sys/</code></td>
+</tr>
+<tr>
+<td><code>ENV{key}</code></td>
+<td>uevent property, including ones set by earlier rules</td>
+</tr>
+<tr>
+<td><code>CONST{key}</code></td>
+<td><code>arch</code>; <code>virt</code> reports <code>container</code> or nothing</td>
+</tr>
+<tr>
+<td><code>TAG</code></td>
+<td>tag set by an earlier <code>TAG+=</code></td>
+</tr>
+<tr>
+<td><code>TEST{octal}</code></td>
+<td>file exists, optionally with the given permission bits</td>
+</tr>
+<tr>
+<td><code>PROGRAM</code></td>
+<td>exit status of a program, output kept for <code>RESULT</code> and <code>%c</code></td>
+</tr>
+<tr>
+<td><code>RESULT</code></td>
+<td>output of the last <code>PROGRAM</code></td>
+</tr>
+<tr>
+<td><code>KERNELS</code>, <code>SUBSYSTEMS</code>, <code>DRIVERS</code>, <code>ATTRS{file}</code></td>
+<td>the device or any of its parents, see below</td>
+</tr>
+</tbody>
+</table>
+<p>Values match literally, as an <code>fnmatch()</code> glob, or as <code>a|b|c</code> alternatives.
+Both <code>==</code> and <code>!=</code> work everywhere.</p>
+<p><code>SECLABEL</code>, <code>OPTIONS</code>, and <code>TAGS</code> parse but do nothing.  Rules using them load
+without complaint and the key is skipped, so <code>OPTIONS+="static_node=..."</code>,
+<code>link_priority=</code>, <code>string_escape=</code>, and <code>watch</code> have no effect, and a <code>TAGS==</code>
+match never succeeds.</p>
+<h3 id="the-parent-chain">The Parent Chain<a class="headerlink" href="#the-parent-chain" title="Permanent link">¶</a></h3>
+<p><code>ATTR{}</code> reads an attribute of the device the event fired for.  <code>ATTRS{}</code> also
+looks at the parents, walking up the sysfs tree until one matches.  For a
+keyboard behind a hub:</p>
+<div class="highlight"><pre><span></span><code>/sys/devices/.../usb2/         &lt;- root hub
+              usb2/2-1/        &lt;- hub
+              usb2/2-1/2-1.4/  &lt;- keyboard, event fires here
+</code></pre></div>
+<p><code>ATTRS{authorized_default}=="1"</code> finds no such attribute on the keyboard or
+the hub, reaches the root hub, and matches there.  <code>KERNELS</code>, <code>SUBSYSTEMS</code>,
+and <code>DRIVERS</code> do the same for a parent's name, subsystem, and driver.</p>
+<p>Each of these keys walks the chain on its own.  udev requires all the parent
+keys in one rule to match on the <em>same</em> parent, so a rule pairing
+<code>SUBSYSTEMS=="usb"</code> with <code>ATTRS{idVendor}=="1d6b"</code> is looser here: the two may
+land on different ancestors.  Where that matters, match on one attribute
+specific enough to identify the device by itself.</p>
+<h3 id="assignments">Assignments<a class="headerlink" href="#assignments" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Key</strong></th>
+<th><strong>Effect</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NAME=</code></td>
+<td>name of the device node</td>
+</tr>
+<tr>
+<td><code>SYMLINK=</code>, <code>+=</code></td>
+<td>symlinks to create, space separated, relative to <code>/dev</code></td>
+</tr>
+<tr>
+<td><code>OWNER=</code>, <code>GROUP=</code>, <code>MODE=</code></td>
+<td>ownership and permissions of the node</td>
+</tr>
+<tr>
+<td><code>ENV{key}=</code>, <code>+=</code>, <code>-=</code></td>
+<td>set, append to, or clear a property</td>
+</tr>
+<tr>
+<td><code>TAG+=</code>, <code>-=</code></td>
+<td>tags for later <code>TAG==</code> matching</td>
+</tr>
+<tr>
+<td><code>RUN+=</code></td>
+<td>program to run once the event is handled, <code>RUN{builtin}+=</code> for a builtin</td>
+</tr>
+<tr>
+<td><code>IMPORT{type}</code></td>
+<td><code>program</code>, <code>file</code>, <code>db</code>, <code>builtin</code>, <code>parent</code>, <code>cmdline</code></td>
+</tr>
+<tr>
+<td><code>ATTR{file}=</code></td>
+<td>write to a sysfs attribute</td>
+</tr>
+<tr>
+<td><code>SYSCTL{param}=</code></td>
+<td>write to <code>/proc/sys/</code></td>
+</tr>
+<tr>
+<td><code>LABEL=</code>, <code>GOTO=</code></td>
+<td>skip ahead to a label</td>
+</tr>
+</tbody>
+</table>
+<p><code>:=</code> locks <code>MODE</code>, <code>OWNER</code>, and <code>GROUP</code> against later rules the way udev
+does.  On <code>NAME</code> and <code>ENV{}</code> it behaves like plain <code>=</code> and locks nothing,
+and <code>SYMLINK:=</code> is dropped without a word.</p>
+<p><code>IMPORT{builtin}</code> and <code>RUN{builtin}</code> can call <code>blkid</code>, <code>hwdb</code>,
+<code>input_id</code>, <code>kmod</code>, <code>net_id</code>, <code>path_id</code>, and <code>usb_id</code>.</p>
+<h3 id="substitutions">Substitutions<a class="headerlink" href="#substitutions" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Long</strong></th>
+<th><strong>Short</strong></th>
+<th><strong>Expands to</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$kernel</code></td>
+<td><code>%k</code></td>
+<td>sysfs name of the device</td>
+</tr>
+<tr>
+<td><code>$devpath</code></td>
+<td><code>%p</code></td>
+<td>kernel device path</td>
+</tr>
+<tr>
+<td><code>$name</code></td>
+<td><code>%N</code>, <code>%D</code></td>
+<td>device node name</td>
+</tr>
+<tr>
+<td><code>$major</code>, <code>$minor</code></td>
+<td><code>%M</code>, <code>%m</code></td>
+<td>device numbers</td>
+</tr>
+<tr>
+<td><code>$driver</code></td>
+<td><code>%d</code></td>
+<td>bound driver</td>
+</tr>
+<tr>
+<td><code>$attr{file}</code></td>
+<td><code>%s{file}</code></td>
+<td>sysfs attribute of the device</td>
+</tr>
+<tr>
+<td><code>$env{key}</code></td>
+<td></td>
+<td>uevent property</td>
+</tr>
+<tr>
+<td><code>$result</code></td>
+<td><code>%c</code>, <code>%c{N}</code></td>
+<td><code>PROGRAM</code> output, or its Nth field</td>
+</tr>
+<tr>
+<td><code>$root</code></td>
+<td></td>
+<td><code>/dev</code></td>
+</tr>
+<tr>
+<td><code>$sys</code></td>
+<td></td>
+<td><code>/sys</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>%n</code></td>
+<td>trailing digits of the sysfs name</td>
+</tr>
+<tr>
+<td></td>
+<td><code>%b</code></td>
+<td><code>major:minor</code></td>
+</tr>
+</tbody>
+</table>
+<p>udev's <code>$id</code>, <code>$parent</code>, <code>$links</code>, and <code>%E{}</code> are not implemented, and <code>%b</code>
+here is the device number pair rather than udev's parent bus id.  An unknown
+specifier is left in the string as written.</p>
 <h2 id="persistent-symlinks">Persistent Symlinks<a class="headerlink" href="#persistent-symlinks" title="Permanent link">¶</a></h2>
 <p>Symlinks come from two places.  A handful are built into keventd and are
 created for every device in the subsystem, whatever rules are loaded.</p>
@@ -2588,7 +2944,7 @@ Options:
   -h        Show help text
   -n        Run in foreground (no daemon)
   -p        Passive mode: power supply events only
-  -r DIR    Extra rules directory
+  -r DIR    Extra rules directory, overrides the standard udev paths
   -S        Settle mode: wait for kernel uevent queue to quiet, then exit
   -t SEC    Settle timeout (default 30s, used with -S)
   -v        Show version
