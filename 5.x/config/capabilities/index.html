@@ -13,7 +13,7 @@
         <link rel="prev" href="../cgroups/">
       
       
-        <link rel="next" href="../templating/">
+        <link rel="next" href="../pam/">
       
       
         
@@ -442,6 +442,8 @@
       
         
           
+        
+      
         
       
         
@@ -1231,6 +1233,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM Sessions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2293,6 +2323,9 @@ non-root user, or '%' and '!' entries
 <li>Services without <code>capabilities</code> use standard privilege dropping:</li>
 <li>Services with a non-root <code>user</code> have no special capabilities</li>
 <li>Services without <code>user</code> run as root with full capabilities</li>
+<li>A capability granted by <code>pam_cap.so</code> in a <a href="../pam/">PAM session</a> is
+  merged into this set, but only when <code>capabilities</code> is also set.
+  Without it the grant is lost when privileges drop</li>
 <li>Some very old binaries may not work correctly with ambient capabilities</li>
 <li>File system capabilities are not managed by Finit (use <code>setcap</code> for that)</li>
 </ul>

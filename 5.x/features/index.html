@@ -486,6 +486,8 @@
       
         
       
+        
+      
     
     
     
@@ -1037,6 +1039,34 @@
     
   
     Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/pam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM Sessions
   
 
     
@@ -1907,11 +1937,24 @@ the ability to bind to privileged ports (80, 443) through the
 </code></pre></div>
 <p>See the <a href="../config/capabilities/">Linux Capabilities</a> section for detailed
 information, examples, and security best practices.</p>
+<p><strong>PAM Sessions</strong></p>
+<p>A service can run inside a PAM session, so the <code>session</code> stack in
+<code>/etc/pam.d</code> applies to it, e.g. limits from <code>pam_limits</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>service weston {
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    user    = "weston"
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    pam     = "weston-autologin"
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    command = "/usr/bin/weston --continue-without-input"
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>}
+</code></pre></div>
+<p>Without a <code>user</code> the session is for root.  Requires a build with PAM
+support, which is the default; see <code>--disable-pam</code>.</p>
+<p>See the <a href="../config/pam/">PAM Sessions</a> section for the pam.d file the
+example needs, and for how PAM and Finit settings interact.</p>
 <p><strong>Supplementary Groups</strong></p>
 <p>Finit supports supplementary groups for services, allowing them to access
 resources owned by multiple groups without running as root. This complements
 capabilities for fine-grained privilege control.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>service @caddy:caddy,ssl-cert /usr/bin/caddy run
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>service @caddy:caddy,ssl-cert /usr/bin/caddy run
 </code></pre></div>
 <p>In this example, the Caddy web server runs as user <code>caddy</code> with primary group
 <code>caddy</code>, but also has access to resources owned by the <code>ssl-cert</code> group (such
@@ -1977,11 +2020,11 @@ runtime. Key capabilities include:</p>
   <code>initctl top</code>, similar to the traditional <code>top</code> command but cgroup-aware</li>
 </ul>
 <p>Example commands:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>initctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>myservice<span class="w">          </span><span class="c1"># Enable service for next boot</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>initctl<span class="w"> </span>start<span class="w"> </span>myservice<span class="w">           </span><span class="c1"># Start service now</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>initctl<span class="w"> </span>status<span class="w">                    </span><span class="c1"># Show all services</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>initctl<span class="w"> </span>top<span class="w">                       </span><span class="c1"># Interactive resource monitor</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>initctl<span class="w"> </span>cond<span class="w"> </span><span class="nb">set</span><span class="w"> </span>usr/custom<span class="w">       </span><span class="c1"># Set custom condition</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>initctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>myservice<span class="w">          </span><span class="c1"># Enable service for next boot</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>initctl<span class="w"> </span>start<span class="w"> </span>myservice<span class="w">           </span><span class="c1"># Start service now</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>initctl<span class="w"> </span>status<span class="w">                    </span><span class="c1"># Show all services</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>initctl<span class="w"> </span>top<span class="w">                       </span><span class="c1"># Interactive resource monitor</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>initctl<span class="w"> </span>cond<span class="w"> </span><span class="nb">set</span><span class="w"> </span>usr/custom<span class="w">       </span><span class="c1"># Set custom condition</span>
 </code></pre></div>
 <p><code>initctl</code> rides Finit's built-in <a href="../dbus/">D-Bus API</a> when available,
 which is also open to any other bus client, including <code>dbus-send</code> and
@@ -1996,8 +2039,8 @@ BusyBox), you'll be prompted for the root password before accessing the
 maintenance shell. This provides secure access for system recovery.</p>
 <p>If <code>sulogin</code> is not available, Finit falls back to reading
 <code>/lib/finit/rescue.conf</code> and boots the system in a limited maintenance mode.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a># Kernel command line
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>linux /vmlinuz root=/dev/sda1 rescue
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># Kernel command line
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>linux /vmlinuz root=/dev/sda1 rescue
 </code></pre></div>
 <p>In rescue mode, <code>initctl</code> will not work. After fixing the problem, use
 <code>reboot -f</code> to force reboot.</p>
@@ -2008,8 +2051,8 @@ maintenance shell. This provides secure access for system recovery.</p>
 the built-in <code>initctl switch-root</code> command.  This allows Finit to serve as
 the init system in an initramfs for early boot tasks (LUKS unlock, LVM
 activation, network boot) before transitioning to the real root.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># In initramfs, after mounting the real root:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>initctl<span class="w"> </span>switch-root<span class="w"> </span>/mnt/root
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># In initramfs, after mounting the real root:</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>initctl<span class="w"> </span>switch-root<span class="w"> </span>/mnt/root
 </code></pre></div>
 <p>The switch-root operation:</p>
 <ol>

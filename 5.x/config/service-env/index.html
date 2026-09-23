@@ -476,6 +476,8 @@
       
         
       
+        
+      
     
     
     
@@ -1083,6 +1085,34 @@
     
   
     Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM Sessions
   
 
     
@@ -1913,12 +1943,16 @@ the <code>ps</code> command we can see that the process is started with:</p>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+</div>
+<p>For a service with <a href="../pam/"><code>pam</code></a>, the session environment is applied
+before <code>envfile</code>, so the file overrides anything <code>pam_env</code> set.</p>
+<blockquote>
 <p>The leading <code>-</code> on <code>envfile</code> determines if Finit should treat a
 missing environment file as blocking the start of the service or not.
 When <code>-</code> is used, a missing environment file does <em>not</em> block the
 start.  The same mark works on <code>command</code>, where it means carry on if
 the binary is missing.</p>
-</div>
+</blockquote>
 
 
 

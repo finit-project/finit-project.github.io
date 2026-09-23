@@ -476,6 +476,8 @@
       
         
       
+        
+      
     
     
     
@@ -1140,6 +1142,34 @@
     
   
     Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM Sessions
   
 
     
@@ -2086,6 +2116,8 @@ albeit deprecated.</p>
 <p><code>rlimit</code> can be set globally, in <code>/etc/finit.conf</code>, or locally per
 each <code>/etc/finit.d/*.conf</code> read.  I.e., a set of task/run/service
 blocks can share the same rlimits if they are in the same .conf.</p>
+<p>For a service with <a href="../pam/"><code>pam</code></a>, <code>pam_limits</code> runs after these
+limits are applied, so <code>limits.conf</code> has the last word.</p>
 <h2 id="miscellaneous-settings">Miscellaneous Settings<a class="headerlink" href="#miscellaneous-settings" title="Permanent link">¶</a></h2>
 <p><strong>Syntax:</strong> <code>reboot-delay = 0-60</code></p>
 <p>Optional delay at reboot (or shutdown or halt) to allow kernel
