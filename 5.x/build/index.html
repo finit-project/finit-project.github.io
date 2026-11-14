@@ -1996,6 +1996,9 @@ devices, which is what the curated rules name the <code>/dev/disk/by-uuid/</code
 and <code>/dev/disk/by-label/</code> symlinks after.  keventd is enabled by
 default, so this is a hard requirement unless you build with
 <code>--without-keventd</code>.</p>
+<p>Linux capabilities support for services is also built by default.  It needs
+<a href="https://sites.google.com/site/fullycapable/">libcap</a> (-lcap); the build falls back to no capabilities support when that
+library is missing, or with <code>--disable-libcap</code>.</p>
 <p>PAM session support for services is built by default.  It needs
 <a href="https://github.com/linux-pam/linux-pam">Linux-PAM</a> (-lpam); the build falls back to no PAM support when that
 library is missing.  A static build, <code>--enable-static</code>, disables PAM
@@ -2018,6 +2021,7 @@ version of the above mentioned libraries.  Currently required versions:</p>
 <li>libuEv v2.2.0, or later</li>
 <li>libConfuse v3.3, or later</li>
 <li>libblkid, any version, when keventd is enabled</li>
+<li>libcap, any version, unless <code>--disable-libcap</code> is given</li>
 </ul>
 <h2 id="configure">Configure<a class="headerlink" href="#configure" title="Permanent link">¶</a></h2>
 <p>Below are a few of the main switches to configure:</p>
@@ -2041,6 +2045,11 @@ version of the above mentioned libraries.  Currently required versions:</p>
 <p><code>--enable-static</code>: Build Finit statically.  The plugins will be
   built-ins (.o files) and all external libraries, except the C library
   will be linked statically.</p>
+</li>
+<li>
+<p><code>--disable-libcap</code>: Opt out of Finit's built-in Linux capabilities support,
+  enabled by default.  Needs libcap, and falls back to disabled when it is
+  missing.  See <a href="../config/capabilities/">Linux Capabilities</a></p>
 </li>
 <li>
 <p><code>--disable-pam</code>: Opt out of Finit's built-in PAM session support,

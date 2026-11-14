@@ -2303,8 +2303,9 @@ with the following prefixes:</p>
 <ul>
 <li>Linux kernel 4.3+ (for ambient capabilities support)</li>
 <li>libcap library installed</li>
-<li>Finit built with <code>--enable-libcap</code>, otherwise a <code>capabilities</code> list is
-  ignored, with a warning</li>
+<li>Finit built with libcap support (enabled by default unless <code>--disable-libcap</code>
+  is given or libcap was missing at build time), otherwise a <code>capabilities</code> list
+  is ignored, with a warning</li>
 </ul>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">¶</a></h2>
 <ul>
