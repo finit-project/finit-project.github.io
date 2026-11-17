@@ -1322,6 +1322,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebooting &amp; Halting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1338,6 +1356,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#scheduled-shutdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduled Shutdown
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1781,6 +1829,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#scheduled-shutdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduled Shutdown
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1815,6 +1882,23 @@ Finit comes with its own tooling providing: <code>shutdown</code>, <code>reboot<
 BusyBox init.  This is not 100% compatible with SysV init, but clearly
 the more common combination for Finit.  For more details, see the
 <a href="../signals/">Signal</a> section.</p>
+<h2 id="scheduled-shutdown">Scheduled Shutdown<a class="headerlink" href="#scheduled-shutdown" title="Permanent link">¶</a></h2>
+<p>The <code>shutdown</code> command takes a time, and an optional message to warn
+logged-in users with:</p>
+<div class="highlight"><pre><span></span><code>shutdown -r +10 "Upgrading to v5.0, back in five"
+shutdown -h 23:30
+shutdown -c
+</code></pre></div>
+<p>The time is <code>now</code>, <code>+MIN</code> minutes from now, at most a year, or the next
+<code>HH:MM</code>.  Finit keeps track of it, so it survives logging out.  It counts
+down the time left, changing the system clock does not move it.  At 60, 30, 15 and 10
+minutes left, and then every minute from five, Finit writes the warning
+to the terminal of every logged-in user.  From five minutes before, it
+also creates <code>/etc/nologin</code>, with the message, to refuse new logins.  A
+<code>/etc/nologin</code> already in place is left alone.</p>
+<p>A new <code>shutdown TIME</code> replaces the scheduled one, and <code>shutdown -c</code>
+cancels it.  Without a time, or with <code>now</code> and no message, <code>shutdown</code>
+acts right away, as before.</p>
 
 
 
