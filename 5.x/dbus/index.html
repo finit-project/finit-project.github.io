@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -2616,6 +2616,16 @@ constructing it by hand.</p>
 <td>Restart limit before the service is blocked</td>
 </tr>
 <tr>
+<td><code>RestartDelay</code></td>
+<td><code>u</code></td>
+<td>Seconds before the next restart, should the service crash</td>
+</tr>
+<tr>
+<td><code>RestartDelayMax</code></td>
+<td><code>u</code></td>
+<td>The <code>restart-max-sec</code> setting, 0 when not set</td>
+</tr>
+<tr>
 <td><code>Starts</code></td>
 <td><code>u</code></td>
 <td>Times started, for <code>manual-start</code> units</td>
@@ -2634,6 +2644,331 @@ constructing it by hand.</p>
 <td><code>Started</code></td>
 <td><code>b</code></td>
 <td>Run/task completed successfully</td>
+</tr>
+<tr>
+<td><code>Notify</code></td>
+<td><code>s</code></td>
+<td>Readiness protocol: <code>none</code>, <code>pid</code>, <code>systemd</code>, or <code>s6</code></td>
+</tr>
+<tr>
+<td><code>Remain</code></td>
+<td><code>b</code></td>
+<td><code>remain-after-exit</code> set in the <code>.conf</code></td>
+</tr>
+<tr>
+<td><code>If</code></td>
+<td><code>s</code></td>
+<td>The <code>if</code> setting, raw</td>
+</tr>
+<tr>
+<td><code>Provides</code></td>
+<td><code>s</code></td>
+<td>Conditions from <code>provides</code>, comma separated</td>
+</tr>
+<tr>
+<td><code>Conflicts</code></td>
+<td><code>s</code></td>
+<td>Services from <code>conflicts</code>, comma separated</td>
+</tr>
+<tr>
+<td><code>ExtraGroups</code></td>
+<td><code>s</code></td>
+<td>Supplementary groups, comma separated</td>
+</tr>
+<tr>
+<td><code>Capabilities</code></td>
+<td><code>s</code></td>
+<td>The <code>capabilities</code> setting, comma separated</td>
+</tr>
+<tr>
+<td><code>Pam</code></td>
+<td><code>s</code></td>
+<td>PAM service name, empty when not set</td>
+</tr>
+<tr>
+<td><code>StopSignal</code></td>
+<td><code>s</code></td>
+<td>Signal that stops the service, e.g. <code>SIGTERM</code></td>
+</tr>
+<tr>
+<td><code>StopTimeout</code></td>
+<td><code>u</code></td>
+<td>Seconds to wait for it to stop, before <code>SIGKILL</code></td>
+</tr>
+<tr>
+<td><code>StopScope</code></td>
+<td><code>s</code></td>
+<td><code>pgroup</code>, <code>process</code>, <code>cgroup</code>, or <code>mixed</code></td>
+</tr>
+<tr>
+<td><code>ReloadSignal</code></td>
+<td><code>s</code></td>
+<td><code>SIGHUP</code>, or <code>none</code> when a reload restarts the service</td>
+</tr>
+<tr>
+<td><code>RestartSec</code></td>
+<td><code>u</code></td>
+<td>The <code>restart-sec</code> setting, 0 when not set</td>
+</tr>
+<tr>
+<td><code>Respawn</code></td>
+<td><code>b</code></td>
+<td><code>respawn</code> set in the <code>.conf</code></td>
+</tr>
+<tr>
+<td><code>OnCrash</code></td>
+<td><code>s</code></td>
+<td><code>ignore</code>, <code>reboot</code>, or <code>script</code></td>
+</tr>
+<tr>
+<td><code>RuntimeDir</code></td>
+<td><code>s</code></td>
+<td>The <code>runtime-dir</code> setting, likewise for the four below</td>
+</tr>
+<tr>
+<td><code>StateDir</code></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>CacheDir</code></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LogsDir</code></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ConfigDir</code></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>RuntimeDirPreserve</code></td>
+<td><code>s</code></td>
+<td><code>no</code>, <code>restart</code>, or <code>yes</code></td>
+</tr>
+<tr>
+<td><code>RuntimeDirMode</code></td>
+<td><code>u</code></td>
+<td>Mode of the runtime directory, likewise for the four below</td>
+</tr>
+<tr>
+<td><code>StateDirMode</code></td>
+<td><code>u</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>CacheDirMode</code></td>
+<td><code>u</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LogsDirMode</code></td>
+<td><code>u</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ConfigDirMode</code></td>
+<td><code>u</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Id</code></td>
+<td><code>s</code></td>
+<td>The <code>:ID</code> part of the identity, empty when there is none</td>
+</tr>
+<tr>
+<td><code>Job</code></td>
+<td><code>u</code></td>
+<td>Job number, internal</td>
+</tr>
+<tr>
+<td><code>OldPid</code></td>
+<td><code>u</code></td>
+<td>PID of the previous run, internal</td>
+</tr>
+<tr>
+<td><code>Dirty</code></td>
+<td><code>b</code></td>
+<td>Changed in the <code>.conf</code>, pending the next reload, internal</td>
+</tr>
+<tr>
+<td><code>Removed</code></td>
+<td><code>b</code></td>
+<td>Gone from the <code>.conf</code>, pending removal, internal</td>
+</tr>
+<tr>
+<td><code>Starting</code></td>
+<td><code>b</code></td>
+<td>Started, waiting for its PID file or readiness, internal</td>
+</tr>
+<tr>
+<td><code>Protected</code></td>
+<td><code>b</code></td>
+<td>Built-in service, kept when the configuration is reloaded</td>
+</tr>
+<tr>
+<td><code>NoWarn</code></td>
+<td><code>b</code></td>
+<td>No warning when the command is missing</td>
+</tr>
+<tr>
+<td><code>ReloadPropagate</code></td>
+<td><code>b</code></td>
+<td>A reload of a dependency reloads this service too, <code>~</code> in its conditions</td>
+</tr>
+<tr>
+<td><code>CgroupName</code></td>
+<td><code>s</code></td>
+<td>Control group the service joins, empty for the default</td>
+</tr>
+<tr>
+<td><code>CgroupConfig</code></td>
+<td><code>s</code></td>
+<td>Its cgroup settings, <code>key:value</code> comma separated</td>
+</tr>
+<tr>
+<td><code>CgroupDelegate</code></td>
+<td><code>b</code></td>
+<td>The service manages its own cgroup subtree</td>
+</tr>
+<tr>
+<td><code>Rlimits</code></td>
+<td><code>s</code></td>
+<td>Resource limits as <code>name=soft:hard</code>, comma separated, a number or <code>unlimited</code></td>
+</tr>
+<tr>
+<td><code>ExecStartPre</code></td>
+<td><code>s</code></td>
+<td>Script, empty when not set, likewise for the five below</td>
+</tr>
+<tr>
+<td><code>ExecStartPreTimeout</code></td>
+<td><code>u</code></td>
+<td>Seconds the script may run, one for each script</td>
+</tr>
+<tr>
+<td><code>ExecStartReady</code></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ExecStartReadyTimeout</code></td>
+<td><code>u</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ExecStop</code></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ExecStopTimeout</code></td>
+<td><code>u</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ExecStopPost</code></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ExecStopPostTimeout</code></td>
+<td><code>u</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ExecReload</code></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ExecReloadTimeout</code></td>
+<td><code>u</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ExecCleanup</code></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ExecCleanupTimeout</code></td>
+<td><code>u</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Log</code></td>
+<td><code>b</code></td>
+<td>Output is logged, not for a <code>tty</code></td>
+</tr>
+<tr>
+<td><code>LogNull</code></td>
+<td><code>b</code></td>
+<td>Output is discarded</td>
+</tr>
+<tr>
+<td><code>LogConsole</code></td>
+<td><code>b</code></td>
+<td>Output goes to the console</td>
+</tr>
+<tr>
+<td><code>LogFile</code></td>
+<td><code>s</code></td>
+<td>Log file, empty for syslog</td>
+</tr>
+<tr>
+<td><code>LogPriority</code></td>
+<td><code>s</code></td>
+<td>Syslog facility and level, empty for the default</td>
+</tr>
+<tr>
+<td><code>LogIdentity</code></td>
+<td><code>s</code></td>
+<td>Syslog identity, empty for the default</td>
+</tr>
+<tr>
+<td><code>TtyDevice</code></td>
+<td><code>s</code></td>
+<td>Device of a <code>tty</code>, this and the below are empty or false for other types</td>
+</tr>
+<tr>
+<td><code>TtyBaud</code></td>
+<td><code>s</code></td>
+<td>Baud rate, empty for the default</td>
+</tr>
+<tr>
+<td><code>TtyTerm</code></td>
+<td><code>s</code></td>
+<td>The <code>TERM</code> to set</td>
+</tr>
+<tr>
+<td><code>TtyNoClear</code></td>
+<td><code>b</code></td>
+<td><code>noclear</code> set in the <code>.conf</code></td>
+</tr>
+<tr>
+<td><code>TtyNoWait</code></td>
+<td><code>b</code></td>
+<td><code>nowait</code> set in the <code>.conf</code></td>
+</tr>
+<tr>
+<td><code>TtyNoLogin</code></td>
+<td><code>b</code></td>
+<td><code>nologin</code> set in the <code>.conf</code></td>
+</tr>
+<tr>
+<td><code>TtyNoTty</code></td>
+<td><code>b</code></td>
+<td><code>notty</code> set in the <code>.conf</code></td>
+</tr>
+<tr>
+<td><code>TtyRescue</code></td>
+<td><code>b</code></td>
+<td><code>rescue</code> set in the <code>.conf</code></td>
 </tr>
 </tbody>
 </table>

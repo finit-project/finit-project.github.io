@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -2137,8 +2137,12 @@ things for daemons and one-shots; each meaning is now its own key.  A
 <td><code>restart = "always"</code> / <code>restart-max = NUM</code></td>
 </tr>
 <tr>
-<td><code>restart_sec:SEC</code></td>
+<td><code>restart-sec:SEC</code></td>
 <td><code>restart-sec = SEC</code></td>
+</tr>
+<tr>
+<td><code>restart-max-sec:SEC</code></td>
+<td><code>restart-max-sec = SEC</code></td>
 </tr>
 <tr>
 <td><code>norestart</code></td>
@@ -2209,8 +2213,12 @@ things for daemons and one-shots; each meaning is now its own key.  A
 <td>leading <code>-</code> on <code>command</code> or <code>envfile</code></td>
 </tr>
 <tr>
+<td><code>restart_sec:</code></td>
+<td>old spelling of <code>restart-sec:</code>, still accepted</td>
+</tr>
+<tr>
 <td><code>restarttmo:</code></td>
-<td>dropped, was already an alias for <code>restart_sec:</code></td>
+<td>dropped, was already an alias for <code>restart-sec:</code></td>
 </tr>
 </tbody>
 </table>

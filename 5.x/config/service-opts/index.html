@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -2195,8 +2195,20 @@ following settings are available:</p>
 <li><code>restart-sec = SEC</code> -- number of seconds before Finit tries to
     restart a crashing service.  The default is 2 seconds for the first
     half of <code>restart-max</code> attempts, then a back-off to 5 seconds -- with
-    the default <code>restart-max</code> that is the first five retries.  The
-    greater of this configured value and the back-off is used</li>
+    the default <code>restart-max</code>, and with <code>restart = "always"</code>, that is the
+    first five retries.  The greater of this configured value and the
+    back-off is used</li>
+<li><code>restart-max-sec = SEC</code> -- replaces that back-off with a delay that
+    doubles for each restart, from <code>restart-sec</code> up to this limit.  With
+    <code>restart-sec = 10</code> and <code>restart-max-sec = 300</code> Finit waits 10, 20,
+    40, 80, 160, and then 300 seconds.  Without <code>restart-sec</code> the first
+    restart is at once, then after 2, 4, 8 seconds, and so on.  A service
+    that stays up longer than the current delay is restarted after
+    <code>restart-sec</code> the next time it crashes, and the delay comes down
+    again the longer the service keeps running.  <code>initctl status NAME</code>
+    shows the current delay and the limit, see below.  Useful with
+    <code>restart = "always"</code>, for a service that should be retried forever,
+    only less and less often</li>
 <li><code>restart = "always"</code> -- no upper limit on the number of times Finit
     tries to restart a crashing service</li>
 <li><code>restart = "never"</code> -- do not restart on failures.  <code>false</code> is
@@ -2216,6 +2228,14 @@ following settings are available:</p>
 <li><code>oncrash = "script"</code> -- similarly, but instead of rebooting, call
     the <code>exec-stop-post</code> script with exit code <code>crashed</code>, see below</li>
 </ul>
+<p>With <code>restart-max-sec</code> set, <code>initctl status</code> shows the delay before the
+next restart and its limit, here for a service that has crashed four
+times in a row:</p>
+<div class="highlight"><pre><span></span><code>$ initctl status dialer
+...
+   Restarts : 7 (4/-1)
+ Restart in : 160 sec (max 300)
+</code></pre></div>
 <h2 id="service-directories">Service directories<a class="headerlink" href="#service-directories" title="Permanent link">¶</a></h2>
 <p>Five settings ask Finit to create a directory for the service before it
 starts, owned by its <code>user</code> and <code>group</code>, mode 0755.  The value is a
