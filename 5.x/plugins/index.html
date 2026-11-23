@@ -2015,10 +2015,44 @@ more information, see the plugins listed below.</p>
 </li>
 </ul>
 <p>This plugin is a wrapper for the <a href="https://www.freedesktop.org/software/systemd/man/tmpfiles.d.html">tmpfiles.d(5)</a> implementation that
-  Finit has.  Capable but limited: no aging, attributes, or subvolumes.</p>
-<p>By default, <code>/lib/finit/tmpfiles.d</code> carries all the default .conf
-  files distributed with Finit.  It is read first but can be overridden
-  by any of the standard tmpfiles.d directories, e.g. <code>/etc/tmpfiles.d</code>.</p>
+  Finit has.  Capable but limited: no btrfs subvolumes.  It
+  runs <code>tmpfiles --create --remove --boot</code>, so entries marked boot-only
+  with a <code>!</code> are run here and at no other time.</p>
+<p>The .conf files distributed with Finit are in <code>/lib/finit/tmpfiles.d</code>
+  and <code>/usr/lib/tmpfiles.d</code>.  A file of the same name in <code>/run/tmpfiles.d</code>
+  or <code>/etc/tmpfiles.d</code> is read in its place.  The files that remain are
+  read in the order of their names, whatever directory they are in, and
+  when two entries make the same path, the first one counts.  So to
+  change an entry, copy its file to <code>/etc/tmpfiles.d</code> and edit it there,
+  or put the entry in a file with a name that sorts before it.</p>
+<p>To see what the files on a system amount to, without anything being
+  done, add <code>--dry-run</code>:</p>
+<div class="highlight"><pre><span></span><code>    /libexec/finit/tmpfiles --dry-run --create --remove --boot
+</code></pre></div>
+<p>It also tells which entries are skipped because a path already has
+  one.</p>
+<p>The age of an entry, e.g. <code>10d</code> below, is used only by <code>tmpfiles
+  --clean</code>, which Finit never runs on its own:</p>
+<div class="highlight"><pre><span></span><code>    d /var/tmp 1777 root root 10d
+</code></pre></div>
+<p>To have what is older than that removed, call it from cron, here
+  once a day from a system crontab.  The program is installed in
+  <code>$libexecdir/finit/</code>, e.g. <code>/libexec/finit/</code>:</p>
+<div class="highlight"><pre><span></span><code>    0 4 * * *  root  /libexec/finit/tmpfiles --clean
+</code></pre></div>
+<p>On a system without cron a service can do the same.  It counts from
+  when it was started, so the time of day drifts with each boot:</p>
+<div class="highlight"><pre><span></span><code>    service tmpfiles-clean {
+        description = "Periodic tmpfiles cleanup"
+        runlevel    = "2345"
+        command     = "sh -c 'while sleep 86400; do /libexec/finit/tmpfiles --clean; done'"
+    }
+</code></pre></div>
+<p>Cleaning stays on the file system of the directory, and it leaves
+  what <code>x</code> and <code>X</code> entries name.  A file is kept as long as one of its
+  access, birth, change, and modification times is newer than the age,
+  or those the age names, as in <code>aAmM:10d</code> for access and modification
+  time only.  With the age <code>0</code> everything in the directory is removed.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>On an embedded system both <code>/var</code> and <code>/run</code> can be <code>tmpfs</code> RAM
